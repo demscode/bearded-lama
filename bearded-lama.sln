@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "webPresentation", "webPrese
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "businessLogic", "businessLogic\businessLogic.csproj", "{95071F7B-9479-48D1-A1A2-F7E16965B9C6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games", "Games\Games.csproj", "{760376FE-1812-46DF-AA8D-6228AFCCFA65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{95071F7B-9479-48D1-A1A2-F7E16965B9C6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95071F7B-9479-48D1-A1A2-F7E16965B9C6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95071F7B-9479-48D1-A1A2-F7E16965B9C6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{760376FE-1812-46DF-AA8D-6228AFCCFA65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{760376FE-1812-46DF-AA8D-6228AFCCFA65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{760376FE-1812-46DF-AA8D-6228AFCCFA65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{760376FE-1812-46DF-AA8D-6228AFCCFA65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
