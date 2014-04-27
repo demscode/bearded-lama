@@ -209,7 +209,7 @@ namespace DataAccess.PostsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Data.Posts.PostsDataTable dataTable) {
+        public virtual int Fill(DataSets.Posts.PostsDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -222,9 +222,9 @@ namespace DataAccess.PostsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Data.Posts.PostsDataTable GetData() {
+        public virtual DataSets.Posts.PostsDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Data.Posts.PostsDataTable dataTable = new Data.Posts.PostsDataTable();
+            DataSets.Posts.PostsDataTable dataTable = new DataSets.Posts.PostsDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -232,14 +232,14 @@ namespace DataAccess.PostsTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.Posts.PostsDataTable dataTable) {
+        public virtual int Update(DataSets.Posts.PostsDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.Posts dataSet) {
+        public virtual int Update(DataSets.Posts dataSet) {
             return this.Adapter.Update(dataSet, "Posts");
         }
         
@@ -513,7 +513,7 @@ namespace DataAccess.PostsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(Data.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSets.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._postsTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet._Posts.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -532,7 +532,7 @@ namespace DataAccess.PostsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(Data.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSets.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._postsTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet._Posts.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -550,7 +550,7 @@ namespace DataAccess.PostsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(Data.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSets.Posts dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._postsTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet._Posts.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -592,7 +592,7 @@ namespace DataAccess.PostsTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(Data.Posts dataSet) {
+        public virtual int UpdateAll(DataSets.Posts dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
