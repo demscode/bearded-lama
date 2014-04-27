@@ -220,7 +220,7 @@ namespace DataAccess.UsersTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Data.Users.UsersDataTable dataTable) {
+        public virtual int Fill(DataSets.Users.UsersDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -233,9 +233,9 @@ namespace DataAccess.UsersTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Data.Users.UsersDataTable GetData() {
+        public virtual DataSets.Users.UsersDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Data.Users.UsersDataTable dataTable = new Data.Users.UsersDataTable();
+            DataSets.Users.UsersDataTable dataTable = new DataSets.Users.UsersDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -243,14 +243,14 @@ namespace DataAccess.UsersTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.Users.UsersDataTable dataTable) {
+        public virtual int Update(DataSets.Users.UsersDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.Users dataSet) {
+        public virtual int Update(DataSets.Users dataSet) {
             return this.Adapter.Update(dataSet, "Users");
         }
         
@@ -587,7 +587,7 @@ namespace DataAccess.UsersTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(Data.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSets.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet._Users.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -606,7 +606,7 @@ namespace DataAccess.UsersTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(Data.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSets.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet._Users.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -624,7 +624,7 @@ namespace DataAccess.UsersTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(Data.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSets.Users dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._usersTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet._Users.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -666,7 +666,7 @@ namespace DataAccess.UsersTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(Data.Users dataSet) {
+        public virtual int UpdateAll(DataSets.Users dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

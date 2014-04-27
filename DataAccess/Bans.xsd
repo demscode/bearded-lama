@@ -2,7 +2,7 @@
 <xs:schema id="Bans" targetNamespace="http://tempuri.org/Bans.xsd" xmlns:mstns="http://tempuri.org/Bans.xsd" xmlns="http://tempuri.org/Bans.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DataSetFile="Bans.Dataset.Designer.cs" DataSetProject="Data" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DataSetFile="Bans.Dataset.Designer.cs" DataSetProject="DataSets" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="n8509719ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="n8509719ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataAccess.Properties.Settings.GlobalReference.Default.n8509719ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -46,7 +46,7 @@
   <xs:element name="Bans" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Bans" msprop:Generator_UserDSName="Bans">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Bans" msprop:Generator_TableClassName="BansDataTable" msprop:Generator_TableVarName="tableBans" msprop:Generator_TablePropName="_Bans" msprop:Generator_RowDeletingName="BansRowDeleting" msprop:Generator_RowChangingName="BansRowChanging" msprop:Generator_RowEvHandlerName="BansRowChangeEventHandler" msprop:Generator_RowDeletedName="BansRowDeleted" msprop:Generator_UserTableName="Bans" msprop:Generator_RowChangedName="BansRowChanged" msprop:Generator_RowEvArgName="BansRowChangeEvent" msprop:Generator_RowClassName="BansRow">
+        <xs:element name="Bans" msprop:Generator_TableClassName="BansDataTable" msprop:Generator_TableVarName="tableBans" msprop:Generator_RowChangedName="BansRowChanged" msprop:Generator_TablePropName="_Bans" msprop:Generator_RowDeletingName="BansRowDeleting" msprop:Generator_RowChangingName="BansRowChanging" msprop:Generator_RowEvHandlerName="BansRowChangeEventHandler" msprop:Generator_RowDeletedName="BansRowDeleted" msprop:Generator_RowClassName="BansRow" msprop:Generator_UserTableName="Bans" msprop:Generator_RowEvArgName="BansRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:long" minOccurs="0" />
