@@ -1,12 +1,10 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="container.master.cs" Inherits="webPresentation.Templates.container" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Container.master.cs" Inherits="WebPresentation.Templates.Container" %>
 
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
-    <asp:ContentPlaceHolder ID="head" runat="server">
-    </asp:ContentPlaceHolder>
+    <title><%: Page.Title %> - Bearded Lama</title>
     <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
     <link href="~/Content/bootstrap-theme.min.css" rel="stylesheet" />
     <link href="~/Content/bearded.css" rel="stylesheet" />
@@ -23,13 +21,11 @@
     </nav>
 
     <!-- Content -->
-    <form id="form1" runat="server">
     <div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+        <asp:ContentPlaceHolder ID="Main" runat="server">
         
         </asp:ContentPlaceHolder>
     </div>
-    </form>
 
     <!-- Footer -->
     <footer id="footer">
