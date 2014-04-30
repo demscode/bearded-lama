@@ -1,7 +1,19 @@
-﻿body {
-    /* negates bootstrap navbar-fixed-* */
-    padding-top: 50px;
-    padding-bottom: 50px;
+﻿html,
+body {
+    height: 100%;
+}
+
+.wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by it's height */
+    margin: 0 auto -60px;
+}
+
+/* Negate bootstraps */
+header nav.navbar {
+    margin-bottom: 0;
 }
 
 article.game-short {
@@ -13,6 +25,11 @@ article.game-short img {
 }
 article.game-short img~button {
     border-radius: 0 0 6px 6px;
+}
+
+.push, /* Helps prevent vertical overflow onto footer */
+footer {
+    height: 60px;
 }
 
 footer {
