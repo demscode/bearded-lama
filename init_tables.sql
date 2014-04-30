@@ -101,7 +101,7 @@ CREATE TABLE [dbo].[Users](
 	[userId] [bigint] IDENTITY(1,1) NOT NULL,
 	[userName] [varchar](12) NULL,
 	[email] [varchar](50) NULL,
-	[age] [date] NULL,
+	[dob] [date] NULL,
 	[userBio] [varchar](300) NULL,
 	[avatar] [image] NULL,
 	[creation] [datetime] NULL,
