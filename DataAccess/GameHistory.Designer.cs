@@ -10,7 +10,7 @@
 
 // 
 // This file contains the generated TableAdapter classes. 
-// The strongly-typed dataset class is in the Data project.
+// The strongly-typed dataset class is in the DataSets project.
 //
 #pragma warning disable 1591
 
