@@ -14,7 +14,7 @@
 //
 #pragma warning disable 1591
 
-namespace DataAccess.BansTableAdapters {
+namespace DataAccess.ChatTableAdapters {
     
     
     /// <summary>
@@ -26,7 +26,7 @@ namespace DataAccess.BansTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class BansTableAdapter : global::System.ComponentModel.Component {
+    public partial class ChatTableAdapter : global::System.ComponentModel.Component {
         
         private global::System.Data.SqlClient.SqlDataAdapter _adapter;
         
@@ -40,7 +40,7 @@ namespace DataAccess.BansTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public BansTableAdapter() {
+        public ChatTableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -137,19 +137,21 @@ namespace DataAccess.BansTableAdapters {
             this._adapter = new global::System.Data.SqlClient.SqlDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "Bans";
+            tableMapping.DataSetTable = "Chat";
             tableMapping.ColumnMappings.Add("userId", "userId");
             tableMapping.ColumnMappings.Add("gameId", "gameId");
-            tableMapping.ColumnMappings.Add("duration", "duration");
+            tableMapping.ColumnMappings.Add("message", "message");
+            tableMapping.ColumnMappings.Add("timeStamp", "timeStamp");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "n8509719.NewBan";
+            this._adapter.InsertCommand.CommandText = "n8509719.NewChat";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameId", global::System.Data.SqlDbType.BigInt, 0, global::System.Data.ParameterDirection.Input, 0, 0, "gameId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@duration", global::System.Data.SqlDbType.DateTimeOffset, 0, global::System.Data.ParameterDirection.Input, 0, 0, "duration", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@message", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "message", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@timeStamp", global::System.Data.SqlDbType.DateTime, 0, global::System.Data.ParameterDirection.Input, 0, 0, "timeStamp", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -165,7 +167,7 @@ namespace DataAccess.BansTableAdapters {
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[1];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "n8509719.GetBans";
+            this._commandCollection[0].CommandText = "n8509719.GetChat";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             this._commandCollection[0].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Variant, 0, global::System.Data.ParameterDirection.ReturnValue, 0, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -174,7 +176,7 @@ namespace DataAccess.BansTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSets.Bans.BansDataTable dataTable) {
+        public virtual int Fill(DataSets.Chat.ChatDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -187,9 +189,9 @@ namespace DataAccess.BansTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSets.Bans.BansDataTable GetData() {
+        public virtual DataSets.Chat.ChatDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            DataSets.Bans.BansDataTable dataTable = new DataSets.Bans.BansDataTable();
+            DataSets.Chat.ChatDataTable dataTable = new DataSets.Chat.ChatDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -197,15 +199,15 @@ namespace DataAccess.BansTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSets.Bans.BansDataTable dataTable) {
+        public virtual int Update(DataSets.Chat.ChatDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(DataSets.Bans dataSet) {
-            return this.Adapter.Update(dataSet, "Bans");
+        public virtual int Update(DataSets.Chat dataSet) {
+            return this.Adapter.Update(dataSet, "Chat");
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -227,24 +229,25 @@ namespace DataAccess.BansTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<long> userId, global::System.Nullable<long> gameId, global::System.Nullable<global::System.DateTimeOffset> duration) {
+        public virtual int Insert(global::System.Nullable<long> userId, long gameId, string message, global::System.Nullable<global::System.DateTime> timeStamp) {
             if ((userId.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = ((long)(userId.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((gameId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((long)(gameId.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            if ((duration.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((System.DateTimeOffset)(duration.Value));
-            }
-            else {
+            this.Adapter.InsertCommand.Parameters[2].Value = ((long)(gameId));
+            if ((message == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(message));
+            }
+            if ((timeStamp.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((System.DateTime)(timeStamp.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
             if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -275,7 +278,7 @@ namespace DataAccess.BansTableAdapters {
         
         private UpdateOrderOption _updateOrder;
         
-        private BansTableAdapter _bansTableAdapter;
+        private ChatTableAdapter _chatTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -297,12 +300,12 @@ namespace DataAccess.BansTableAdapters {
         [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
             "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
             "a", "System.Drawing.Design.UITypeEditor")]
-        public BansTableAdapter BansTableAdapter {
+        public ChatTableAdapter ChatTableAdapter {
             get {
-                return this._bansTableAdapter;
+                return this._chatTableAdapter;
             }
             set {
-                this._bansTableAdapter = value;
+                this._chatTableAdapter = value;
             }
         }
         
@@ -325,9 +328,9 @@ namespace DataAccess.BansTableAdapters {
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bansTableAdapter != null) 
-                            && (this._bansTableAdapter.Connection != null))) {
-                    return this._bansTableAdapter.Connection;
+                if (((this._chatTableAdapter != null) 
+                            && (this._chatTableAdapter.Connection != null))) {
+                    return this._chatTableAdapter.Connection;
                 }
                 return null;
             }
@@ -342,7 +345,7 @@ namespace DataAccess.BansTableAdapters {
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bansTableAdapter != null)) {
+                if ((this._chatTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -354,14 +357,14 @@ namespace DataAccess.BansTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(DataSets.Bans dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSets.Chat dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bansTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet._Bans.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+            if ((this._chatTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet._Chat.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
                 updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
-                    result = (result + this._bansTableAdapter.Update(updatedRows));
+                    result = (result + this._chatTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -373,13 +376,13 @@ namespace DataAccess.BansTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(DataSets.Bans dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSets.Chat dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
-            if ((this._bansTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet._Bans.Select(null, null, global::System.Data.DataViewRowState.Added);
+            if ((this._chatTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet._Chat.Select(null, null, global::System.Data.DataViewRowState.Added);
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
-                    result = (result + this._bansTableAdapter.Update(addedRows));
+                    result = (result + this._chatTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -391,13 +394,13 @@ namespace DataAccess.BansTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(DataSets.Bans dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSets.Chat dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
-            if ((this._bansTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet._Bans.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+            if ((this._chatTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet._Chat.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
                             && (0 < deletedRows.Length))) {
-                    result = (result + this._bansTableAdapter.Update(deletedRows));
+                    result = (result + this._chatTableAdapter.Update(deletedRows));
                     allChangedRows.AddRange(deletedRows);
                 }
             }
@@ -433,15 +436,15 @@ namespace DataAccess.BansTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(DataSets.Bans dataSet) {
+        public virtual int UpdateAll(DataSets.Chat dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
             }
-            if (((this._bansTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bansTableAdapter.Connection) == false))) {
+            if (((this._chatTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._chatTableAdapter.Connection) == false))) {
                 throw new global::System.ArgumentException("All TableAdapters managed by a TableAdapterManager must use the same connection s" +
                         "tring.");
             }
@@ -477,13 +480,13 @@ namespace DataAccess.BansTableAdapters {
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bansTableAdapter != null)) {
-                    revertConnections.Add(this._bansTableAdapter, this._bansTableAdapter.Connection);
-                    this._bansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
-                    this._bansTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
-                    if (this._bansTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bansTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bansTableAdapter.Adapter);
+                if ((this._chatTableAdapter != null)) {
+                    revertConnections.Add(this._chatTableAdapter, this._chatTableAdapter.Connection);
+                    this._chatTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(workConnection));
+                    this._chatTableAdapter.Transaction = ((global::System.Data.SqlClient.SqlTransaction)(workTransaction));
+                    if (this._chatTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._chatTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._chatTableAdapter.Adapter);
                     }
                 }
                 // 
@@ -544,9 +547,9 @@ namespace DataAccess.BansTableAdapters {
                 if (workConnOpened) {
                     workConnection.Close();
                 }
-                if ((this._bansTableAdapter != null)) {
-                    this._bansTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._bansTableAdapter]));
-                    this._bansTableAdapter.Transaction = null;
+                if ((this._chatTableAdapter != null)) {
+                    this._chatTableAdapter.Connection = ((global::System.Data.SqlClient.SqlConnection)(revertConnections[this._chatTableAdapter]));
+                    this._chatTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];
