@@ -1,0 +1,25 @@
+﻿body {
+    /* negates bootstrap navbar-fixed-* */
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+article.game-short {
+    padding: 10px;
+}
+article.game-short img {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+article.game-short img~button {
+    border-radius: 0 0 6px 6px;
+}
+
+footer {
+    padding: 10px 0;
+}
+
+footer p {
+    text-align: center;
+    margin: auto;
+}
