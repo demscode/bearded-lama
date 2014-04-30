@@ -2,7 +2,7 @@
 <xs:schema id="Games" targetNamespace="http://tempuri.org/Games.xsd" xmlns:mstns="http://tempuri.org/Games.xsd" xmlns="http://tempuri.org/Games.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DataSetFile="Games.Dataset.Designer.cs" DataSetProject="Data" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DataSetFile="Games.Dataset.Designer.cs" DataSetProject="DataSets" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="DefaultConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="DefaultConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataAccess.Properties.Settings.GlobalReference.Default.DefaultConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
