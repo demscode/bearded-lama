@@ -52,6 +52,7 @@ CREATE TABLE [dbo].[Games](
 	[gameId] [bigint] IDENTITY(1,1) NOT NULL,
 	[gameName] [varchar](50) NULL,
 	[gameDesc] [varchar](300) NULL,
+	[tags] [varchar](200) NULL,
 	[publicPackage] [xml] NULL,
 	[rating] [int] NULL,
 	[userId] [bigint] NULL,
