@@ -2,7 +2,7 @@
 <xs:schema id="GameHistory" targetNamespace="http://tempuri.org/GameHistory.xsd" xmlns:mstns="http://tempuri.org/GameHistory.xsd" xmlns="http://tempuri.org/GameHistory.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
   <xs:annotation>
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
-      <DataSource DataSetFile="GameHistory.Dataset.Designer.cs" DataSetProject="Data" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DataSetFile="GameHistory.Dataset.Designer.cs" DataSetProject="DataSets" DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
           <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="n8509719ConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="n8509719ConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.DataAccess.Properties.Settings.GlobalReference.Default.n8509719ConnectionString" Provider="System.Data.SqlClient" />
         </Connections>
@@ -46,7 +46,7 @@
   <xs:element name="GameHistory" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="GameHistory" msprop:Generator_UserDSName="GameHistory">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="GameHistory" msprop:Generator_TableClassName="GameHistoryDataTable" msprop:Generator_TableVarName="tableGameHistory" msprop:Generator_TablePropName="_GameHistory" msprop:Generator_RowDeletingName="GameHistoryRowDeleting" msprop:Generator_RowChangingName="GameHistoryRowChanging" msprop:Generator_RowEvHandlerName="GameHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="GameHistoryRowDeleted" msprop:Generator_UserTableName="GameHistory" msprop:Generator_RowChangedName="GameHistoryRowChanged" msprop:Generator_RowEvArgName="GameHistoryRowChangeEvent" msprop:Generator_RowClassName="GameHistoryRow">
+        <xs:element name="GameHistory" msprop:Generator_TableClassName="GameHistoryDataTable" msprop:Generator_TableVarName="tableGameHistory" msprop:Generator_RowChangedName="GameHistoryRowChanged" msprop:Generator_TablePropName="_GameHistory" msprop:Generator_RowDeletingName="GameHistoryRowDeleting" msprop:Generator_RowChangingName="GameHistoryRowChanging" msprop:Generator_RowEvHandlerName="GameHistoryRowChangeEventHandler" msprop:Generator_RowDeletedName="GameHistoryRowDeleted" msprop:Generator_RowClassName="GameHistoryRow" msprop:Generator_UserTableName="GameHistory" msprop:Generator_RowEvArgName="GameHistoryRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:long" minOccurs="0" />

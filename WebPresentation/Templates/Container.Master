@@ -1,0 +1,60 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Container.master.cs" Inherits="WebPresentation.Templates.Container" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title><%: Page.Title %> - Bearded Lama</title>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/style.css" rel="stylesheet" />
+</head>
+<body>
+	<!-- Header / Naviigation -->
+    <header>
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="/">Bearded Lama</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Games</a></li>
+                    <li class="navbar-form navbar-left">
+                        <form class="input-group" role="form">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button">Find</button>
+                            </span>
+                            <input type="text" class="form-control" placeholder="games..." />
+                        </form>
+                    </li>
+                </ul>
+                <form class="navbar-form navbar-right" role="form">
+                    <input class="form-control" type="text" placeholder="Email" />
+                    <input class="form-control" type="password" placeholder="Password" />
+                    <button class="btn btn-success" type="submit">Sign In</button>
+                    <button class="btn btn-primary" type="submit">Sign Up</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Content -->
+    <div id="main">
+        <asp:ContentPlaceHolder ID="Main" runat="server">
+        
+        </asp:ContentPlaceHolder>
+    </div>
+
+    <!-- Footer -->
+    <footer class="navbar-inverse navbar-fixed-bottom">
+        <div class="container text-muted">
+            <p>&copy; <a href="//github.com/knotsoftware">Knot Software</a></p>
+            <p>Matthew Tinknell, Andres Sepulveda and Lochlan Bunn</p>
+        </div>
+    </footer>
+
+    <!-- Scripts load late as possible -->
+    <script src="../Scripts/bootstrap.min.js" type="text/javascript"></script>
+    <script src="../Scripts/jquery-1.9.1.min.js" type="text/javascript"></script>
+</body>
+</html>

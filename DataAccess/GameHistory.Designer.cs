@@ -10,7 +10,7 @@
 
 // 
 // This file contains the generated TableAdapter classes. 
-// The strongly-typed dataset class is in the Data project.
+// The strongly-typed dataset class is in the DataSets project.
 //
 #pragma warning disable 1591
 
@@ -174,7 +174,7 @@ namespace DataAccess.GameHistoryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(Data.GameHistory.GameHistoryDataTable dataTable) {
+        public virtual int Fill(DataSets.GameHistory.GameHistoryDataTable dataTable) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
@@ -187,9 +187,9 @@ namespace DataAccess.GameHistoryTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual Data.GameHistory.GameHistoryDataTable GetData() {
+        public virtual DataSets.GameHistory.GameHistoryDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            Data.GameHistory.GameHistoryDataTable dataTable = new Data.GameHistory.GameHistoryDataTable();
+            DataSets.GameHistory.GameHistoryDataTable dataTable = new DataSets.GameHistory.GameHistoryDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -197,14 +197,14 @@ namespace DataAccess.GameHistoryTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.GameHistory.GameHistoryDataTable dataTable) {
+        public virtual int Update(DataSets.GameHistory.GameHistoryDataTable dataTable) {
             return this.Adapter.Update(dataTable);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(Data.GameHistory dataSet) {
+        public virtual int Update(DataSets.GameHistory dataSet) {
             return this.Adapter.Update(dataSet, "GameHistory");
         }
         
@@ -354,7 +354,7 @@ namespace DataAccess.GameHistoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateUpdatedRows(Data.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateUpdatedRows(DataSets.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._gameHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] updatedRows = dataSet._GameHistory.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
@@ -373,7 +373,7 @@ namespace DataAccess.GameHistoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateInsertedRows(Data.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
+        private int UpdateInsertedRows(DataSets.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allAddedRows) {
             int result = 0;
             if ((this._gameHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] addedRows = dataSet._GameHistory.Select(null, null, global::System.Data.DataViewRowState.Added);
@@ -391,7 +391,7 @@ namespace DataAccess.GameHistoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private int UpdateDeletedRows(Data.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
+        private int UpdateDeletedRows(DataSets.GameHistory dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
             if ((this._gameHistoryTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet._GameHistory.Select(null, null, global::System.Data.DataViewRowState.Deleted);
@@ -433,7 +433,7 @@ namespace DataAccess.GameHistoryTableAdapters {
         ///</summary>
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public virtual int UpdateAll(Data.GameHistory dataSet) {
+        public virtual int UpdateAll(DataSets.GameHistory dataSet) {
             if ((dataSet == null)) {
                 throw new global::System.ArgumentNullException("dataSet");
             }

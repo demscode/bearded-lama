@@ -14,7 +14,7 @@
 //
 #pragma warning disable 1591
 
-namespace Data {
+namespace DataSets {
     
     
     /// <summary>
@@ -24,17 +24,17 @@ namespace Data {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Users")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Posts")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Users : global::System.Data.DataSet {
+    public partial class Posts : global::System.Data.DataSet {
         
-        private UsersDataTable tableUsers;
+        private PostsDataTable tablePosts;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Users() {
+        public Posts() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace Data {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected Users(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Posts(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,8 +58,8 @@ namespace Data {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Users"] != null)) {
-                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
+                if ((ds.Tables["Posts"] != null)) {
+                    base.Tables.Add(new PostsDataTable(ds.Tables["Posts"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -83,9 +83,9 @@ namespace Data {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public UsersDataTable _Users {
+        public PostsDataTable _Posts {
             get {
-                return this.tableUsers;
+                return this.tablePosts;
             }
         }
         
@@ -131,7 +131,7 @@ namespace Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Users cln = ((Users)(base.Clone()));
+            Posts cln = ((Posts)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -156,8 +156,8 @@ namespace Data {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Users"] != null)) {
-                    base.Tables.Add(new UsersDataTable(ds.Tables["Users"]));
+                if ((ds.Tables["Posts"] != null)) {
+                    base.Tables.Add(new PostsDataTable(ds.Tables["Posts"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -192,10 +192,10 @@ namespace Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableUsers = ((UsersDataTable)(base.Tables["Users"]));
+            this.tablePosts = ((PostsDataTable)(base.Tables["Posts"]));
             if ((initTable == true)) {
-                if ((this.tableUsers != null)) {
-                    this.tableUsers.InitVars();
+                if ((this.tablePosts != null)) {
+                    this.tablePosts.InitVars();
                 }
             }
         }
@@ -203,18 +203,18 @@ namespace Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Users";
+            this.DataSetName = "Posts";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Users.xsd";
+            this.Namespace = "http://tempuri.org/Posts.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableUsers = new UsersDataTable();
-            base.Tables.Add(this.tableUsers);
+            this.tablePosts = new PostsDataTable();
+            base.Tables.Add(this.tablePosts);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerialize_Users() {
+        private bool ShouldSerialize_Posts() {
             return false;
         }
         
@@ -229,7 +229,7 @@ namespace Data {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Users ds = new Users();
+            Posts ds = new Posts();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -274,33 +274,29 @@ namespace Data {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void UsersRowChangeEventHandler(object sender, UsersRowChangeEvent e);
+        public delegate void PostsRowChangeEventHandler(object sender, PostsRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class UsersDataTable : global::System.Data.TypedTableBase<UsersRow> {
+        public partial class PostsDataTable : global::System.Data.TypedTableBase<PostsRow> {
             
             private global::System.Data.DataColumn columnuserId;
             
-            private global::System.Data.DataColumn columnuserName;
+            private global::System.Data.DataColumn columnpageId;
             
-            private global::System.Data.DataColumn columnemail;
+            private global::System.Data.DataColumn columncontent;
             
-            private global::System.Data.DataColumn columnDOB;
+            private global::System.Data.DataColumn columntimeStamp;
             
-            private global::System.Data.DataColumn columnuserBio;
-            
-            private global::System.Data.DataColumn columnavatar;
-            
-            private global::System.Data.DataColumn columncreation;
+            private global::System.Data.DataColumn columnpostId;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersDataTable() {
-                this.TableName = "Users";
+            public PostsDataTable() {
+                this.TableName = "Posts";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -308,7 +304,7 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal UsersDataTable(global::System.Data.DataTable table) {
+            internal PostsDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -325,7 +321,7 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected UsersDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected PostsDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -340,49 +336,33 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn userNameColumn {
+            public global::System.Data.DataColumn pageIdColumn {
                 get {
-                    return this.columnuserName;
+                    return this.columnpageId;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn emailColumn {
+            public global::System.Data.DataColumn contentColumn {
                 get {
-                    return this.columnemail;
+                    return this.columncontent;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn DOBColumn {
+            public global::System.Data.DataColumn timeStampColumn {
                 get {
-                    return this.columnDOB;
+                    return this.columntimeStamp;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn userBioColumn {
+            public global::System.Data.DataColumn postIdColumn {
                 get {
-                    return this.columnuserBio;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn avatarColumn {
-                get {
-                    return this.columnavatar;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn creationColumn {
-                get {
-                    return this.columncreation;
+                    return this.columnpostId;
                 }
             }
             
@@ -397,58 +377,56 @@ namespace Data {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow this[int index] {
+            public PostsRow this[int index] {
                 get {
-                    return ((UsersRow)(this.Rows[index]));
+                    return ((PostsRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowChanging;
+            public event PostsRowChangeEventHandler PostsRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowChanged;
+            public event PostsRowChangeEventHandler PostsRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowDeleting;
+            public event PostsRowChangeEventHandler PostsRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event UsersRowChangeEventHandler UsersRowDeleted;
+            public event PostsRowChangeEventHandler PostsRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddUsersRow(UsersRow row) {
+            public void AddPostsRow(PostsRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow AddUsersRow(string userName, string email, System.DateTime DOB, string userBio, byte[] avatar, System.DateTime creation) {
-                UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
+            public PostsRow AddPostsRow(long userId, long pageId, string content, System.DateTime timeStamp, long postId) {
+                PostsRow rowPostsRow = ((PostsRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        null,
-                        userName,
-                        email,
-                        DOB,
-                        userBio,
-                        avatar,
-                        creation};
-                rowUsersRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowUsersRow);
-                return rowUsersRow;
+                        userId,
+                        pageId,
+                        content,
+                        timeStamp,
+                        postId};
+                rowPostsRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowPostsRow);
+                return rowPostsRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow FindByuserId(long userId) {
-                return ((UsersRow)(this.Rows.Find(new object[] {
-                            userId})));
+            public PostsRow FindBypostId(long postId) {
+                return ((PostsRow)(this.Rows.Find(new object[] {
+                            postId})));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                UsersDataTable cln = ((UsersDataTable)(base.Clone()));
+                PostsDataTable cln = ((PostsDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -456,19 +434,17 @@ namespace Data {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new UsersDataTable();
+                return new PostsDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
                 this.columnuserId = base.Columns["userId"];
-                this.columnuserName = base.Columns["userName"];
-                this.columnemail = base.Columns["email"];
-                this.columnDOB = base.Columns["DOB"];
-                this.columnuserBio = base.Columns["userBio"];
-                this.columnavatar = base.Columns["avatar"];
-                this.columncreation = base.Columns["creation"];
+                this.columnpageId = base.Columns["pageId"];
+                this.columncontent = base.Columns["content"];
+                this.columntimeStamp = base.Columns["timeStamp"];
+                this.columnpostId = base.Columns["postId"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -476,57 +452,48 @@ namespace Data {
             private void InitClass() {
                 this.columnuserId = new global::System.Data.DataColumn("userId", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuserId);
-                this.columnuserName = new global::System.Data.DataColumn("userName", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuserName);
-                this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnemail);
-                this.columnDOB = new global::System.Data.DataColumn("DOB", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDOB);
-                this.columnuserBio = new global::System.Data.DataColumn("userBio", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnuserBio);
-                this.columnavatar = new global::System.Data.DataColumn("avatar", typeof(byte[]), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnavatar);
-                this.columncreation = new global::System.Data.DataColumn("creation", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncreation);
+                this.columnpageId = new global::System.Data.DataColumn("pageId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpageId);
+                this.columncontent = new global::System.Data.DataColumn("content", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontent);
+                this.columntimeStamp = new global::System.Data.DataColumn("timeStamp", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntimeStamp);
+                this.columnpostId = new global::System.Data.DataColumn("postId", typeof(long), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpostId);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnuserId}, true));
-                this.columnuserId.AutoIncrement = true;
-                this.columnuserId.AutoIncrementSeed = -1;
-                this.columnuserId.AutoIncrementStep = -1;
-                this.columnuserId.AllowDBNull = false;
-                this.columnuserId.ReadOnly = true;
-                this.columnuserId.Unique = true;
-                this.columnuserName.MaxLength = 12;
-                this.columnemail.MaxLength = 50;
-                this.columnuserBio.MaxLength = 300;
-                this.ExtendedProperties.Add("Generator_TablePropName", "_Users");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Users");
+                                this.columnpostId}, true));
+                this.columnpageId.AllowDBNull = false;
+                this.columncontent.MaxLength = 200;
+                this.columnpostId.AllowDBNull = false;
+                this.columnpostId.Unique = true;
+                this.ExtendedProperties.Add("Generator_TablePropName", "_Posts");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Posts");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow NewUsersRow() {
-                return ((UsersRow)(this.NewRow()));
+            public PostsRow NewPostsRow() {
+                return ((PostsRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new UsersRow(builder);
+                return new PostsRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(UsersRow);
+                return typeof(PostsRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.UsersRowChanged != null)) {
-                    this.UsersRowChanged(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.PostsRowChanged != null)) {
+                    this.PostsRowChanged(this, new PostsRowChangeEvent(((PostsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -534,8 +501,8 @@ namespace Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.UsersRowChanging != null)) {
-                    this.UsersRowChanging(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.PostsRowChanging != null)) {
+                    this.PostsRowChanging(this, new PostsRowChangeEvent(((PostsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -543,8 +510,8 @@ namespace Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.UsersRowDeleted != null)) {
-                    this.UsersRowDeleted(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.PostsRowDeleted != null)) {
+                    this.PostsRowDeleted(this, new PostsRowChangeEvent(((PostsRow)(e.Row)), e.Action));
                 }
             }
             
@@ -552,14 +519,14 @@ namespace Data {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.UsersRowDeleting != null)) {
-                    this.UsersRowDeleting(this, new UsersRowChangeEvent(((UsersRow)(e.Row)), e.Action));
+                if ((this.PostsRowDeleting != null)) {
+                    this.PostsRowDeleting(this, new PostsRowChangeEvent(((PostsRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveUsersRow(UsersRow row) {
+            public void RemovePostsRow(PostsRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -568,7 +535,7 @@ namespace Data {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Users ds = new Users();
+                Posts ds = new Posts();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -586,7 +553,7 @@ namespace Data {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "UsersDataTable";
+                attribute2.FixedValue = "PostsDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -630,194 +597,121 @@ namespace Data {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class UsersRow : global::System.Data.DataRow {
+        public partial class PostsRow : global::System.Data.DataRow {
             
-            private UsersDataTable tableUsers;
+            private PostsDataTable tablePosts;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal UsersRow(global::System.Data.DataRowBuilder rb) : 
+            internal PostsRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableUsers = ((UsersDataTable)(this.Table));
+                this.tablePosts = ((PostsDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public long userId {
                 get {
-                    return ((long)(this[this.tableUsers.userIdColumn]));
-                }
-                set {
-                    this[this.tableUsers.userIdColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string userName {
-                get {
                     try {
-                        return ((string)(this[this.tableUsers.userNameColumn]));
+                        return ((long)(this[this.tablePosts.userIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'userName\' in table \'Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'userId\' in table \'Posts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUsers.userNameColumn] = value;
+                    this[this.tablePosts.userIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string email {
+            public long pageId {
+                get {
+                    return ((long)(this[this.tablePosts.pageIdColumn]));
+                }
+                set {
+                    this[this.tablePosts.pageIdColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string content {
                 get {
                     try {
-                        return ((string)(this[this.tableUsers.emailColumn]));
+                        return ((string)(this[this.tablePosts.contentColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'email\' in table \'Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'content\' in table \'Posts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUsers.emailColumn] = value;
+                    this[this.tablePosts.contentColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime DOB {
+            public System.DateTime timeStamp {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableUsers.DOBColumn]));
+                        return ((global::System.DateTime)(this[this.tablePosts.timeStampColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'DOB\' in table \'Users\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'timeStamp\' in table \'Posts\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableUsers.DOBColumn] = value;
+                    this[this.tablePosts.timeStampColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string userBio {
+            public long postId {
                 get {
-                    try {
-                        return ((string)(this[this.tableUsers.userBioColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'userBio\' in table \'Users\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tablePosts.postIdColumn]));
                 }
                 set {
-                    this[this.tableUsers.userBioColumn] = value;
+                    this[this.tablePosts.postIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public byte[] avatar {
-                get {
-                    try {
-                        return ((byte[])(this[this.tableUsers.avatarColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'avatar\' in table \'Users\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUsers.avatarColumn] = value;
-                }
+            public bool IsuserIdNull() {
+                return this.IsNull(this.tablePosts.userIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime creation {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableUsers.creationColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'creation\' in table \'Users\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUsers.creationColumn] = value;
-                }
+            public void SetuserIdNull() {
+                this[this.tablePosts.userIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsuserNameNull() {
-                return this.IsNull(this.tableUsers.userNameColumn);
+            public bool IscontentNull() {
+                return this.IsNull(this.tablePosts.contentColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetuserNameNull() {
-                this[this.tableUsers.userNameColumn] = global::System.Convert.DBNull;
+            public void SetcontentNull() {
+                this[this.tablePosts.contentColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsemailNull() {
-                return this.IsNull(this.tableUsers.emailColumn);
+            public bool IstimeStampNull() {
+                return this.IsNull(this.tablePosts.timeStampColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetemailNull() {
-                this[this.tableUsers.emailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsDOBNull() {
-                return this.IsNull(this.tableUsers.DOBColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetDOBNull() {
-                this[this.tableUsers.DOBColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsuserBioNull() {
-                return this.IsNull(this.tableUsers.userBioColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetuserBioNull() {
-                this[this.tableUsers.userBioColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsavatarNull() {
-                return this.IsNull(this.tableUsers.avatarColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetavatarNull() {
-                this[this.tableUsers.avatarColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscreationNull() {
-                return this.IsNull(this.tableUsers.creationColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcreationNull() {
-                this[this.tableUsers.creationColumn] = global::System.Convert.DBNull;
+            public void SettimeStampNull() {
+                this[this.tablePosts.timeStampColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -825,22 +719,22 @@ namespace Data {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class UsersRowChangeEvent : global::System.EventArgs {
+        public class PostsRowChangeEvent : global::System.EventArgs {
             
-            private UsersRow eventRow;
+            private PostsRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRowChangeEvent(UsersRow row, global::System.Data.DataRowAction action) {
+            public PostsRowChangeEvent(PostsRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow Row {
+            public PostsRow Row {
                 get {
                     return this.eventRow;
                 }

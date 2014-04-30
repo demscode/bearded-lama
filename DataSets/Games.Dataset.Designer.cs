@@ -14,7 +14,7 @@
 //
 #pragma warning disable 1591
 
-namespace Data {
+namespace DataSets {
     
     
     /// <summary>
