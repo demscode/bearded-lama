@@ -24,17 +24,17 @@ namespace DataSets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("Bans")]
+    [global::System.Xml.Serialization.XmlRootAttribute("Chat")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class Bans : global::System.Data.DataSet {
+    public partial class Chat : global::System.Data.DataSet {
         
-        private BansDataTable tableBans;
+        private ChatDataTable tableChat;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public Bans() {
+        public Chat() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -45,7 +45,7 @@ namespace DataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected Bans(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected Chat(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -58,8 +58,8 @@ namespace DataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["Bans"] != null)) {
-                    base.Tables.Add(new BansDataTable(ds.Tables["Bans"]));
+                if ((ds.Tables["Chat"] != null)) {
+                    base.Tables.Add(new ChatDataTable(ds.Tables["Chat"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -83,9 +83,9 @@ namespace DataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public BansDataTable _Bans {
+        public ChatDataTable _Chat {
             get {
-                return this.tableBans;
+                return this.tableChat;
             }
         }
         
@@ -131,7 +131,7 @@ namespace DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            Bans cln = ((Bans)(base.Clone()));
+            Chat cln = ((Chat)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -156,8 +156,8 @@ namespace DataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["Bans"] != null)) {
-                    base.Tables.Add(new BansDataTable(ds.Tables["Bans"]));
+                if ((ds.Tables["Chat"] != null)) {
+                    base.Tables.Add(new ChatDataTable(ds.Tables["Chat"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -192,10 +192,10 @@ namespace DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableBans = ((BansDataTable)(base.Tables["Bans"]));
+            this.tableChat = ((ChatDataTable)(base.Tables["Chat"]));
             if ((initTable == true)) {
-                if ((this.tableBans != null)) {
-                    this.tableBans.InitVars();
+                if ((this.tableChat != null)) {
+                    this.tableChat.InitVars();
                 }
             }
         }
@@ -203,18 +203,18 @@ namespace DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "Bans";
+            this.DataSetName = "Chat";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/Bans.xsd";
+            this.Namespace = "http://tempuri.org/Chat.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableBans = new BansDataTable();
-            base.Tables.Add(this.tableBans);
+            this.tableChat = new ChatDataTable();
+            base.Tables.Add(this.tableChat);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerialize_Bans() {
+        private bool ShouldSerialize_Chat() {
             return false;
         }
         
@@ -229,7 +229,7 @@ namespace DataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            Bans ds = new Bans();
+            Chat ds = new Chat();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -274,25 +274,27 @@ namespace DataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void BansRowChangeEventHandler(object sender, BansRowChangeEvent e);
+        public delegate void ChatRowChangeEventHandler(object sender, ChatRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class BansDataTable : global::System.Data.TypedTableBase<BansRow> {
+        public partial class ChatDataTable : global::System.Data.TypedTableBase<ChatRow> {
             
             private global::System.Data.DataColumn columnuserId;
             
             private global::System.Data.DataColumn columngameId;
             
-            private global::System.Data.DataColumn columnduration;
+            private global::System.Data.DataColumn columnmessage;
+            
+            private global::System.Data.DataColumn columntimeStamp;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansDataTable() {
-                this.TableName = "Bans";
+            public ChatDataTable() {
+                this.TableName = "Chat";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -300,7 +302,7 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BansDataTable(global::System.Data.DataTable table) {
+            internal ChatDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -317,7 +319,7 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected BansDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ChatDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
@@ -340,9 +342,17 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn durationColumn {
+            public global::System.Data.DataColumn messageColumn {
                 get {
-                    return this.columnduration;
+                    return this.columnmessage;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn timeStampColumn {
+                get {
+                    return this.columntimeStamp;
                 }
             }
             
@@ -357,47 +367,48 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansRow this[int index] {
+            public ChatRow this[int index] {
                 get {
-                    return ((BansRow)(this.Rows[index]));
+                    return ((ChatRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BansRowChangeEventHandler BansRowChanging;
+            public event ChatRowChangeEventHandler ChatRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BansRowChangeEventHandler BansRowChanged;
+            public event ChatRowChangeEventHandler ChatRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BansRowChangeEventHandler BansRowDeleting;
+            public event ChatRowChangeEventHandler ChatRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event BansRowChangeEventHandler BansRowDeleted;
+            public event ChatRowChangeEventHandler ChatRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddBansRow(BansRow row) {
+            public void AddChatRow(ChatRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansRow AddBansRow(long userId, long gameId, System.DateTimeOffset duration) {
-                BansRow rowBansRow = ((BansRow)(this.NewRow()));
+            public ChatRow AddChatRow(long userId, long gameId, string message, System.DateTime timeStamp) {
+                ChatRow rowChatRow = ((ChatRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         userId,
                         gameId,
-                        duration};
-                rowBansRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowBansRow);
-                return rowBansRow;
+                        message,
+                        timeStamp};
+                rowChatRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowChatRow);
+                return rowChatRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                BansDataTable cln = ((BansDataTable)(base.Clone()));
+                ChatDataTable cln = ((ChatDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -405,7 +416,7 @@ namespace DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new BansDataTable();
+                return new ChatDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -413,7 +424,8 @@ namespace DataSets {
             internal void InitVars() {
                 this.columnuserId = base.Columns["userId"];
                 this.columngameId = base.Columns["gameId"];
-                this.columnduration = base.Columns["duration"];
+                this.columnmessage = base.Columns["message"];
+                this.columntimeStamp = base.Columns["timeStamp"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -423,36 +435,40 @@ namespace DataSets {
                 base.Columns.Add(this.columnuserId);
                 this.columngameId = new global::System.Data.DataColumn("gameId", typeof(long), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngameId);
-                this.columnduration = new global::System.Data.DataColumn("duration", typeof(global::System.DateTimeOffset), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnduration);
-                this.ExtendedProperties.Add("Generator_TablePropName", "_Bans");
-                this.ExtendedProperties.Add("Generator_UserTableName", "Bans");
+                this.columnmessage = new global::System.Data.DataColumn("message", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmessage);
+                this.columntimeStamp = new global::System.Data.DataColumn("timeStamp", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntimeStamp);
+                this.columngameId.AllowDBNull = false;
+                this.columnmessage.MaxLength = 80;
+                this.ExtendedProperties.Add("Generator_TablePropName", "_Chat");
+                this.ExtendedProperties.Add("Generator_UserTableName", "Chat");
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansRow NewBansRow() {
-                return ((BansRow)(this.NewRow()));
+            public ChatRow NewChatRow() {
+                return ((ChatRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new BansRow(builder);
+                return new ChatRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(BansRow);
+                return typeof(ChatRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.BansRowChanged != null)) {
-                    this.BansRowChanged(this, new BansRowChangeEvent(((BansRow)(e.Row)), e.Action));
+                if ((this.ChatRowChanged != null)) {
+                    this.ChatRowChanged(this, new ChatRowChangeEvent(((ChatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -460,8 +476,8 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.BansRowChanging != null)) {
-                    this.BansRowChanging(this, new BansRowChangeEvent(((BansRow)(e.Row)), e.Action));
+                if ((this.ChatRowChanging != null)) {
+                    this.ChatRowChanging(this, new ChatRowChangeEvent(((ChatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -469,8 +485,8 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.BansRowDeleted != null)) {
-                    this.BansRowDeleted(this, new BansRowChangeEvent(((BansRow)(e.Row)), e.Action));
+                if ((this.ChatRowDeleted != null)) {
+                    this.ChatRowDeleted(this, new ChatRowChangeEvent(((ChatRow)(e.Row)), e.Action));
                 }
             }
             
@@ -478,14 +494,14 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.BansRowDeleting != null)) {
-                    this.BansRowDeleting(this, new BansRowChangeEvent(((BansRow)(e.Row)), e.Action));
+                if ((this.ChatRowDeleting != null)) {
+                    this.ChatRowDeleting(this, new ChatRowChangeEvent(((ChatRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveBansRow(BansRow row) {
+            public void RemoveChatRow(ChatRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -494,7 +510,7 @@ namespace DataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                Bans ds = new Bans();
+                Chat ds = new Chat();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -512,7 +528,7 @@ namespace DataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "BansDataTable";
+                attribute2.FixedValue = "ChatDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -556,15 +572,15 @@ namespace DataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class BansRow : global::System.Data.DataRow {
+        public partial class ChatRow : global::System.Data.DataRow {
             
-            private BansDataTable tableBans;
+            private ChatDataTable tableChat;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal BansRow(global::System.Data.DataRowBuilder rb) : 
+            internal ChatRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableBans = ((BansDataTable)(this.Table));
+                this.tableChat = ((ChatDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -572,14 +588,14 @@ namespace DataSets {
             public long userId {
                 get {
                     try {
-                        return ((long)(this[this.tableBans.userIdColumn]));
+                        return ((long)(this[this.tableChat.userIdColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'userId\' in table \'Bans\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'userId\' in table \'Chat\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBans.userIdColumn] = value;
+                    this[this.tableChat.userIdColumn] = value;
                 }
             }
             
@@ -587,68 +603,79 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public long gameId {
                 get {
-                    try {
-                        return ((long)(this[this.tableBans.gameIdColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'gameId\' in table \'Bans\' is DBNull.", e);
-                    }
+                    return ((long)(this[this.tableChat.gameIdColumn]));
                 }
                 set {
-                    this[this.tableBans.gameIdColumn] = value;
+                    this[this.tableChat.gameIdColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTimeOffset duration {
+            public string message {
                 get {
                     try {
-                        return ((global::System.DateTimeOffset)(this[this.tableBans.durationColumn]));
+                        return ((string)(this[this.tableChat.messageColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'duration\' in table \'Bans\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'message\' in table \'Chat\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableBans.durationColumn] = value;
+                    this[this.tableChat.messageColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public System.DateTime timeStamp {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableChat.timeStampColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'timeStamp\' in table \'Chat\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableChat.timeStampColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsuserIdNull() {
-                return this.IsNull(this.tableBans.userIdColumn);
+                return this.IsNull(this.tableChat.userIdColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetuserIdNull() {
-                this[this.tableBans.userIdColumn] = global::System.Convert.DBNull;
+                this[this.tableChat.userIdColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsgameIdNull() {
-                return this.IsNull(this.tableBans.gameIdColumn);
+            public bool IsmessageNull() {
+                return this.IsNull(this.tableChat.messageColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetgameIdNull() {
-                this[this.tableBans.gameIdColumn] = global::System.Convert.DBNull;
+            public void SetmessageNull() {
+                this[this.tableChat.messageColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdurationNull() {
-                return this.IsNull(this.tableBans.durationColumn);
+            public bool IstimeStampNull() {
+                return this.IsNull(this.tableChat.timeStampColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdurationNull() {
-                this[this.tableBans.durationColumn] = global::System.Convert.DBNull;
+            public void SettimeStampNull() {
+                this[this.tableChat.timeStampColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -656,22 +683,22 @@ namespace DataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class BansRowChangeEvent : global::System.EventArgs {
+        public class ChatRowChangeEvent : global::System.EventArgs {
             
-            private BansRow eventRow;
+            private ChatRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansRowChangeEvent(BansRow row, global::System.Data.DataRowAction action) {
+            public ChatRowChangeEvent(ChatRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public BansRow Row {
+            public ChatRow Row {
                 get {
                     return this.eventRow;
                 }

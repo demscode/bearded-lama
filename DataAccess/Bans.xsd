@@ -9,7 +9,7 @@
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BansTableAdapter" GeneratorDataComponentClassName="BansTableAdapter" Name="Bans" UserDataComponentName="BansTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="n8509719ConnectionString (Settings)" DbObjectName="n8509719.n8509719.GetBans" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="n8509719ConnectionString (Settings)" DbObjectName="n8509719.n8509719.GetBans" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <InsertCommand>
                   <DbCommand CommandType="StoredProcedure" ModifiedByUser="false">
                     <CommandText>n8509719.NewBan</CommandText>
@@ -46,7 +46,7 @@
   <xs:element name="Bans" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Bans" msprop:Generator_UserDSName="Bans">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="Bans" msprop:Generator_TableClassName="BansDataTable" msprop:Generator_TableVarName="tableBans" msprop:Generator_RowChangedName="BansRowChanged" msprop:Generator_TablePropName="_Bans" msprop:Generator_RowDeletingName="BansRowDeleting" msprop:Generator_RowChangingName="BansRowChanging" msprop:Generator_RowEvHandlerName="BansRowChangeEventHandler" msprop:Generator_RowDeletedName="BansRowDeleted" msprop:Generator_RowClassName="BansRow" msprop:Generator_UserTableName="Bans" msprop:Generator_RowEvArgName="BansRowChangeEvent">
+        <xs:element name="Bans" msprop:Generator_TableClassName="BansDataTable" msprop:Generator_TableVarName="tableBans" msprop:Generator_TablePropName="_Bans" msprop:Generator_RowDeletingName="BansRowDeleting" msprop:Generator_RowChangingName="BansRowChanging" msprop:Generator_RowEvHandlerName="BansRowChangeEventHandler" msprop:Generator_RowDeletedName="BansRowDeleted" msprop:Generator_UserTableName="Bans" msprop:Generator_RowChangedName="BansRowChanged" msprop:Generator_RowEvArgName="BansRowChangeEvent" msprop:Generator_RowClassName="BansRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="userId" msprop:Generator_ColumnVarNameInTable="columnuserId" msprop:Generator_ColumnPropNameInRow="userId" msprop:Generator_ColumnPropNameInTable="userIdColumn" msprop:Generator_UserColumnName="userId" type="xs:long" minOccurs="0" />
