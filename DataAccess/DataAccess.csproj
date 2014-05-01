@@ -45,6 +45,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bans.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Chat.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Chat.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GameHistory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -84,6 +89,17 @@
     </None>
     <None Include="Bans.xss">
       <DependentUpon>Bans.xsd</DependentUpon>
+    </None>
+    <None Include="Chat.xsc">
+      <DependentUpon>Chat.xsd</DependentUpon>
+    </None>
+    <None Include="Chat.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>Chat.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Chat.xss">
+      <DependentUpon>Chat.xsd</DependentUpon>
     </None>
     <None Include="GameHistory.xsc">
       <DependentUpon>GameHistory.xsd</DependentUpon>
