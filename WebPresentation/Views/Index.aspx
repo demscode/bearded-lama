@@ -8,8 +8,9 @@
             </p>
             <button class="btn btn-block btn-lg btn-info" type="button">Sign Up »</button>
         </div>
-            <button class="close" type="button" aria-hidden="true" onclick="$('.intro').toggle();">&times;</button>
+            <button class="close" type="button" aria-hidden="true" onclick="$('.intro').toggle();$('.jumbopush').toggle();">&times;</button>
     </section>
+    <div class="jumbopush push" style="display:none;"></div>
 
     <%-- This could be some other asp page --%>
     <section class="container-fluid">
