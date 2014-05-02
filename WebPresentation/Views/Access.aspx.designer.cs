@@ -7,27 +7,36 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPresentation.Templates {
+namespace WebPresentation.Views {
     
     
-    public partial class Container {
+    public partial class Access {
         
         /// <summary>
-        /// ContainerForm control.
+        /// CreateUserWizard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ContainerForm;
+        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard;
         
         /// <summary>
-        /// Main control.
+        /// CreateUserWizardStep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Main;
+        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep;
+        
+        /// <summary>
+        /// CompleteWizardStep control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CompleteWizardStep CompleteWizardStep;
     }
 }
