@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Bans.Dataset.Designer.cs" />
+    <Compile Include="Chat.Dataset.Designer.cs" />
     <Compile Include="GameHistory.Dataset.Designer.cs" />
     <Compile Include="Games.Dataset.Designer.cs" />
     <Compile Include="Posts.Dataset.Designer.cs" />
