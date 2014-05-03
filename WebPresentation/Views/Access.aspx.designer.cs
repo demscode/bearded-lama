@@ -13,22 +13,22 @@ namespace WebPresentation.Views {
     public partial class Access {
         
         /// <summary>
-        /// CreateUserWizard control.
+        /// RegisterUserWizard control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizard CreateUserWizard;
+        protected global::System.Web.UI.WebControls.CreateUserWizard RegisterUserWizard;
         
         /// <summary>
-        /// CreateUserWizardStep control.
+        /// RegisterUserWizardStep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CreateUserWizardStep CreateUserWizardStep;
+        protected global::System.Web.UI.WebControls.CreateUserWizardStep RegisterUserWizardStep;
         
         /// <summary>
         /// CompleteWizardStep control.
@@ -38,5 +38,14 @@ namespace WebPresentation.Views {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.CompleteWizardStep CompleteWizardStep;
+        
+        /// <summary>
+        /// Login control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Login Login;
     }
 }
