@@ -1,10 +1,41 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Chat.ascx.cs" Inherits="WebPresentation.Templates.Chat" %>
     <div class="chatContainer" style="width:200px; height:600px; color:blue;">
-        <input type="text" id="message" autocomplete="off" onkeyup="if (event.keyCode == 13) document.getElementById('sendmessage').click()"/>
-        <input type="button" id="sendmessage" value="Send"/>
-        <input type="hidden" id="displayname" />
-        <ul id="discussion">
-        </ul>
+        
+        <div class="navbar navbar-static-top navbar-inverse">
+  <a href="#" class="navbar-brand">Some Page</a>
+</div>
+<div class="container">
+  <div class="panel panel-info">
+      <div class="panel-heading">Game Title</div>
+    <dl class="dl-horizontal discussion" id="messages">
+      <dt>Gamer_L33t</dt>
+      <dd>This game is really cool...</dd>
+      <dt>Gamer_Brilliant</dt>
+      <dd>Yeah I know right..</dd>
+      <dt>Gamer_L33t</dt>
+      <dd>This game is really cool...</dd>
+      <dt>Gamer_Brilliant</dt>
+      <dd>Yeah I know right..</dd>
+      <dt>Gamer_L33t</dt>
+      <dd>This game is really cool...</dd>
+      <dt>Gamer_Brilliant</dt>
+      <dd>Yeah I know right..</dd>
+    </dl>
+    <div class="">
+      <div class="input-group">
+  <span class="input-group-addon">Username</span>
+        <input type="text" class="form-control" id="message" autocomplete="off" onkeyup="if (event.keyCode == 13) document.getElementById('sendmessage').click()">
+        <span class="input-group-btn">
+          <button class="btn btn-primary" type="button" value="Send">Go!</button>
+        </span>
+      </div><!-- /input-group -->
+    </div><!-- /.col-lg-6 -->
+  </div>
+</div>
+
+        <input type="text" id="message" autocomplete="off" onkeyup="if (event.keyCode == 13) document.getElementById('sendmessage').click()" style="display:none;"/>
+        <input type="button" id="sendmessage" value="Send" style="display:none;"/>
+
     </div>
     <!--Script references. -->
     <script src="/Scripts/jquery.signalR-1.1.4.js"></script>
@@ -21,8 +52,8 @@
                 var encodedName = $('<div />').text(name).html();
                 var encodedMsg = $('<div />').text(message).html();
                 // Add the message to the page. 
-                $('#discussion').append('<li><strong>' + encodedName
-                    + '</strong>:&nbsp;&nbsp;' + encodedMsg + '</li>');
+                $('#messages').append('<dt>' + encodedName
+                    + '</dt><dd>' + encodedMsg + '</dd>');
             };
             // Get the user name and store it to prepend to messages.
             $('#displayname').val(prompt('Enter your name:', ''));
