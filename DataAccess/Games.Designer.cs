@@ -148,6 +148,7 @@ namespace DataAccess.GamesTableAdapters {
             tableMapping.ColumnMappings.Add("hashValue", "hashValue");
             tableMapping.ColumnMappings.Add("restrict", "restrict");
             tableMapping.ColumnMappings.Add("tags", "tags");
+            tableMapping.ColumnMappings.Add("category", "category");
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
@@ -157,19 +158,19 @@ namespace DataAccess.GamesTableAdapters {
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gameId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, "gameId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "bearded_lama.UpdateGame";
+            this._adapter.InsertCommand.CommandText = "bearded_lama.NewGame";
             this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.StoredProcedure;
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "gameName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameDesc", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "gameDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tags", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "tags", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@category", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publicPackage", global::System.Data.SqlDbType.Xml, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "publicPackage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rating", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@subDate", global::System.Data.SqlDbType.DateTime, 8, global::System.Data.ParameterDirection.Input, 23, 3, "subDate", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@hashValue", global::System.Data.SqlDbType.VarChar, 32, global::System.Data.ParameterDirection.Input, 0, 0, "hashValue", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@restrict", global::System.Data.SqlDbType.Bit, 1, global::System.Data.ParameterDirection.Input, 1, 0, "restrict", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_gameId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, "gameId", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.InsertCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, "gameId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.UpdateCommand.Connection = this.Connection;
             this._adapter.UpdateCommand.CommandText = "bearded_lama.UpdateGame";
@@ -177,6 +178,8 @@ namespace DataAccess.GamesTableAdapters {
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@RETURN_VALUE", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.ReturnValue, 10, 0, null, global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameName", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "gameName", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@gameDesc", global::System.Data.SqlDbType.VarChar, 300, global::System.Data.ParameterDirection.Input, 0, 0, "gameDesc", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@tags", global::System.Data.SqlDbType.VarChar, 200, global::System.Data.ParameterDirection.Input, 0, 0, "tags", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@category", global::System.Data.SqlDbType.VarChar, 50, global::System.Data.ParameterDirection.Input, 0, 0, "category", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@publicPackage", global::System.Data.SqlDbType.Xml, 2147483647, global::System.Data.ParameterDirection.Input, 0, 0, "publicPackage", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@rating", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 10, 0, "rating", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
             this._adapter.UpdateCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@userId", global::System.Data.SqlDbType.BigInt, 8, global::System.Data.ParameterDirection.Input, 19, 0, "userId", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
@@ -289,7 +292,7 @@ namespace DataAccess.GamesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(string gameName, string gameDesc, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict, global::System.Nullable<long> Original_gameId, global::System.Nullable<long> gameId) {
+        public virtual int Insert(string gameName, string gameDesc, string tags, string category, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict) {
             if ((gameName == null)) {
                 this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -302,50 +305,50 @@ namespace DataAccess.GamesTableAdapters {
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(gameDesc));
             }
-            if ((publicPackage == null)) {
+            if ((tags == null)) {
                 this.Adapter.InsertCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.InsertCommand.Parameters[3].Value = ((object)(publicPackage));
+                this.Adapter.InsertCommand.Parameters[3].Value = ((string)(tags));
             }
-            if ((rating.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[4].Value = ((int)(rating.Value));
-            }
-            else {
+            if ((category == null)) {
                 this.Adapter.InsertCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((userId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[5].Value = ((long)(userId.Value));
-            }
             else {
+                this.Adapter.InsertCommand.Parameters[4].Value = ((string)(category));
+            }
+            if ((publicPackage == null)) {
                 this.Adapter.InsertCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((subDate.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[6].Value = ((System.DateTime)(subDate.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[5].Value = ((object)(publicPackage));
+            }
+            if ((rating.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[6].Value = ((int)(rating.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((hashValue == null)) {
-                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((userId.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[7].Value = ((long)(userId.Value));
             }
             else {
-                this.Adapter.InsertCommand.Parameters[7].Value = ((string)(hashValue));
+                this.Adapter.InsertCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((restrict.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[8].Value = ((bool)(restrict.Value));
+            if ((subDate.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[8].Value = ((System.DateTime)(subDate.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_gameId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[9].Value = ((long)(Original_gameId.Value));
-            }
-            else {
+            if ((hashValue == null)) {
                 this.Adapter.InsertCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((gameId.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[10].Value = ((long)(gameId.Value));
+            else {
+                this.Adapter.InsertCommand.Parameters[9].Value = ((string)(hashValue));
+            }
+            if ((restrict.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[10].Value = ((bool)(restrict.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[10].Value = global::System.DBNull.Value;
@@ -370,7 +373,7 @@ namespace DataAccess.GamesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string gameName, string gameDesc, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict, global::System.Nullable<long> Original_gameId, global::System.Nullable<long> gameId) {
+        public virtual int Update(string gameName, string gameDesc, string tags, string category, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict, global::System.Nullable<long> Original_gameId, global::System.Nullable<long> gameId) {
             if ((gameName == null)) {
                 this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
@@ -383,53 +386,65 @@ namespace DataAccess.GamesTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(gameDesc));
             }
-            if ((publicPackage == null)) {
+            if ((tags == null)) {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((object)(publicPackage));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((string)(tags));
             }
-            if ((rating.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(rating.Value));
-            }
-            else {
+            if ((category == null)) {
                 this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
             }
-            if ((userId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((long)(userId.Value));
-            }
             else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((string)(category));
+            }
+            if ((publicPackage == null)) {
                 this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((subDate.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[6].Value = ((System.DateTime)(subDate.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((object)(publicPackage));
+            }
+            if ((rating.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(rating.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[6].Value = global::System.DBNull.Value;
             }
-            if ((hashValue == null)) {
-                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
+            if ((userId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[7].Value = ((long)(userId.Value));
             }
             else {
-                this.Adapter.UpdateCommand.Parameters[7].Value = ((string)(hashValue));
+                this.Adapter.UpdateCommand.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((restrict.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[8].Value = ((bool)(restrict.Value));
+            if ((subDate.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[8].Value = ((System.DateTime)(subDate.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[8].Value = global::System.DBNull.Value;
             }
-            if ((Original_gameId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[9].Value = ((long)(Original_gameId.Value));
-            }
-            else {
+            if ((hashValue == null)) {
                 this.Adapter.UpdateCommand.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((gameId.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[10].Value = ((long)(gameId.Value));
+            else {
+                this.Adapter.UpdateCommand.Parameters[9].Value = ((string)(hashValue));
+            }
+            if ((restrict.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[10].Value = ((bool)(restrict.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[10].Value = global::System.DBNull.Value;
+            }
+            if ((Original_gameId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[11].Value = ((long)(Original_gameId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[11].Value = global::System.DBNull.Value;
+            }
+            if ((gameId.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[12].Value = ((long)(gameId.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[12].Value = global::System.DBNull.Value;
             }
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
             if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -451,8 +466,8 @@ namespace DataAccess.GamesTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(string gameName, string gameDesc, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict, global::System.Nullable<long> Original_gameId) {
-            return this.Update(gameName, gameDesc, publicPackage, rating, userId, subDate, hashValue, restrict, Original_gameId, Original_gameId);
+        public virtual int Update(string gameName, string gameDesc, string tags, string category, object publicPackage, global::System.Nullable<int> rating, global::System.Nullable<long> userId, global::System.Nullable<global::System.DateTime> subDate, string hashValue, global::System.Nullable<bool> restrict, global::System.Nullable<long> Original_gameId) {
+            return this.Update(gameName, gameDesc, tags, category, publicPackage, rating, userId, subDate, hashValue, restrict, Original_gameId, Original_gameId);
         }
     }
     
