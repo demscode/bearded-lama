@@ -301,6 +301,10 @@ namespace DataSets {
             
             private global::System.Data.DataColumn columnrestrict;
             
+            private global::System.Data.DataColumn columntags;
+            
+            private global::System.Data.DataColumn columncategory;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public GamesDataTable() {
@@ -408,6 +412,22 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tagsColumn {
+                get {
+                    return this.columntags;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn categoryColumn {
+                get {
+                    return this.columncategory;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -443,7 +463,7 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GamesRow AddGamesRow(string gameName, string gameDesc, string publicPackage, int rating, long userId, System.DateTime subDate, string hashValue, bool restrict) {
+            public GamesRow AddGamesRow(string gameName, string gameDesc, string publicPackage, int rating, long userId, System.DateTime subDate, string hashValue, bool restrict, string tags, string category) {
                 GamesRow rowGamesRow = ((GamesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
@@ -454,7 +474,9 @@ namespace DataSets {
                         userId,
                         subDate,
                         hashValue,
-                        restrict};
+                        restrict,
+                        tags,
+                        category};
                 rowGamesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGamesRow);
                 return rowGamesRow;
@@ -493,6 +515,8 @@ namespace DataSets {
                 this.columnsubDate = base.Columns["subDate"];
                 this.columnhashValue = base.Columns["hashValue"];
                 this.columnrestrict = base.Columns["restrict"];
+                this.columntags = base.Columns["tags"];
+                this.columncategory = base.Columns["category"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -516,6 +540,10 @@ namespace DataSets {
                 base.Columns.Add(this.columnhashValue);
                 this.columnrestrict = new global::System.Data.DataColumn("restrict", typeof(bool), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnrestrict);
+                this.columntags = new global::System.Data.DataColumn("tags", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntags);
+                this.columncategory = new global::System.Data.DataColumn("category", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategory);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columngameId}, true));
                 this.columngameId.AutoIncrement = true;
@@ -528,6 +556,8 @@ namespace DataSets {
                 this.columngameDesc.MaxLength = 300;
                 this.columnpublicPackage.MaxLength = 2147483647;
                 this.columnhashValue.MaxLength = 32;
+                this.columntags.MaxLength = 200;
+                this.columncategory.MaxLength = 50;
                 this.ExtendedProperties.Add("Generator_TablePropName", "_Games");
                 this.ExtendedProperties.Add("Generator_UserTableName", "Games");
             }
@@ -811,6 +841,38 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tags {
+                get {
+                    try {
+                        return ((string)(this[this.tableGames.tagsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tags\' in table \'Games\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGames.tagsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string category {
+                get {
+                    try {
+                        return ((string)(this[this.tableGames.categoryColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'category\' in table \'Games\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableGames.categoryColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsgameNameNull() {
                 return this.IsNull(this.tableGames.gameNameColumn);
             }
@@ -903,6 +965,30 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetrestrictNull() {
                 this[this.tableGames.restrictColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstagsNull() {
+                return this.IsNull(this.tableGames.tagsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettagsNull() {
+                this[this.tableGames.tagsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscategoryNull() {
+                return this.IsNull(this.tableGames.categoryColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcategoryNull() {
+                this[this.tableGames.categoryColumn] = global::System.Convert.DBNull;
             }
         }
         
