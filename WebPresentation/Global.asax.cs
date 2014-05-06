@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Routing;
 using System.Web.Security;
 using System.Web.SessionState;
+using Microsoft.AspNet.SignalR;
 
 namespace WebPresentation
 {
@@ -76,6 +77,7 @@ namespace WebPresentation
             //routes.MapPageRoute("Find game page",
             //    "f/{genre}", // Needs more research
             //    "~/Views/Find.aspx");
+            routes.MapHubs();
         }
     }
 }
