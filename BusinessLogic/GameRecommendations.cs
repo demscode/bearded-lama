@@ -12,15 +12,15 @@ using DataSets;
 namespace BusinessLogic {
 
     [System.ComponentModel.DataObject]
-    class GameRecommendations {
+    public class GameRecommendations {
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
-        public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId, System.Security.Principal.IPrincipal user) {
+        public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId, string user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
 
-            Games.GamesRow currentGame = (Games.GamesRow)((allGames.Select("gameId = " + gameId))[0]);
+            Games.GamesRow currentGame = (allGames.FindBygameId(gameId));
             string[] currentGameTags = currentGame.tags.Split(',');
 
             foreach (Games.GamesRow game in allGames) {
@@ -46,8 +46,8 @@ namespace BusinessLogic {
                         scoringTable[game.gameId] += 100;
                     }
 
-                    if (user.Identity.IsAuthenticated) { // If user logged in... NOT CHECKED!!!
-                        scoringTable = GetUserHistoryRecommendations(scoringTable, game, user.Identity.Name, ref allGames);
+                    if (user != "") { // If user logged in... NOT CHECKED!!!
+                        scoringTable = GetUserHistoryRecommendations(scoringTable, game, user, ref allGames);
                     }
                 }
             }
@@ -56,13 +56,13 @@ namespace BusinessLogic {
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
-        public static DataSets.Games.GamesDataTable GetNonGamePageRecommendations(System.Security.Principal.IPrincipal user) {
+        public static DataSets.Games.GamesDataTable GetNonGamePageRecommendations(string user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
             foreach (Games.GamesRow game in allGames) {
                 scoringTable.Add(game.gameId, 0);
-                scoringTable = GetUserHistoryRecommendations(scoringTable, game, user.Identity.Name, ref allGames);
+                scoringTable = GetUserHistoryRecommendations(scoringTable, game, user, ref allGames);
             }
             return GenerateOrderedGamesTable(scoringTable, ref allGames);
         }
@@ -74,7 +74,7 @@ namespace BusinessLogic {
             Dictionary<long, int>.Enumerator enume = scoringTable.GetEnumerator();
             for (int i = 0; i < scoringTable.Count; i++) {
                 enume.MoveNext();
-                selectedGames.AddGamesRow((Games.GamesRow)(allGames.Select("gameID = " + enume.Current.Key)[0]));
+                selectedGames.ImportRow(allGames.FindBygameId(enume.Current.Key));
             }
             return selectedGames;
         }
@@ -83,33 +83,34 @@ namespace BusinessLogic {
                 Games.GamesRow game, string user, ref Games.GamesDataTable allGames) {
             UsersTableAdapter userAdaper = new UsersTableAdapter();
             Users.UsersDataTable userTable = userAdaper.GetData();
-            long gamerId = ((Users.UsersRow)(userTable.Select("userName = " + user)[0])).userId;
+            long gamerId = long.Parse((userTable.Select("userName = '" + user + "'")[0])["userId"].ToString());
 
             GameHistoryTableAdapter gameAdapter = new GameHistoryTableAdapter();
             GameHistory.GameHistoryDataTable historyTable = gameAdapter.GetData();
-            GameHistory.GameHistoryDataTable userHistoryTable = (GameHistory.GameHistoryDataTable)
-                (historyTable.Select("userId = " + gamerId)).CopyToDataTable();
+            DataRow[] userHistoryTable = historyTable.Select("userId = " + gamerId);
             Games.GamesDataTable gamesPlayed = new Games.GamesDataTable();
-            foreach (GameHistory.GameHistoryRow historyRow in userHistoryTable) {
-                gamesPlayed.AddGamesRow((Games.GamesRow)(allGames.Select("gameID = " + historyRow.gameId)[0]));
+            foreach (DataRow historyRow in userHistoryTable) {
+                gamesPlayed.ImportRow(allGames.FindBygameId(long.Parse(historyRow["gameId"].ToString())));
             }
             string[] gamePlayedTags = game.tags.Split(',');
             foreach (Games.GamesRow gamePlayed in gamesPlayed) {
+                if (game.gameId != gamePlayed.gameId) { // Ignore present Game from recommendations
 
-                if (game.userId == gamePlayed.userId) {
-                    scoringTable[game.gameId] += 10;
-                }
-
-                string[] testedGameTags = game.tags.Split(',');
-
-                foreach (string tag in gamePlayedTags) {
-                    if (testedGameTags.Contains(tag)) {
-                        scoringTable[game.gameId] += 25;
+                    if (game.userId == gamePlayed.userId) {
+                        scoringTable[game.gameId] += 10;
                     }
-                }
 
-                if (game.category == gamePlayed.category) {
-                    scoringTable[game.gameId] += 50;
+                    string[] testedGameTags = game.tags.Split(',');
+
+                    foreach (string tag in gamePlayedTags) {
+                        if (testedGameTags.Contains(tag)) {
+                            scoringTable[game.gameId] += 25;
+                        }
+                    }
+
+                    if (game.category == gamePlayed.category) {
+                        scoringTable[game.gameId] += 50;
+                    }
                 }
             }
 
