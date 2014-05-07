@@ -6,6 +6,7 @@ using System.Data;
 using System.Web;
 using DataAccess.GamesTableAdapters;
 using DataAccess.GameHistoryTableAdapters;
+using DataAccess.UsersTableAdapters;
 using DataSets;
 
 namespace BusinessLogic {
@@ -14,7 +15,7 @@ namespace BusinessLogic {
     class GameRecommendations {
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
-        public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId) {
+        public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId, System.Security.Principal.IPrincipal user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
@@ -45,8 +46,8 @@ namespace BusinessLogic {
                         scoringTable[game.gameId] += 100;
                     }
 
-                    if (true) { // If user logged in...
-                        scoringTable = GetUserHistoryRecommendations(scoringTable, game, ref allGames);
+                    if (user.Identity.IsAuthenticated) { // If user logged in... NOT CHECKED!!!
+                        scoringTable = GetUserHistoryRecommendations(scoringTable, game, user.Identity.Name, ref allGames);
                     }
                 }
             }
@@ -55,13 +56,13 @@ namespace BusinessLogic {
         }
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
-        public static DataSets.Games.GamesDataTable GetNonGamePageRecommendations() {
+        public static DataSets.Games.GamesDataTable GetNonGamePageRecommendations(System.Security.Principal.IPrincipal user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
             foreach (Games.GamesRow game in allGames) {
                 scoringTable.Add(game.gameId, 0);
-                scoringTable = GetUserHistoryRecommendations(scoringTable, game, ref allGames);
+                scoringTable = GetUserHistoryRecommendations(scoringTable, game, user.Identity.Name, ref allGames);
             }
             return GenerateOrderedGamesTable(scoringTable, ref allGames);
         }
@@ -79,10 +80,13 @@ namespace BusinessLogic {
         }
 
         private static Dictionary<long, int> GetUserHistoryRecommendations(Dictionary<long, int> scoringTable,
-                Games.GamesRow game, ref Games.GamesDataTable allGames) {
-            int gamerId = 0; // NEED TO GET ACTUAL USER ID!!!
-            GameHistoryTableAdapter adapter = new GameHistoryTableAdapter();
-            GameHistory.GameHistoryDataTable historyTable = adapter.GetData();
+                Games.GamesRow game, string user, ref Games.GamesDataTable allGames) {
+            UsersTableAdapter userAdaper = new UsersTableAdapter();
+            Users.UsersDataTable userTable = userAdaper.GetData();
+            long gamerId = ((Users.UsersRow)(userTable.Select("userName = " + user)[0])).userId;
+
+            GameHistoryTableAdapter gameAdapter = new GameHistoryTableAdapter();
+            GameHistory.GameHistoryDataTable historyTable = gameAdapter.GetData();
             GameHistory.GameHistoryDataTable userHistoryTable = (GameHistory.GameHistoryDataTable)
                 (historyTable.Select("userId = " + gamerId)).CopyToDataTable();
             Games.GamesDataTable gamesPlayed = new Games.GamesDataTable();
