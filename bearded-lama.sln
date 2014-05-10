@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccess", "DataAccess\Da
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataSets", "DataSets\DataSets.csproj", "{A14FBEDC-0926-4BEC-94F2-0EF14B7C9B55}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SOAPGamesService", "SOAPGamesService\SOAPGamesService.csproj", "{C2D9430F-BA5E-4F31-9F1C-E2E45CA35633}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{A14FBEDC-0926-4BEC-94F2-0EF14B7C9B55}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A14FBEDC-0926-4BEC-94F2-0EF14B7C9B55}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A14FBEDC-0926-4BEC-94F2-0EF14B7C9B55}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2D9430F-BA5E-4F31-9F1C-E2E45CA35633}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2D9430F-BA5E-4F31-9F1C-E2E45CA35633}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2D9430F-BA5E-4F31-9F1C-E2E45CA35633}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2D9430F-BA5E-4F31-9F1C-E2E45CA35633}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
