@@ -11,9 +11,21 @@ using DataSets;
 
 namespace BusinessLogic {
 
+    /// <summary>
+    /// Business tier class for retrieving a DataTable object containing some 
+    /// game recommendations based on a specific user or a specific game, or a 
+    /// mix of both.
+    /// </summary>
     [System.ComponentModel.DataObject]
     public class GameRecommendations {
 
+        /// <summary>
+        /// Retrieves a set of game recommendations to be used in Game information pages.
+        /// </summary>
+        /// <param name="gameId">Id of the game been accessed</param>
+        /// <param name="user">Username of the currently logged in user. Submit ""(empty string) 
+        /// when there isn't such.</param>
+        /// <returns>Strong typed DataTable with selected recommended games.</returns>
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId, string user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
@@ -55,6 +67,11 @@ namespace BusinessLogic {
             return GenerateOrderedGamesTable(scoringTable, ref allGames);
         }
 
+        /// <summary>
+        /// Retrieves a set of game recommendations to be used in the user profile page.
+        /// </summary>
+        /// <param name="user">Username of the currently logged in user.</param>
+        /// <returns>Strong typed DataTable with selected recommended games.</returns>
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable GetNonGamePageRecommendations(string user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
@@ -96,18 +113,21 @@ namespace BusinessLogic {
             foreach (Games.GamesRow gamePlayed in gamesPlayed) {
                 if (game.gameId != gamePlayed.gameId) { // Ignore present Game from recommendations
 
+                    // Test for same author
                     if (game.userId == gamePlayed.userId) {
                         scoringTable[game.gameId] += 10;
                     }
 
                     string[] testedGameTags = game.tags.Split(',');
 
+                    // Test for similar Tags
                     foreach (string tag in gamePlayedTags) {
                         if (testedGameTags.Contains(tag)) {
                             scoringTable[game.gameId] += 25;
                         }
                     }
 
+                    // Test for same category
                     if (game.category == gamePlayed.category) {
                         scoringTable[game.gameId] += 50;
                     }
