@@ -6,16 +6,16 @@ using System.Configuration;
 using System.Configuration.Provider;
 using System.Web;
 using System.Web.Security;
-using DataAccess;
+using DataAccess.UsersTableAdapters;
 using DataSets;
 
-namespace BusinessLogic
+namespace BusinessLogic.Accounts
 {
     /// <summary>
     /// Manages storage of user account information, tailored to utilise data
     /// access in the Data Tier of this application.
     /// </summary>
-    class AccountsMembershipProvider : MembershipProvider
+    class Memberships : MembershipProvider
     {
         //
         // Initialise the Provider with important configuration
@@ -125,7 +125,7 @@ namespace BusinessLogic
         }
 
         //
-        // Implemented methods from MembershipProvider
+        // Implemented methods from Memberships
         //
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
@@ -137,9 +137,51 @@ namespace BusinessLogic
             throw new NotImplementedException();
         }
 
-        public override System.Web.Security.MembershipUser CreateUser(string username, string password, string email, string passwordQuestion, string passwordAnswer, bool isApproved, object providerUserKey, out System.Web.Security.MembershipCreateStatus status)
+        public override System.Web.Security.MembershipUser CreateUser(
+            string username, string password,
+            string email,
+            string passwordQuestion,
+            string passwordAnswer,
+            bool isApproved,
+            object providerUserKey,
+            out System.Web.Security.MembershipCreateStatus status)
         {
-            throw new NotImplementedException();
+            // Validate password
+            ValidatePasswordEventArgs args = new ValidatePasswordEventArgs(username, password, true);
+            OnValidatingPassword(args);
+            if (args.Cancel)
+            {
+                status = MembershipCreateStatus.InvalidPassword;
+            }
+
+            // Validate email uniqueness
+            if (RequiresUniqueEmail && GetUserNameByEmail(email) != "")
+            {
+                status = MembershipCreateStatus.DuplicateEmail;
+            }
+
+            MembershipUser user = GetUser(username, false);
+            if (user == null)
+            {
+                UsersTableAdapter userAdapter = new UsersTableAdapter();
+                int insertStatus = userAdapter.Insert(username, email, null, null, null, new DateTime());
+                user = GetUser(username, false);
+                if (user != null)
+                {
+                    status = MembershipCreateStatus.Success;
+                    return user;
+                }
+                else
+                {
+                    status = MembershipCreateStatus.ProviderError;
+                }
+            }
+            else // Validate username uniqueness
+            {
+                status = MembershipCreateStatus.DuplicateUserName;
+            }
+
+            return null;
         }
 
         public override bool DeleteUser(string username, bool deleteAllRelatedData)
@@ -174,12 +216,22 @@ namespace BusinessLogic
 
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            Users.UsersDataTable userTable = userAdapter.GetData();
+            long userId = long.Parse((userTable.Select("userName = '" + username + "'")[0])["userId"].ToString());
+
+            MembershipUser user = GetUser(userId, userIsOnline);
+            return user;
         }
 
         public override System.Web.Security.MembershipUser GetUser(object providerUserKey, bool userIsOnline)
         {
-            throw new NotImplementedException();
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            Users.UsersDataTable userTable = userAdapter.GetData();
+
+            Users.UsersRow userRow = userTable.FindByuserId((long)providerUserKey);
+            User user = new User(ApplicationName, userRow.userName, providerUserKey, userRow.email, userRow.userBio, userRow.dob, userRow.creation);
+            return user;
         }
 
         public override string GetUserNameByEmail(string email)

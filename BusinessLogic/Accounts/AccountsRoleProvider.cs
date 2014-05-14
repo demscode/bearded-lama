@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace BusinessLogic
+namespace BusinessLogic.Accounts
 {
     /// <summary>
     /// Manages storage of account role membership information, tailored to
     /// utilise data access in the Data Tier of this application.
     /// </summary>
-    class AccountsRoleProvider : System.Web.Security.RoleProvider
+    class Roles : System.Web.Security.RoleProvider
     {
         public override void AddUsersToRoles(string[] usernames, string[] roleNames)
         {
