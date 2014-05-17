@@ -65,13 +65,13 @@ namespace WebPresentation
             //    "g/{id}",
             //    "~/Views/Game.aspx");
 
-            //routes.MapPageRoute("User settings page",
-            //    "u/settings",
-            //    "~/Views/User.aspx");
+            routes.MapPageRoute("account-settings",
+                "u/settings",
+                "~/Views/Members/Settings.aspx");
 
-            //routes.MapPageRoute("User page by ID",
-            //    "u/{id}",
-            //    "~/Views/User.aspx");
+            routes.MapPageRoute("user-profile",
+                "u/{userid}",
+                "~/Views/User.aspx"); // TODO: add constraint to userid param
 
             //routes.MapPageRoute("User page by username",
             //    "u/{username}",

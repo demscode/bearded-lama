@@ -59,6 +59,11 @@
                                         </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
+                                                <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=account-settings%>" runat="server">
+                                                    Account Settings
+                                                </asp:HyperLink>
+                                            </li>
+                                            <li>
                                                 <asp:LoginStatus ID="LoginStatus1" runat="server" />
                                             </li>
                                         </ul>
