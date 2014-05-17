@@ -160,12 +160,14 @@ namespace BusinessLogic.Accounts
             if (args.Cancel)
             {
                 status = MembershipCreateStatus.InvalidPassword;
+                return null;
             }
 
             // Validate email uniqueness
-            if (RequiresUniqueEmail && GetUserNameByEmail(email) != "")
+            if (RequiresUniqueEmail && GetUserNameByEmail(email) != null)
             {
                 status = MembershipCreateStatus.DuplicateEmail;
+                return null;
             }
 
             MembershipUser user = GetUser(username, false);

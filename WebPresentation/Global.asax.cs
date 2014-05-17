@@ -49,17 +49,17 @@ namespace WebPresentation
 
         protected static void RegisterRoutes(RouteCollection routes)
         {
-            routes.MapPageRoute("Home",
+            routes.MapPageRoute("home",
                 "",
                 "~/Views/Index.aspx");
 
             routes.MapPageRoute("register",
                 "u/register",
-                "~/Views/Access.aspx");
+                "~/Views/Register.aspx");
 
             routes.MapPageRoute("login",
                 "u/login",
-                "~/Views/Access.aspx");
+                "~/Views/Login.aspx");
 
             //routes.MapPageRoute("Unique game page",
             //    "g/{id}",
