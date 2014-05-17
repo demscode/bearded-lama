@@ -16,7 +16,7 @@ namespace BusinessLogic.Accounts
             object providerUserKey,
             string email,
             string comments,
-            DateTime dob,
+            bool adult,
             DateTime creationDate) :
             base()
         {

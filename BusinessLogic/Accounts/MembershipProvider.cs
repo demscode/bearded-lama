@@ -8,6 +8,8 @@ using System.Web;
 using System.Web.Security;
 using DataAccess.UsersTableAdapters;
 using DataSets;
+using System.Security.Cryptography;
+using System.Web.Configuration;
 
 namespace BusinessLogic.Accounts
 {
@@ -35,6 +37,11 @@ namespace BusinessLogic.Accounts
             pEnablePasswordRetrieval = Convert.ToBoolean(GetConfigValue(config["enablePasswordRetrieval"], "true"));
             pRequiresQuestionAndAnswer = Convert.ToBoolean(GetConfigValue(config["requiresQuestionAndAnswer"], "false"));
             pRequiresUniqueEmail = Convert.ToBoolean(GetConfigValue(config["requiresUniqueEmail"], "true"));
+
+            // Machine key for encryption.
+            Configuration cfg =
+              WebConfigurationManager.OpenWebConfiguration(System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
+            pMachineKey = (MachineKeySection)cfg.GetSection("system.web/machineKey");
 
             switch (config["passwordFormat"])
             {
@@ -67,6 +74,7 @@ namespace BusinessLogic.Accounts
         private int pMinRequiredPasswordLength;
         private string pPasswordStrengthRegularExpression;
         private int pMinRequiredNonAlphanumericCharacters;
+        private MachineKeySection pMachineKey;
 
         public override string ApplicationName
         {
@@ -164,7 +172,8 @@ namespace BusinessLogic.Accounts
             if (user == null)
             {
                 UsersTableAdapter userAdapter = new UsersTableAdapter();
-                int insertStatus = userAdapter.Insert(username, email, null, null, null, new DateTime());
+                string fakePassword = "12345678912345678123456789123456";
+                int insertStatus = userAdapter.Insert(username, email, fakePassword, DateTime.Now);
                 user = GetUser(username, false);
                 if (user != null)
                 {
@@ -217,11 +226,16 @@ namespace BusinessLogic.Accounts
         public override System.Web.Security.MembershipUser GetUser(string username, bool userIsOnline)
         {
             UsersTableAdapter userAdapter = new UsersTableAdapter();
-            Users.UsersDataTable userTable = userAdapter.GetData();
-            long userId = long.Parse((userTable.Select("userName = '" + username + "'")[0])["userId"].ToString());
-
-            MembershipUser user = GetUser(userId, userIsOnline);
-            return user;
+            object userId = userAdapter.GetUserIdFromUserName(username);
+            if (userId == null)
+            {
+                return null;
+            }
+            else
+            {
+                MembershipUser user = GetUser(userId, userIsOnline);
+                return user;
+            }
         }
 
         public override System.Web.Security.MembershipUser GetUser(object providerUserKey, bool userIsOnline)
@@ -230,13 +244,15 @@ namespace BusinessLogic.Accounts
             Users.UsersDataTable userTable = userAdapter.GetData();
 
             Users.UsersRow userRow = userTable.FindByuserId((long)providerUserKey);
-            User user = new User(ApplicationName, userRow.userName, providerUserKey, userRow.email, userRow.userBio, userRow.dob, userRow.creation);
+            User user = new User(ApplicationName, userRow.userName, providerUserKey, userRow.email, userRow.userBio.ToString(), userRow.adult, userRow.creation);
             return user;
         }
 
         public override string GetUserNameByEmail(string email)
         {
-            throw new NotImplementedException();
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            object username = userAdapter.GetUserNameFromEmail(email);
+            return username == null ? null : username.ToString();
         }
 
         public override string ResetPassword(string username, string answer)
@@ -256,7 +272,20 @@ namespace BusinessLogic.Accounts
 
         public override bool ValidateUser(string username, string password)
         {
-            throw new NotImplementedException();
+            bool isValidUser;
+
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            object passwordHash = userAdapter.GetPasswordHashFromUserName(username);
+            if (passwordHash == null)
+            {
+                return isValidUser = false;
+            }
+            else
+            {
+                isValidUser = password == passwordHash.ToString();
+            }
+
+            return isValidUser;
         }
 
         //
@@ -273,6 +302,73 @@ namespace BusinessLogic.Accounts
             {
 
             }
+        }
+
+        //
+        // EncodePassword
+        //   Encrypts, Hashes, or leaves the password clear based on the PasswordFormat.
+        //
+        private string EncodePassword(string password)
+        {
+            string encodedPassword = password;
+
+            switch (PasswordFormat)
+            {
+                case MembershipPasswordFormat.Clear:
+                    break;
+                case MembershipPasswordFormat.Encrypted:
+                    encodedPassword =
+                      Convert.ToBase64String(EncryptPassword(Encoding.Unicode.GetBytes(password)));
+                    break;
+                case MembershipPasswordFormat.Hashed:
+                    HMACSHA1 hash = new HMACSHA1();
+                    hash.Key = HexToByte(pMachineKey.ValidationKey);
+                    encodedPassword =
+                      Convert.ToBase64String(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
+                    break;
+                default:
+                    throw new ProviderException("Unsupported password format.");
+            }
+
+            return encodedPassword;
+        }
+
+        //
+        // UnEncodePassword
+        //   Decrypts or leaves the password clear based on the PasswordFormat.
+        //
+        private string UnEncodePassword(string encodedPassword)
+        {
+            string password = encodedPassword;
+
+            switch (PasswordFormat)
+            {
+                case MembershipPasswordFormat.Clear:
+                    break;
+                case MembershipPasswordFormat.Encrypted:
+                    password =
+                      Encoding.Unicode.GetString(DecryptPassword(Convert.FromBase64String(password)));
+                    break;
+                case MembershipPasswordFormat.Hashed:
+                    throw new ProviderException("Cannot unencode a hashed password.");
+                default:
+                    throw new ProviderException("Unsupported password format.");
+            }
+
+            return password;
+        }
+
+        //
+        // HexToByte
+        //   Converts a hexadecimal string to a byte array. Used to convert encryption
+        // key values from the configuration.
+        //
+        private byte[] HexToByte(string hexString)
+        {
+            byte[] returnBytes = new byte[hexString.Length / 2];
+            for (int i = 0; i < returnBytes.Length; i++)
+                returnBytes[i] = Convert.ToByte(hexString.Substring(i * 2, 2), 16);
+            return returnBytes;
         }
     }
 }
