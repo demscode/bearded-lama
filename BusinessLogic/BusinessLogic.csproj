@@ -46,6 +46,8 @@
     <Compile Include="Accounts\MembershipProvider.cs" />
     <Compile Include="Accounts\MembershipUser.cs" />
     <Compile Include="Accounts\AccountsRoleProvider.cs" />
+    <Compile Include="GameAccess.cs" />
+    <Compile Include="GameRecommendations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

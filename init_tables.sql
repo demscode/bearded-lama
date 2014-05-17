@@ -53,6 +53,7 @@ CREATE TABLE [dbo].[Games](
 	[gameName] [nvarchar](50) NULL,
 	[gameDesc] [nvarchar](300) NULL,
 	[tags] [varchar](200) NULL,
+	[category] [varchar](50) NULL,
 	[publicPackage] [xml] NULL,
 	[rating] [int] NULL,
 	[userId] [bigint] NULL,

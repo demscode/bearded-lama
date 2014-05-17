@@ -124,6 +124,7 @@ publish/
 
 # NuGet Packages Directory
 packages/
+NuGet.exe
 ## TODO: If the tool you use requires repositories.config uncomment the next line
 #!packages/repositories.config
 
@@ -173,4 +174,3 @@ UpgradeLog*.htm
 # Microsoft Fakes
 FakesAssemblies/
 recommendations.txt
-Game.cs
