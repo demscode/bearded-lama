@@ -50,8 +50,8 @@ SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[Games](
 	[gameId] [bigint] IDENTITY(1,1) NOT NULL,
-	[gameName] [varchar](50) NULL,
-	[gameDesc] [varchar](300) NULL,
+	[gameName] [nvarchar](50) NULL,
+	[gameDesc] [nvarchar](300) NULL,
 	[tags] [varchar](200) NULL,
 	[publicPackage] [xml] NULL,
 	[rating] [int] NULL,
@@ -78,7 +78,7 @@ GO
 CREATE TABLE [dbo].[Posts](
 	[userId] [bigint] NULL,
 	[pageId] [bigint] NOT NULL,
-	[content] [varchar](200) NULL,
+	[content] [nvarchar](200) NULL,
 	[timeStamp] [datetime] NULL,
 	[postId] [bigint] NOT NULL,
  CONSTRAINT [PK_Posts] PRIMARY KEY CLUSTERED 
@@ -99,13 +99,13 @@ SET ANSI_PADDING ON
 GO
 CREATE TABLE [dbo].[Users](
 	[userId] [bigint] IDENTITY(1,1) NOT NULL,
-	[userName] [varchar](12) NULL,
-	[email] [varchar](50) NULL,
-	[dob] [date] NULL,
-	[userBio] [varchar](300) NULL,
+	[userName] [nvarchar](12) NULL,
+	[email] [nvarchar](50) NULL,
+	[userBio] [nvarchar](300) NULL,
 	[avatar] [image] NULL,
 	[creation] [datetime] NULL,
 	[passwordHash] [varchar](32) NULL,
+	[adult] [bit] NULL,
  CONSTRAINT [PK_Users] PRIMARY KEY CLUSTERED 
 (
 	[userId] ASC
@@ -154,4 +154,8 @@ ALTER TABLE [dbo].[Posts]  WITH CHECK ADD  CONSTRAINT [FK_Posts_Users] FOREIGN K
 REFERENCES [dbo].[Users] ([userId])
 GO
 ALTER TABLE [dbo].[Posts] CHECK CONSTRAINT [FK_Posts_Users]
+GO
+ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_userBio]  DEFAULT ('') FOR [userBio]
+GO
+ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_adult]  DEFAULT ((0)) FOR [adult]
 GO
