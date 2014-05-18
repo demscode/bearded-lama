@@ -8,7 +8,7 @@
                 <section class="panel panel-warning">
                     <div class="panel-heading">Change Password</div>
                     <div class="panel-body">
-                        <asp:ChangePassword ID="MainChangePassword" runat="server">
+                        <asp:ChangePassword ID="MainChangePassword" runat="server" ContinueDestinationPageUrl="<%$RouteUrl:routename=account-settings%>">
 
                         </asp:ChangePassword>
                     </div>

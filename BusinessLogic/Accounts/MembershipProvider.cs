@@ -136,7 +136,30 @@ namespace BusinessLogic.Accounts
         //
         public override bool ChangePassword(string username, string oldPassword, string newPassword)
         {
-            throw new NotImplementedException();
+            if (!ValidateUser(username, oldPassword))
+            {
+                return false;
+            }
+
+            ValidatePasswordEventArgs args = new ValidatePasswordEventArgs(username, newPassword, false);
+            OnValidatingPassword(args);
+
+            if (args.Cancel)
+            {
+                if (args.FailureInformation == null)
+                {
+                    throw new MembershipPasswordException("ChangePassword canceled because new password failed validation.");
+                }
+                else
+                {
+                    throw args.FailureInformation;
+                }
+            }
+
+            string newPasswordHash = EncodePassword(newPassword);
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            int updateStatus = userAdapter.UpdatePasswordHash(newPasswordHash, username);
+            return updateStatus == 1 ? true : false;
         }
 
         public override bool ChangePasswordQuestionAndAnswer(string username, string password, string newPasswordQuestion, string newPasswordAnswer)

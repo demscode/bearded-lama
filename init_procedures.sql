@@ -273,4 +273,66 @@ AS
 UPDATE [Users] SET [userName] = @userName, [email] = @email, [adult] = @adult, [userBio] = @userBio, [avatar] = @avatar, [creation] = @creation WHERE (([userId] = @Original_userId));
 	
 SELECT userId, userName, email, userBio, avatar, creation, adult FROM dbo.Users WHERE (userId = @userId)
+
+GO
+/****** Object:  StoredProcedure [dbo].[GetPasswordHashFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetPasswordHashFromUserName]
+(
+	@username nvarchar(50)
+)
+AS
+	SET NOCOUNT ON;
+SELECT        passwordHash
+FROM            Users
+WHERE        (userName = @username)
+GO
+/****** Object:  StoredProcedure [dbo].[GetUserIdFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetUserIdFromUserName]
+(
+	@username nvarchar(12)
+)
+AS
+	SET NOCOUNT ON;
+SELECT        userId
+FROM            Users
+WHERE        (userName = @username)
+GO
+/****** Object:  StoredProcedure [dbo].[GetUserNameFromEmail]    Script Date: 18/05/2014 5:37:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetUserNameFromEmail]
+(
+	@email nvarchar(50)
+)
+AS
+	SET NOCOUNT ON;
+SELECT        userName
+FROM            Users
+WHERE        (email = @email)
+GO
+/****** Object:  StoredProcedure [dbo].[UpdatePasswordHash]    Script Date: 18/05/2014 5:37:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[UpdatePasswordHash]
+(
+	@newPasswordHash varchar(32),
+	@username nvarchar(50)
+)
+AS
+	SET NOCOUNT OFF;
+UPDATE       Users
+SET                passwordHash = @newPasswordHash
+WHERE        (userName = @username)
 GO
