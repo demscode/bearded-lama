@@ -52,7 +52,9 @@
                                 </AnonymousTemplate>
                                 <LoggedInTemplate>
                                     <div class="btn-group">
-                                        <a href="#" class="btn btn-default"><asp:LoginName ID="ContainerLoginName" runat="server" /></a>
+                                        <asp:HyperLink OnLoad="ConstructLoggedInUserProfileLink" ID="LoggedInProfileLink" CssClass="btn btn-default" runat="server">
+                                            <asp:LoginName ID="ContainerLoginName" runat="server" />
+                                        </asp:HyperLink>
                                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                                             <span class="caret"></span>
                                             <span class="sr-only"></span>

@@ -75,9 +75,10 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Views\Errors\404.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Login.aspx" />
-    <Content Include="Views\Members\Settings.aspx" />
+    <Content Include="Views\MembersOnly\Settings.aspx" />
     <Content Include="Views\Register.aspx" />
     <Content Include="Views\User.aspx" />
     <Content Include="Web.config">
@@ -96,6 +97,13 @@
     <Compile Include="Templates\Container.Master.designer.cs">
       <DependentUpon>Container.Master</DependentUpon>
     </Compile>
+    <Compile Include="Views\Errors\404.aspx.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Errors\404.aspx.designer.cs">
+      <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,11 +118,11 @@
     <Compile Include="Views\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\Members\Settings.aspx.cs">
+    <Compile Include="Views\MembersOnly\Settings.aspx.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\Members\Settings.aspx.designer.cs">
+    <Compile Include="Views\MembersOnly\Settings.aspx.designer.cs">
       <DependentUpon>Settings.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Register.aspx.cs">
@@ -135,6 +143,7 @@
   <ItemGroup>
     <Content Include="Scripts\jquery-1.9.1.min.map" />
     <Content Include="Templates\Container.Master" />
+    <Content Include="Views\MembersOnly\Web.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

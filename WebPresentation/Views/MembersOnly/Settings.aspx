@@ -1,4 +1,4 @@
-﻿<%@ Page Title="Account Settings" Language="C#" MasterPageFile="~/Templates/Container.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="WebPresentation.Views.Members.Settings" %>
+﻿<%@ Page Title="Account Settings" Language="C#" MasterPageFile="~/Templates/Container.Master" AutoEventWireup="true" CodeBehind="Settings.aspx.cs" Inherits="WebPresentation.Views.MembersOnly.Settings" %>
 <asp:Content ID="MainSettings" ContentPlaceHolderID="Main" runat="server">
     <section class="container">
         <h1 class="page-header"><%: Title %></h1>

@@ -8,7 +8,7 @@
                 <section class="panel panel-primary">
                     <div class="panel-heading">Login</div>
                     <div class="panel-body">
-                        <asp:Login ID="MainLogin" runat="server" DestinationPageUrl="<%$RouteUrl:routename=home%>">
+                        <asp:Login ID="LoginControl" runat="server" DestinationPageUrl="<%$RouteUrl:routename=home%>">
 <%--                            <LayoutTemplate>
                             </LayoutTemplate>--%>
                         </asp:Login>

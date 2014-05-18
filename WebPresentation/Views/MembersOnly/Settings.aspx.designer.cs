@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPresentation.Views.Members {
+namespace WebPresentation.Views.MembersOnly {
     
     
     public partial class Settings {

@@ -67,11 +67,25 @@ namespace WebPresentation
 
             routes.MapPageRoute("account-settings",
                 "u/settings",
-                "~/Views/Members/Settings.aspx");
+                "~/Views/MembersOnly/Settings.aspx");
 
             routes.MapPageRoute("user-profile",
                 "u/{userid}",
-                "~/Views/User.aspx"); // TODO: add constraint to userid param
+                "~/Views/User.aspx",
+                true,
+                new RouteValueDictionary { { "userid", "" } },
+                new RouteValueDictionary { { "userid", "[0-9]+" } });
+
+            //routes.MapPageRoute("username-profile",
+            //    "u/~{username}",
+            //    "~/Views/User.aspx",
+            //    true,
+            //    new RouteValueDictionary { { "username", "" } },
+            //    new RouteValueDictionary { { "username", "\\w+" } });
+
+            routes.MapPageRoute("error-404",
+                "404",
+                "~/Views/Errors/404.aspx");
 
             //routes.MapPageRoute("User page by username",
             //    "u/{username}",

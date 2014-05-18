@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Configuration;
 using System.Configuration.Provider;
@@ -27,7 +26,7 @@ namespace BusinessLogic.Accounts
             base.Initialize(name, config); // ProviderBase method tracks call count
 
             // Assignments from configuration file
-            pApplicationName = GetConfigValue(config["applicationName"], System.Web.Hosting.HostingEnvironment.ApplicationVirtualPath);
+            pApplicationName = GetConfigValue(config["applicationName"], config["name"]);
             pMaxInvalidPasswordAttempts = Convert.ToInt32(GetConfigValue(config["maxInvalidPasswordAttempts"], "5"));
             pPasswordAttemptWindow = Convert.ToInt32(GetConfigValue(config["passwordAttemptWindow"], "10"));
             pMinRequiredNonAlphanumericCharacters = Convert.ToInt32(GetConfigValue(config["minRequiredNonAlphanumericCharacters"], "1"));
@@ -245,9 +244,16 @@ namespace BusinessLogic.Accounts
             UsersTableAdapter userAdapter = new UsersTableAdapter();
             Users.UsersDataTable userTable = userAdapter.GetData();
 
-            Users.UsersRow userRow = userTable.FindByuserId((long)providerUserKey);
-            User user = new User(ApplicationName, userRow.userName, providerUserKey, userRow.email, userRow.userBio.ToString(), userRow.adult, userRow.creation);
-            return user;
+            Users.UsersRow userRow = userTable.FindByuserId(long.Parse(providerUserKey.ToString()));
+            if (userRow == null)
+            {
+                return null;
+            }
+            else
+            {
+                MembershipUser user = new User(ApplicationName, userRow.userName, providerUserKey, userRow.email, userRow.userBio.ToString(), userRow.adult, userRow.creation);
+                return user;
+            }
         }
 
         public override string GetUserNameByEmail(string email)

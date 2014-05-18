@@ -11,15 +11,44 @@ namespace BusinessLogic.Accounts
     /// </summary>
     public class User : MembershipUser
     {
+
+        private string _UserBio;
+        private bool _Adult;
+
+        public string UserBio
+        {
+            get { return _UserBio; }
+            set { _UserBio = value; }
+        }
+        public bool Adult
+        {
+            get { return _Adult; }
+            set { _Adult = value; }
+        }
+
         public User(string providername,
             string username,
             object providerUserKey,
             string email,
-            string comments,
+            string userBio,
             bool adult,
             DateTime creationDate) :
-            base()
+            base(providername,
+                    username,
+                    providerUserKey,
+                    email,
+                    null,
+                    null,
+                    false,
+                    false,
+                    creationDate,
+                    DateTime.Now,
+                    DateTime.Now,
+                    DateTime.Now,
+                    DateTime.Now)
         {
+            this.UserBio = userBio;
+            this.Adult = adult;
         }
     }
 }
