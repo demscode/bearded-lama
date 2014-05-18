@@ -173,8 +173,8 @@ namespace BusinessLogic.Accounts
             if (user == null)
             {
                 UsersTableAdapter userAdapter = new UsersTableAdapter();
-                string fakePassword = "12345678912345678123456789123456";
-                int insertStatus = userAdapter.Insert(username, email, fakePassword, DateTime.Now);
+                string encodedPassword = EncodePassword(password);
+                int insertStatus = userAdapter.Insert(username, email, encodedPassword, DateTime.Now);
                 user = GetUser(username, false);
                 if (user != null)
                 {
@@ -283,14 +283,14 @@ namespace BusinessLogic.Accounts
             bool isValidUser;
 
             UsersTableAdapter userAdapter = new UsersTableAdapter();
-            object passwordHash = userAdapter.GetPasswordHashFromUserName(username);
-            if (passwordHash == null)
+            object passwordHashDb = userAdapter.GetPasswordHashFromUserName(username);
+            if (passwordHashDb == null)
             {
                 return isValidUser = false;
             }
             else
             {
-                isValidUser = password == passwordHash.ToString();
+                isValidUser = EncodePassword(password) == passwordHashDb.ToString();
             }
 
             return isValidUser;
@@ -330,7 +330,8 @@ namespace BusinessLogic.Accounts
                     break;
                 case MembershipPasswordFormat.Hashed:
                     HMACSHA1 hash = new HMACSHA1();
-                    hash.Key = HexToByte(pMachineKey.ValidationKey);
+                    //hash.Key = HexToByte(pMachineKey.ValidationKey);
+                    hash.Key = HexToByte("111222");
                     encodedPassword =
                       Convert.ToBase64String(hash.ComputeHash(Encoding.Unicode.GetBytes(password)));
                     break;
