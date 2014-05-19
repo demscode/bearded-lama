@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BusinessLogic.Accounts;
+
 
 namespace WebPresentation.Views.MembersOnly
 {
@@ -11,7 +13,8 @@ namespace WebPresentation.Views.MembersOnly
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            BusinessLogic.Accounts.User user = (BusinessLogic.Accounts.User)System.Web.Security.Membership.GetUser();
+            staticUsername.InnerText = user.UserName;
         }
     }
 }
