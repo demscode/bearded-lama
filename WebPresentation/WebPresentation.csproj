@@ -75,6 +75,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Views\About.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -89,6 +90,13 @@
     </Compile>
     <Compile Include="Templates\Container.Master.designer.cs">
       <DependentUpon>Container.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Views\About.aspx.cs">
+      <DependentUpon>About.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\About.aspx.designer.cs">
+      <DependentUpon>About.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
