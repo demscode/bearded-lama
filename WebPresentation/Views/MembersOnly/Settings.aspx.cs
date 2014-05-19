@@ -13,8 +13,7 @@ namespace WebPresentation.Views.MembersOnly
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BusinessLogic.Accounts.User user = (BusinessLogic.Accounts.User)System.Web.Security.Membership.GetUser();
-            staticUsername.InnerText = user.UserName;
+
         }
     }
 }

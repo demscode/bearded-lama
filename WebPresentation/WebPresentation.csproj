@@ -75,6 +75,7 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
     <Content Include="Views\Errors\404.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Login.aspx" />
@@ -96,6 +97,13 @@
     </Compile>
     <Compile Include="Templates\Container.Master.designer.cs">
       <DependentUpon>Container.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\UserControls\EditMembershipUserDetails.ascx.cs">
+      <DependentUpon>EditMembershipUserDetails.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\UserControls\EditMembershipUserDetails.ascx.designer.cs">
+      <DependentUpon>EditMembershipUserDetails.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\Errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
