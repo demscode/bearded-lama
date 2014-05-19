@@ -99,7 +99,8 @@ GO
 CREATE PROCEDURE [bearded_lama].[GetUsers]
 AS
 	SET NOCOUNT ON;
-SELECT * FROM Users
+SELECT userId, userName, email, userBio, creation, adult
+FROM Users
 GO
 /****** Object:  StoredProcedure [bearded_lama].[NewBan]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
@@ -263,16 +264,14 @@ CREATE PROCEDURE [bearded_lama].[UpdateUser]
 	@email nvarchar(50),
 	@userBio nvarchar(300),
 	@avatar image,
-	@creation datetime,
-	@Original_userId bigint,
-	@userId bigint,
+	@original_userId bigint,
 	@adult bit
 )
 AS
 	SET NOCOUNT OFF;
-UPDATE [Users] SET [userName] = @userName, [email] = @email, [adult] = @adult, [userBio] = @userBio, [avatar] = @avatar, [creation] = @creation WHERE (([userId] = @Original_userId));
+UPDATE [Users] SET [userName] = @userName, [email] = @email, [adult] = @adult, [userBio] = @userBio, [avatar] = @avatar WHERE (([userId] = @original_userId));
 	
-SELECT userId, userName, email, userBio, avatar, creation, adult FROM dbo.Users WHERE (userId = @userId)
+SELECT userId, userName, email, userBio, avatar, creation, adult FROM dbo.Users WHERE (userId = @original_userId)
 
 GO
 /****** Object:  StoredProcedure [dbo].[GetPasswordHashFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
