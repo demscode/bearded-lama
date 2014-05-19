@@ -4,45 +4,77 @@
         <h1 class="page-header"><%: Title %></h1>
 
         <div class="row">
-            <div class="col-md-6 col-md-offset-3">
+            <div class="col-md-8 col-md-offset-2">
                 <section class="panel panel-info">
                     <div class="panel-heading">Register</div>
-                    <div class="panel-body">
-                        <asp:CreateUserWizard ID="RegisterUserWizard" runat="server" ContinueDestinationPageUrl="/">
+                    <div class="panel-body form-horizontal">
+                        <asp:CreateUserWizard RenderOuterTable="false" ID="RegisterUserWizard"
+                            runat="server" ContinueDestinationPageUrl="<%$ RouteUrl:routename=home %>" CreateUserButtonStyle-CssClass="btn btn-primary btn-block">
+                            <LayoutTemplate>
+                                <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
+                                <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
+                            </LayoutTemplate>
                             <WizardSteps>
                                 <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server" Title="Register New Account">
-<%--                                    <ContentTemplate>
+                                    <ContentTemplate>
                                         <div class="form-group">
-                                            <asp:Label ID="Label1" runat="server" AssociatedControlID="UserName">
-                                                Username
-                                            </asp:Label>
-                                            <asp:TextBox runat="server" ID="UserName" CssClass="form-control" />
+                                            <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" CssClass="control-label col-md-3">Username</asp:Label>
+                                            <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" ControlToValidate="UserName"
+                                                ErrorMessage="User Name is required." ToolTip="User Name is required." ValidationGroup="RegisterUserWizard">*</asp:RequiredFieldValidator>
+                                            <div class="col-md-5">
+                                                <asp:TextBox ID="UserName" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="UserName"
-                                            CssClass="text-danger" ErrorMessage="Username required." />
-
                                         <div class="form-group">
-                                            <asp:Label ID="Label2" runat="server" AssociatedControlID="Email">
-                                                Email
-                                            </asp:Label>
-                                            <asp:TextBox runat="server" ID="Email" CssClass="form-control" />
+                                            <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email" CssClass="control-label col-md-3">Email</asp:Label>
+                                            <asp:RequiredFieldValidator ID="EmailRequired" runat="server" ControlToValidate="Email" ErrorMessage="Email is required."
+                                                ToolTip="Email is required." ValidationGroup="RegisterUserWizard">*</asp:RequiredFieldValidator>
+                                            <div class="col-md-5">
+                                                <asp:TextBox ID="Email" runat="server" CssClass="form-control"></asp:TextBox>
+                                            </div>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="Email"
-                                            CssClass="text-danger" ErrorMessage="Email required." />
-
                                         <div class="form-group">
-                                            <asp:Label ID="Label3" runat="server" AssociatedControlID="Password">
-                                                Password
-                                            </asp:Label>
-                                            <asp:TextBox runat="server" ID="Password" TextMode="Password" CssClass="form-control" />
+                                            <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" CssClass="control-label col-md-3">Password</asp:Label>
+                                            <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" ControlToValidate="Password"
+                                                    ErrorMessage="Password is required." ToolTip="Password is required." ValidationGroup="RegisterUserWizard">*</asp:RequiredFieldValidator>
+                                            <div class="col-md-7">
+                                                <asp:TextBox ID="Password" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                            </div>
                                         </div>
-                                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="Password"
-                                            CssClass="text-danger" ErrorMessage="Password required." />
-                                    </ContentTemplate>--%>
+                                        <div class="form-group">
+                                            <asp:Label ID="ConfirmPasswordLabel" runat="server" AssociatedControlID="ConfirmPassword" CssClass="control-label col-md-3">Confirm Password</asp:Label>
+                                            <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" ControlToValidate="ConfirmPassword"
+                                                ErrorMessage="Confirm Password is required." ToolTip="Confirm Password is required." ValidationGroup="RegisterUserWizard">*</asp:RequiredFieldValidator>
+                                            <div class="col-md-7">
+                                                <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password" CssClass="form-control"></asp:TextBox>
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <div class="col-md-5">
+                                            </div>
+                                        </div>
+                                        <tr>
+                                            <td align="center" colspan="2">
+                                                <asp:CompareValidator ID="PasswordCompare" runat="server" ControlToCompare="Password" ControlToValidate="ConfirmPassword"
+                                                    Display="Dynamic" ErrorMessage="The Password and Confirmation Password must match." ValidationGroup="RegisterUserWizard"></asp:CompareValidator>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td align="center" colspan="2" style="color:Red;">
+                                                <asp:Literal ID="ErrorMessage" runat="server" EnableViewState="False"></asp:Literal>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    </ContentTemplate>
                                 </asp:CreateUserWizardStep>
                                 <asp:CompleteWizardStep ID="CompleteWizardStep" runat="server">
-<%--                                    <ContentTemplate>
-                                    </ContentTemplate>--%>
+                                    <ContentTemplate>
+                                        <div class="alert alert-success">
+                                            Hello <strong><%: RegisterUserWizard.UserName %></strong>, your account has been successfully created!
+                                        </div>
+                                        <asp:Button ID="ContinueButton" runat="server" CausesValidation="False" CommandName="Continue"
+                                            Text="Continue" ValidationGroup="RegisterUserWizard" CssClass="btn btn-success btn-block" />
+                                    </ContentTemplate>
                                 </asp:CompleteWizardStep>
                             </WizardSteps>
                         </asp:CreateUserWizard>
