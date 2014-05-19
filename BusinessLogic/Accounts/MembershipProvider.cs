@@ -298,7 +298,13 @@ namespace BusinessLogic.Accounts
 
         public override void UpdateUser(System.Web.Security.MembershipUser user)
         {
-            throw new NotImplementedException();
+            User u = (User)user;
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            int updateStatus = userAdapter.Update(u.UserName, u.Email, u.UserBio, null, (long)u.ProviderUserKey, u.Adult);
+            if (updateStatus != 1)
+            {
+                throw new MembershipCreateUserException("Updating user failed.");
+            }
         }
 
         public override bool ValidateUser(string username, string password)
