@@ -1,17 +1,17 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditMembershipUserDetails.ascx.cs" Inherits="WebPresentation.Templates.UserControls.EditMembershipUserDetails" %>
-<script> // requires jquery
+<script language="javascript"> // requires jquery
     function jsValidateEditEmail(source, args) {
         var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         var isValid = args.Value.match(emailRegex);
 
-        args.isValid = flagInputError(source.id, args.Value, isValid);
+        args.IsValid = flagInputError(source.id, args.Value, isValid);
     }
 
     function jsValidateEditUserDescription(source, args) {
         var maxChars = 200;
         var isValid = args.Value.trim().length <= maxChars;
 
-        args.isValid = flagInputError(source.id, args.Value, isValid);
+        args.IsValid = flagInputError(source.id, args.Value, isValid);
     }
 
     function flagInputError(elementId, elementValue, validityExpression) {
@@ -29,6 +29,7 @@
             $("#" + elementId).prev(".form-control").parent().parent().addClass("has-error");
         }
 
+        console.log(isValid);
         return isValid;
     }
 </script>
@@ -46,8 +47,9 @@
             <asp:Label ID="EditEmailLabel" AssociatedControlID="EditEmail" Text="Email" runat="server" CssClass="control-label col-md-3" />
             <div class="col-md-5">
                 <asp:TextBox ID="EditEmail" runat="server" AutoCompleteType="Email" CssClass="form-control" />
-                <asp:CustomValidator ValidateEmptyText="true" ID="EditEmailValidator" ControlToValidate="EditEmail"
-                    ClientValidationFunction="jsValidateEditEmail" runat="server" ErrorMessage="Enter valid email address" CssClass="hide" />
+                <asp:CustomValidator ValidateEmptyText="true" ID="EditEmailValidator" ControlToValidate="EditEmail" Display="None"
+                    ClientValidationFunction="jsValidateEditEmail" ValidationGroup="EditDetailsValidatorGroup" runat="server"
+                    OnServerValidate="EditEmailValidator_ServerValidate" ErrorMessage="Enter valid email address" />
             </div>
         </div>
         <div class="form-group">
@@ -55,8 +57,9 @@
             <div class="col-md-5">
                 <asp:TextBox ID="EditUserDescription" runat="server" TextMode="MultiLine" CssClass="form-control" />
                 <asp:CustomValidator ValidateEmptyText="true" ID="EditUserDescriptionValidator" ControlToValidate="EditUserDescription"
-                    ClientValidationFunction="jsValidateEditUserDescription" runat="server" ErrorMessage="Description should be 200 characters or less"
-                    CssClass="hide" />
+                    ClientValidationFunction="jsValidateEditUserDescription" ValidationGroup="EditDetailsValidatorGroup" runat="server"
+                    ErrorMessage="Description should be 200 characters or less" OnServerValidate="EditUserDescriptionValidator_ServerValidate"
+                    Display="None" CssClass="hide" />
             </div>
         </div>
         <div class="form-group">
@@ -65,6 +68,9 @@
                 <asp:CheckBox ID="EditAdult" runat="server" CssClass="checkbox" />
             </div>
         </div>
-        <asp:Button ID="SaveUserDetailsButton" Text="Save" runat="server" CssClass="btn btn-primary btn-block" />
+        <asp:ValidationSummary ID="EditUserDetailsValidatorSummary" ValidationGroup="EditDetailsValidatorGroup" DisplayMode="BulletList"
+            HeaderText="You must correct these:" runat="server" CssClass="alert alert-danger" />
+        <asp:Button ID="SaveUserDetailsButton" Text="Save" runat="server" CssClass="btn btn-primary btn-block"
+            ValidationGroup="EditDetailsValidatorGroup" OnClick="SaveUserDetailsButton_Click" />
     </div>
 </section>
