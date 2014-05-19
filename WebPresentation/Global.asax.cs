@@ -91,9 +91,9 @@ namespace WebPresentation
             //    "u/{username}",
             //    "~/Views/User.aspx");
 
-            //routes.MapPageRoute("Game submission page",
-            //    "u/submit",
-            //    "~/Views/User.aspx");
+            routes.MapPageRoute("game-submit",
+                "g/submit",
+                "~/Views/GameSubmit.aspx");
 
             //routes.MapPageRoute("Find game page",
             //    "f/{genre}", // Needs more research

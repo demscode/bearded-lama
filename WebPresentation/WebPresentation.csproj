@@ -77,6 +77,7 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
     <Content Include="Views\Errors\404.aspx" />
+    <Content Include="Views\GameSubmit.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\MembersOnly\Settings.aspx" />
@@ -111,6 +112,13 @@
     </Compile>
     <Compile Include="Views\Errors\404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\GameSubmit.aspx.cs">
+      <DependentUpon>GameSubmit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\GameSubmit.aspx.designer.cs">
+      <DependentUpon>GameSubmit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
