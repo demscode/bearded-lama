@@ -7,15 +7,15 @@ using DataAccess.GamesTableAdapters;
 using DataSets;
 
 
-namespace BusinessLogic {
+namespace BusinessLogic.Games {
 
     [System.ComponentModel.DataObject]
-    public class GameAccess {
+    public class Access {
 
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesRow GetGameById(int gameId) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
-            Games.GamesDataTable allGames = gamesTableAdapter.GetData();
+            DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             return allGames.FindBygameId(gameId);
         }
 
