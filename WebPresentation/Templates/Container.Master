@@ -18,6 +18,7 @@
 <body>
 	<!-- Header / Naviigation -->
     <div class="wrap">
+    <form id="ContainerForm" runat="server">
         <header>
             <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
                 <div class="container-fluid">
@@ -28,24 +29,49 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="/">Bearded Lama</a>
+                        <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=home%>" runat="server" CssClass="navbar-brand">Bearded Lama</asp:HyperLink>
                     </div>
                     <div class="navbar-collapse collapse">
                         <ul class="nav navbar-nav">
                             <li><a href="#">About</a></li>
                             <li><a href="#">Games</a></li>
                             <li class="navbar-form navbar-left">
-                                <form class="input-group col-xs-10 col-xs-offset-1" role="form">
+                                <div class="input-group col-xs-10 col-xs-offset-1" role="form">
                                     <span class="input-group-btn">
                                         <button class="btn btn-default" type="button">Find</button>
                                     </span>
                                     <input type="text" class="form-control" placeholder="games..." />
-                                </form>
+                                </div>
                             </li>
                         </ul>
                         <div class="navbar-form navbar-right" role="form">
-                            <button class="btn btn-success" type="button">Sign In</button>
-                            <button class="btn btn-primary" type="button">Sign Up</button>
+                            <asp:LoginView ID="LoginView1" runat="server">
+                                <AnonymousTemplate>
+                                    <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=login%>" runat="server" CssClass="btn btn-success">Login</asp:HyperLink>
+                                    <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=register%>" runat="server" CssClass="btn btn-primary">Register</asp:HyperLink>
+                                </AnonymousTemplate>
+                                <LoggedInTemplate>
+                                    <div class="btn-group">
+                                        <asp:HyperLink OnLoad="ConstructLoggedInUserProfileLink" ID="LoggedInProfileLink" CssClass="btn btn-default" runat="server">
+                                            <asp:LoginName ID="ContainerLoginName" runat="server" />
+                                        </asp:HyperLink>
+                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                            <span class="caret"></span>
+                                            <span class="sr-only"></span>
+                                        </button>
+                                        <ul class="dropdown-menu" role="menu">
+                                            <li>
+                                                <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=account-settings%>" runat="server">
+                                                    Account Settings
+                                                </asp:HyperLink>
+                                            </li>
+                                            <li>
+                                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </LoggedInTemplate>
+                            </asp:LoginView>
                         </div>
                     </div>
                 </div>
@@ -60,6 +86,7 @@
         </div>
 
         <div class="push"></div>
+    </form>
     </div>
 
     <!-- Footer -->

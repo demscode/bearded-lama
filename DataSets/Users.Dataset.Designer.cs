@@ -289,13 +289,15 @@ namespace DataSets {
             
             private global::System.Data.DataColumn columnemail;
             
-            private global::System.Data.DataColumn columndob;
-            
             private global::System.Data.DataColumn columnuserBio;
             
             private global::System.Data.DataColumn columnavatar;
             
             private global::System.Data.DataColumn columncreation;
+            
+            private global::System.Data.DataColumn columnpasswordHash;
+            
+            private global::System.Data.DataColumn columnadult;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -356,14 +358,6 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn dobColumn {
-                get {
-                    return this.columndob;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public global::System.Data.DataColumn userBioColumn {
                 get {
                     return this.columnuserBio;
@@ -383,6 +377,22 @@ namespace DataSets {
             public global::System.Data.DataColumn creationColumn {
                 get {
                     return this.columncreation;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn passwordHashColumn {
+                get {
+                    return this.columnpasswordHash;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn adultColumn {
+                get {
+                    return this.columnadult;
                 }
             }
             
@@ -423,16 +433,17 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public UsersRow AddUsersRow(string userName, string email, System.DateTime dob, string userBio, byte[] avatar, System.DateTime creation) {
+            public UsersRow AddUsersRow(string userName, string email, string userBio, byte[] avatar, System.DateTime creation, string passwordHash, bool adult) {
                 UsersRow rowUsersRow = ((UsersRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         null,
                         userName,
                         email,
-                        dob,
                         userBio,
                         avatar,
-                        creation};
+                        creation,
+                        passwordHash,
+                        adult};
                 rowUsersRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowUsersRow);
                 return rowUsersRow;
@@ -465,10 +476,11 @@ namespace DataSets {
                 this.columnuserId = base.Columns["userId"];
                 this.columnuserName = base.Columns["userName"];
                 this.columnemail = base.Columns["email"];
-                this.columndob = base.Columns["dob"];
                 this.columnuserBio = base.Columns["userBio"];
                 this.columnavatar = base.Columns["avatar"];
                 this.columncreation = base.Columns["creation"];
+                this.columnpasswordHash = base.Columns["passwordHash"];
+                this.columnadult = base.Columns["adult"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -480,14 +492,16 @@ namespace DataSets {
                 base.Columns.Add(this.columnuserName);
                 this.columnemail = new global::System.Data.DataColumn("email", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnemail);
-                this.columndob = new global::System.Data.DataColumn("dob", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columndob);
                 this.columnuserBio = new global::System.Data.DataColumn("userBio", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnuserBio);
                 this.columnavatar = new global::System.Data.DataColumn("avatar", typeof(byte[]), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnavatar);
                 this.columncreation = new global::System.Data.DataColumn("creation", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreation);
+                this.columnpasswordHash = new global::System.Data.DataColumn("passwordHash", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpasswordHash);
+                this.columnadult = new global::System.Data.DataColumn("adult", typeof(bool), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnadult);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnuserId}, true));
                 this.columnuserId.AutoIncrement = true;
@@ -499,6 +513,7 @@ namespace DataSets {
                 this.columnuserName.MaxLength = 12;
                 this.columnemail.MaxLength = 50;
                 this.columnuserBio.MaxLength = 300;
+                this.columnpasswordHash.MaxLength = 32;
                 this.ExtendedProperties.Add("Generator_TablePropName", "_Users");
                 this.ExtendedProperties.Add("Generator_UserTableName", "Users");
             }
@@ -686,22 +701,6 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public System.DateTime dob {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableUsers.dobColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'dob\' in table \'Users\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableUsers.dobColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string userBio {
                 get {
                     try {
@@ -750,6 +749,38 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string passwordHash {
+                get {
+                    try {
+                        return ((string)(this[this.tableUsers.passwordHashColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'passwordHash\' in table \'Users\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsers.passwordHashColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool adult {
+                get {
+                    try {
+                        return ((bool)(this[this.tableUsers.adultColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'adult\' in table \'Users\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableUsers.adultColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsuserNameNull() {
                 return this.IsNull(this.tableUsers.userNameColumn);
             }
@@ -770,18 +801,6 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetemailNull() {
                 this[this.tableUsers.emailColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsdobNull() {
-                return this.IsNull(this.tableUsers.dobColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetdobNull() {
-                this[this.tableUsers.dobColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -818,6 +837,30 @@ namespace DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcreationNull() {
                 this[this.tableUsers.creationColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspasswordHashNull() {
+                return this.IsNull(this.tableUsers.passwordHashColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpasswordHashNull() {
+                this[this.tableUsers.passwordHashColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsadultNull() {
+                return this.IsNull(this.tableUsers.adultColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetadultNull() {
+                this[this.tableUsers.adultColumn] = global::System.Convert.DBNull;
             }
         }
         

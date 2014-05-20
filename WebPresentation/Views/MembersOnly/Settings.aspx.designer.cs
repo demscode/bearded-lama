@@ -7,36 +7,27 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPresentation.Templates {
+namespace WebPresentation.Views.MembersOnly {
     
     
-    public partial class Container {
+    public partial class Settings {
         
         /// <summary>
-        /// ContainerForm control.
+        /// MainChangePassword control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ContainerForm;
+        protected global::System.Web.UI.WebControls.ChangePassword MainChangePassword;
         
         /// <summary>
-        /// LoginView1 control.
+        /// UserControlEditUserDetails control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
-        
-        /// <summary>
-        /// Main control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Main;
+        protected global::WebPresentation.Templates.UserControls.EditMembershipUserDetails UserControlEditUserDetails;
     }
 }
