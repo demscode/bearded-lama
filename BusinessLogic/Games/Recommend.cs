@@ -16,7 +16,7 @@ namespace BusinessLogic.Games {
     /// mix of both.
     /// </summary>
     [System.ComponentModel.DataObject]
-    public class Recommends {
+    public class Recommend {
 
         /// <summary>
         /// Retrieves a set of game recommendations to be used in Game information pages.
