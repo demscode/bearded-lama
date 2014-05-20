@@ -61,6 +61,10 @@ namespace WebPresentation
                 "u/login",
                 "~/Views/Login.aspx");
 
+            routes.MapPageRoute("about",
+                "about",
+                "~/Views/About.aspx");
+
             //routes.MapPageRoute("Unique game page",
             //    "g/{id}",
             //    "~/Views/Game.aspx");
