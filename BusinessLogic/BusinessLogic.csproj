@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -46,6 +48,7 @@
     <Compile Include="Accounts\MembershipProvider.cs" />
     <Compile Include="Accounts\MembershipUser.cs" />
     <Compile Include="Accounts\AccountsRoleProvider.cs" />
+    <Compile Include="ChatHub.cs" />
     <Compile Include="GameAccess.cs" />
     <Compile Include="GameRecommendations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -65,6 +65,10 @@ namespace WebPresentation
                 "about",
                 "~/Views/About.aspx");
 
+            //routedata for chathub
+            RouteTable.Routes.MapHubs();
+            
+            
             //routes.MapPageRoute("Unique game page",
             //    "g/{id}",
             //    "~/Views/Game.aspx");
@@ -90,6 +94,13 @@ namespace WebPresentation
             routes.MapPageRoute("error-404",
                 "404",
                 "~/Views/Errors/404.aspx");
+            //routes.MapPageRoute("User settings page",
+            //    "u/settings",
+            //    "~/Views/User.aspx");
+
+            //routes.MapPageRoute("User page by ID",
+            //    "u/{id}",
+            //    "~/Views/User.aspx");
 
             //routes.MapPageRoute("User page by username",
             //    "u/{username}",

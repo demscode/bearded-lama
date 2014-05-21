@@ -45,6 +45,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Bans.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Chat.cs">
+      <DependentUpon>Chat.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Chat.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
