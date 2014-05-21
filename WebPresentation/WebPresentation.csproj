@@ -78,6 +78,7 @@
     <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
     <Content Include="Views\Errors\404.aspx" />
     <Content Include="Views\About.aspx" />
+    <Content Include="Views\Game.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Login.aspx" />
     <Content Include="Views\MembersOnly\Settings.aspx" />
@@ -119,6 +120,13 @@
     </Compile>
     <Compile Include="Views\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Game.aspx.cs">
+      <DependentUpon>Game.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Game.aspx.designer.cs">
+      <DependentUpon>Game.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Index.aspx.cs">
       <DependentUpon>Index.aspx</DependentUpon>
@@ -171,6 +179,10 @@
     <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
       <Project>{95071f7b-9479-48d1-a1a2-f7e16965b9c6}</Project>
       <Name>BusinessLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataSets\DataSets.csproj">
+      <Project>{a14fbedc-0926-4bec-94f2-0ef14b7c9b55}</Project>
+      <Name>DataSets</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
