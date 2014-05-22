@@ -32,8 +32,13 @@ namespace WebPresentation.Views {
             if (!IsPostBack) {
 
                 BusinessLogic.Accounts.User user = (BusinessLogic.Accounts.User)System.Web.Security.Membership.GetUser();
-
-                Games.GamesDataTable table = GameRecommendations.GetGamePageRecommendations(gameId, user.UserName);
+                string userName;
+                if (user == null) {
+                    userName = "";
+                } else {
+                    userName = user.UserName;
+                }
+                Games.GamesDataTable table = GameRecommendations.GetGamePageRecommendations(gameId, userName);
 
                 Repeater1.DataSource = table.Take(4);
                 Repeater1.DataBind();
