@@ -25,6 +25,7 @@ namespace WebPresentation.Templates
             VirtualPathData userProfilePath = RouteTable.Routes.GetVirtualPath(null, "user-profile", parameters);
             HyperLink link = (HyperLink)sender;
             link.NavigateUrl = userProfilePath.VirtualPath;
+            link.Attributes.Add("data-toggle", "dropdown");
         }
     }
 }

@@ -17,6 +17,14 @@ header nav.navbar {
     margin-bottom: 0;
 }
 
+@media (min-width: 768px) {
+    .navbar-form .input-group-btn,
+    .navbar-form .input-group-addon {
+    width: auto;
+    }
+}
+
+
 article.game-short {
     padding: 10px;
 }
