@@ -31,26 +31,15 @@ namespace WebPresentation.Views {
                 gameRestrict.InnerText = "No";
             }
 
-            BusinessLogic.Accounts.User user = (BusinessLogic.Accounts.User)System.Web.Security.Membership.GetUser();
+            if (!IsPostBack) {
 
-            Games.GamesDataTable table = GameRecommendations.GetGamePageRecommendations(gameId, user.UserName);
+                BusinessLogic.Accounts.User user = (BusinessLogic.Accounts.User)System.Web.Security.Membership.GetUser();
 
-            recommendedGame1.InnerHtml = GameBoxOutput(table[0]);
-            recommendedGame2.InnerHtml = GameBoxOutput(table[1]);
-            recommendedGame3.InnerHtml = GameBoxOutput(table[2]);
-            recommendedGame4.InnerHtml = GameBoxOutput(table[3]);
-        }
+                Games.GamesDataTable table = GameRecommendations.GetGamePageRecommendations(gameId, user.UserName);
 
-        private string GameBoxOutput(Games.GamesRow game) {
-            return "<article class=\"thumbnail game-short\">" +
-                "<img src=\"http://placehold.it/600x150\" class=\"img-responsive img-rounded\"" +
-                "alt=\"placeholder for game image if avail\" />" +
-                "<button class=\"btn btn-primary btn-sm btn-block\" type=\"button\" onclick=\"window.location='/g/" +
-                game.gameId.ToString() + "';\">Play »</button>" +
-                "<hr />" +
-                "<h3>" + game.gameName + " <small>by " + game.userId.ToString() + "</small></h3>" + // pending actually username
-                "<p>" + game.gameDesc + "</p>" +
-                "</article>";
+                Repeater1.DataSource = table.Take(4);
+                Repeater1.DataBind();
+            }
         }
     }
 }

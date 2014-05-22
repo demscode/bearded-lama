@@ -1,4 +1,7 @@
 ﻿<%@ Page Title="Game" Language="C#" MasterPageFile="~/Templates/Container.Master" AutoEventWireup="true" CodeBehind="Game.aspx.cs" Inherits="WebPresentation.Views.Game" %>
+
+<%@ Register Src="~/Templates/UserControls/GameBox.ascx" TagPrefix="uc1" TagName="GameBox" %>
+
 <asp:Content ID="MainGame" ContentPlaceHolderID="Main" runat="server">
     <section class="container">
         <h1 id="GamePageHeader" class="page-header" runat="server"></h1>
@@ -27,14 +30,15 @@
                 <h2>Similar Games</h2>
                 <section class="container-fluid">
                     <div class="row">
-                        <div class="col-xs-6 col-md-3" id="recommendedGame1" runat="server">
-                        </div>
-                        <div class="col-xs-6 col-md-3" id="recommendedGame2" runat="server">
-                        </div>
-                        <div class="col-xs-6 col-md-3" id="recommendedGame3" runat="server">
-                        </div>
-                        <div class="col-xs-6 col-md-3" id="recommendedGame4" runat="server">
-                        </div>
+                        <asp:Repeater ID="Repeater1" runat="server">
+                            <ItemTemplate>
+                                <uc1:GameBox runat="server"
+                                    GameId='<%#DataBinder.Eval(Container.DataItem, "gameId")%>'
+                                    GameName='<%#DataBinder.Eval(Container.DataItem, "gameName")%>'
+                                    GameUploader='<%#DataBinder.Eval(Container.DataItem, "userId")%>'
+                                    GameDescription='<%#DataBinder.Eval(Container.DataItem, "gameDesc")%>' />
+                            </ItemTemplate>
+                        </asp:Repeater>
                     </div>
                 </section>
             </div>
