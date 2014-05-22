@@ -35,7 +35,7 @@
                                 <uc1:GameBox runat="server"
                                     GameId='<%#DataBinder.Eval(Container.DataItem, "gameId")%>'
                                     GameName='<%#DataBinder.Eval(Container.DataItem, "gameName")%>'
-                                    GameUploader='<%#DataBinder.Eval(Container.DataItem, "userId")%>'
+                                    GameCategory='<%#DataBinder.Eval(Container.DataItem, "category")%>'
                                     GameDescription='<%#DataBinder.Eval(Container.DataItem, "gameDesc")%>' />
                             </ItemTemplate>
                         </asp:Repeater>

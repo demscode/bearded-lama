@@ -10,13 +10,13 @@ namespace WebPresentation.Templates.UserControls {
         protected void Page_Load(object sender, EventArgs e) {
             playButton.Attributes.Add("onClick", "window.location='/g/" + GameId.ToString() + "';");
             gameName.InnerText = GameName;
-            userName.InnerText = GameUploader.ToString();
+            category.InnerText = GameCategory;
             gameDesc.InnerText = GameDescription;
         }
 
         public long GameId { get; set; }
         public string GameName { get; set; }
-        public long GameUploader { get; set; }
+        public string GameCategory { get; set; }
         public string GameDescription { get; set; }
     }
 }

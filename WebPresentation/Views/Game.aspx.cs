@@ -15,15 +15,13 @@ namespace WebPresentation.Views {
         protected void Page_Load(object sender, EventArgs e) {
             gameId = Convert.ToInt32(Page.RouteData.Values["id"]);
             Games.GamesRow gameData = GameAccess.GetGameById(gameId);
-            // Pending getting username from userId
-            //long gamerId = long.Parse((userTable.Select("userName = '" + user + "'")[0])["userId"].ToString());
 
             GamePageHeader.InnerText = gameData.gameName;
             gameDescription.InnerText = gameData.gameDesc;
             gameCategory.InnerText = gameData.category;
             gameTags.InnerText = gameData.tags;
             gameRating.InnerText = gameData.rating.ToString();
-            gameUploader.InnerText = gameData.userId.ToString();// replace with username
+            gameUploader.InnerText = GameAccess.GetUploader(gameId);
             gameUpDate.InnerText = gameData.subDate.ToShortDateString();
             if (gameData.restrict) {
                 gameRestrict.InnerText = "Yes";

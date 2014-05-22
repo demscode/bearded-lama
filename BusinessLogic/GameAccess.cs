@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Data;
 using DataAccess.GamesTableAdapters;
+using DataAccess.UsersTableAdapters;
 using DataSets;
 
 
@@ -39,6 +40,13 @@ namespace BusinessLogic {
         public static void DeleteProduct(long original_ProductId) {
             GamesTableAdapter adapter = new GamesTableAdapter();
             adapter.Delete(original_ProductId);
+        }
+
+        public static string GetUploader(int gameId) {
+            GamesTableAdapter gameAdapter = new GamesTableAdapter();
+            UsersTableAdapter userAdapter = new UsersTableAdapter();
+            Users.UsersDataTable userTable = userAdapter.GetData();
+            return (userTable.Select("userId = " + gameId)[0])["userName"].ToString();
         }
     }
 }
