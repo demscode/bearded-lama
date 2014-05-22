@@ -76,6 +76,7 @@
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
+    <Content Include="Templates\UserControls\GameBox.ascx" />
     <Content Include="Views\Errors\404.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Game.aspx" />
@@ -106,6 +107,13 @@
     </Compile>
     <Compile Include="Templates\UserControls\EditMembershipUserDetails.ascx.designer.cs">
       <DependentUpon>EditMembershipUserDetails.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\UserControls\GameBox.ascx.cs">
+      <DependentUpon>GameBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\UserControls\GameBox.ascx.designer.cs">
+      <DependentUpon>GameBox.ascx</DependentUpon>
     </Compile>
     <Compile Include="Views\Errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
