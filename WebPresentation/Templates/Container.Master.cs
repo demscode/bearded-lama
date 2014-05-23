@@ -27,5 +27,9 @@ namespace WebPresentation.Templates
             link.NavigateUrl = userProfilePath.VirtualPath;
             link.Attributes.Add("data-toggle", "dropdown");
         }
+
+        protected void searchButton_Click(object sender, EventArgs e) {
+            Response.Redirect("../f/" + searchTextBox.Value);
+        }
     }
 }

@@ -77,8 +77,9 @@ namespace BusinessLogic {
         public static string GetUploader(int gameId) {
             GamesTableAdapter gameAdapter = new GamesTableAdapter();
             UsersTableAdapter userAdapter = new UsersTableAdapter();
+            Games.GamesDataTable gameTable = gameAdapter.GetData();
             Users.UsersDataTable userTable = userAdapter.GetData();
-            return (userTable.Select("userId = " + gameId)[0])["userName"].ToString();
+            return (userTable.Select("userId = " + gameTable.FindBygameId(gameId).userId)[0])["userName"].ToString();
         }
     }
 }
