@@ -7,54 +7,45 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPresentation.Views {
+namespace WebPresentation.Templates.UserControls {
     
     
-    public partial class User {
+    public partial class GameBox {
         
         /// <summary>
-        /// UserPageHeader control.
+        /// playButton control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl UserPageHeader;
+        protected global::System.Web.UI.HtmlControls.HtmlButton playButton;
         
         /// <summary>
-        /// ddJoined control.
+        /// gameName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddJoined;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameName;
         
         /// <summary>
-        /// ddEmail control.
+        /// category control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddEmail;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl category;
         
         /// <summary>
-        /// ddDescription control.
+        /// gameDesc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddDescription;
-        
-        /// <summary>
-        /// ddFavCategories control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ddFavCategories;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameDesc;
     }
 }

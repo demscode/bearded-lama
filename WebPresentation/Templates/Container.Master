@@ -32,8 +32,8 @@
                         <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=home%>" runat="server" CssClass="navbar-brand">Bearded Lama</asp:HyperLink>
                     </div>
                     <div class="navbar-collapse collapse">
-                        <ul class="nav navbar-nav">
-                            <li><a href="#">About</a></li>
+                        <ul class="nav navbar-nav navbar-left">
+                            <li><asp:HyperLink NavigateUrl="<%$RouteUrl:routename=about%>" Text="About" runat="server" /></li>
                             <li><a href="#">Games</a></li>
                             <li class="navbar-form navbar-left">
                                 <div class="input-group col-xs-10 col-xs-offset-1" role="form">
@@ -44,21 +44,17 @@
                                 </div>
                             </li>
                         </ul>
-                        <div class="navbar-form navbar-right" role="form">
+                        <ul class="nav navbar-nav navbar-right">
                             <asp:LoginView ID="LoginView1" runat="server">
                                 <AnonymousTemplate>
-                                    <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=login%>" runat="server" CssClass="btn btn-success">Login</asp:HyperLink>
-                                    <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=register%>" runat="server" CssClass="btn btn-primary">Register</asp:HyperLink>
+                                    <li><asp:HyperLink ID="HyperLink1" NavigateUrl="<%$RouteUrl:routename=login%>" runat="server">Login</asp:HyperLink></li>
+                                    <li><asp:HyperLink ID="HyperLink2" NavigateUrl="<%$RouteUrl:routename=register%>" runat="server">Register</asp:HyperLink></li>
                                 </AnonymousTemplate>
                                 <LoggedInTemplate>
-                                    <div class="btn-group">
-                                        <asp:HyperLink OnLoad="ConstructLoggedInUserProfileLink" ID="LoggedInProfileLink" CssClass="btn btn-default" runat="server">
-                                            <asp:LoginName ID="ContainerLoginName" runat="server" />
+                                    <li class="dropdown">
+                                        <asp:HyperLink OnLoad="ConstructLoggedInUserProfileLink" ID="LoggedInProfileLink" CssClass="dropdown-toggle" runat="server">
+                                            <asp:LoginName ID="ContainerLoginName" runat="server" /> <span class="caret"></span>
                                         </asp:HyperLink>
-                                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                            <span class="caret"></span>
-                                            <span class="sr-only"></span>
-                                        </button>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
                                                 <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=game-submit%>" runat="server">
@@ -70,14 +66,16 @@
                                                     Account Settings
                                                 </asp:HyperLink>
                                             </li>
-                                            <li>
-                                                <asp:LoginStatus ID="LoginStatus1" runat="server" />
-                                            </li>
                                         </ul>
-                                    </div>
+                                    </li>
+                                    <li class="navbar-form">
+                                        <span class="form-group">
+                                            <asp:LoginStatus ID="LoginStatus1" class="btn btn-default" runat="server" />
+                                        </span>
+                                    </li>
                                 </LoggedInTemplate>
                             </asp:LoginView>
-                        </div>
+                        </ul>
                     </div>
                 </div>
             </nav>
