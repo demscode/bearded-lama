@@ -1,20 +1,24 @@
 ﻿<%@ Page Title="Submit Game" Language="C#" MasterPageFile="~/Templates/Container.Master" AutoEventWireup="true" CodeBehind="GameSubmit.aspx.cs" Inherits="WebPresentation.Views.GameSubmit" %>
+<%@ Register TagPrefix="uc" TagName="SubmitGame" Src="~/Templates/UserControls/SubmitGame.ascx" %>
 <asp:Content ID="MainGameSubmit" ContentPlaceHolderID="Main" runat="server">
     <section class="container">
+        <h1 class="page-header">Game Submission</h1>
+
         <div class="row">
-            <%-- Game submission form --%>
+            <div class="col-md-8 col-md-offset-2 ">
+                <uc:SubmitGame runat="server" />
+            </div>
         </div>
 
         <h2 id="getting-started" class="page-header">Getting Started <a href="#getting-started">#</a></h2>
         <h3>Step one: Login</h3>
         <p>To get started, you first have to be logged in to a Bearded Lama account.</p>
         <h3>Step two: Tweak your Game Project</h3>
-        <p>Some requirements need to be met for your game to run on Bearded Lama. The easy parts are:
-            <ol>
-                <li>Single HTML element entry point.</li>
-                <li>Javascript in seperate file(s).</li>
-            </ol>
-        </p>
+        <p>Some requirements need to be met for your game to run on Bearded Lama. The easy parts are:</p>
+        <ol>
+            <li>Single HTML element entry point.</li>
+            <li>Javascript in seperate file(s).</li>
+        </ol>
         <p>Read about the other requirements in the <a href="#documentation">documentation</a>.</p>
         <h3>Step three: Add bearded.json to your Game Project</h3>
         <p>Your <code>bearded.json</code> tells Bearded Lama information about how to use the game.</p>

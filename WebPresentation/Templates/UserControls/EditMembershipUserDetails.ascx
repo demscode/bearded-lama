@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditMembershipUserDetails.ascx.cs" Inherits="WebPresentation.Templates.UserControls.EditMembershipUserDetails" %>
-<script language="javascript"> // requires jquery
+<script> // requires jquery
     function jsValidateEditEmail(source, args) {
         var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
         var isValid = args.Value.match(emailRegex);

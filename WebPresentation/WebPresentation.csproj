@@ -79,8 +79,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
     <Content Include="Templates\UserControls\GameBox.ascx" />
+    <Content Include="Templates\UserControls\SubmitGame.ascx" />
     <Content Include="Views\Errors\404.aspx" />
-    <Content Include="Views\GameSubmit.aspx" />
+    <Content Include="Views\MembersOnly\GameSubmit.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Game.aspx" />
     <Content Include="Views\Index.aspx" />
@@ -118,6 +119,13 @@
     <Compile Include="Templates\UserControls\GameBox.ascx.designer.cs">
       <DependentUpon>GameBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\UserControls\SubmitGame.ascx.cs">
+      <DependentUpon>SubmitGame.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\UserControls\SubmitGame.ascx.designer.cs">
+      <DependentUpon>SubmitGame.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -125,11 +133,11 @@
     <Compile Include="Views\Errors\404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Views\GameSubmit.aspx.cs">
+    <Compile Include="Views\MembersOnly\GameSubmit.aspx.cs">
       <DependentUpon>GameSubmit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Views\GameSubmit.aspx.designer.cs">
+    <Compile Include="Views\MembersOnly\GameSubmit.aspx.designer.cs">
       <DependentUpon>GameSubmit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\About.aspx.cs">
