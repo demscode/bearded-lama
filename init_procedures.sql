@@ -1,13 +1,11 @@
 USE [bearded_lama]
 GO
-CREATE SCHEMA [bearded_lama]
-GO
-/****** Object:  StoredProcedure [bearded_lama].[DeleteGame]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteGame]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[DeleteGame]
+CREATE PROCEDURE [dbo].[DeleteGame]
 (
 	@Original_gameId bigint
 )
@@ -15,12 +13,12 @@ AS
 	SET NOCOUNT OFF;
 DELETE FROM [Games] WHERE (([gameId] = @Original_gameId))
 GO
-/****** Object:  StoredProcedure [bearded_lama].[DeletePost]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeletePost]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[DeletePost]
+CREATE PROCEDURE [dbo].[DeletePost]
 (
 	@Original_postId bigint
 )
@@ -28,12 +26,12 @@ AS
 	SET NOCOUNT OFF;
 DELETE FROM [Posts] WHERE (([postId] = @Original_postId))
 GO
-/****** Object:  StoredProcedure [bearded_lama].[DeleteUser]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[DeleteUser]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[DeleteUser]
+CREATE PROCEDURE [dbo].[DeleteUser]
 (
 	@Original_userId bigint
 )
@@ -41,73 +39,73 @@ AS
 	SET NOCOUNT OFF;
 DELETE FROM [Users] WHERE (([userId] = @Original_userId))
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetBans]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetBans]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetBans]
+CREATE PROCEDURE [dbo].[GetBans]
 AS
 	SET NOCOUNT ON;
 SELECT * FROM Bans
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetChat]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetChat]
+CREATE PROCEDURE [dbo].[GetChat]
 AS
 	SET NOCOUNT ON;
 SELECT * FROM Chat
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetGameHistory]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetGameHistory]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetGameHistory]
+CREATE PROCEDURE [dbo].[GetGameHistory]
 AS
 	SET NOCOUNT ON;
 SELECT * FROM GameHistory
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetGames]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetGames]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetGames]
+CREATE PROCEDURE [dbo].[GetGames]
 AS
 	SET NOCOUNT ON;
 SELECT * FROM Games
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetPosts]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetPosts]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetPosts]
+CREATE PROCEDURE [dbo].[GetPosts]
 AS
 	SET NOCOUNT ON;
 SELECT * FROM Posts
 GO
-/****** Object:  StoredProcedure [bearded_lama].[GetUsers]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[GetUsers]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[GetUsers]
+CREATE PROCEDURE [dbo].[GetUsers]
 AS
 	SET NOCOUNT ON;
 SELECT userId, userName, email, userBio, creation, adult
 FROM Users
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewBan]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewBan]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewBan]
+CREATE PROCEDURE [dbo].[NewBan]
 (
 	@userId bigint,
 	@gameId bigint,
@@ -117,12 +115,12 @@ AS
 	SET NOCOUNT OFF;
 INSERT INTO [Bans] ([userId], [gameId], [duration]) VALUES (@userId, @gameId, @duration)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewChat]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewChat]
+CREATE PROCEDURE [dbo].[NewChat]
 (
 	@userId bigint,
 	@gameId bigint,
@@ -133,12 +131,12 @@ AS
 	SET NOCOUNT OFF;
 INSERT INTO [Chat] ([userId], [gameId], [message], [timeStamp]) VALUES (@userId, @gameId, @message, @timeStamp)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewGame]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewGame]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewGame]
+CREATE PROCEDURE [dbo].[NewGame]
 (
 	@gameName nvarchar(50),
 	@gameDesc nvarchar(300),
@@ -156,12 +154,12 @@ INSERT INTO [Games] ([gameName], [gameDesc], [publicPackage], [tags], [rating], 
 	
 SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = SCOPE_IDENTITY())
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewGameEntry]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewGameEntry]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewGameEntry]
+CREATE PROCEDURE [dbo].[NewGameEntry]
 (
 	@userId bigint,
 	@gameId bigint,
@@ -171,12 +169,12 @@ AS
 	SET NOCOUNT OFF;
 INSERT INTO [GameHistory] ([userId], [gameId], [timeSpan]) VALUES (@userId, @gameId, @timeSpan)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewPost]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewPost]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewPost]
+CREATE PROCEDURE [dbo].[NewPost]
 (
 	@userId bigint,
 	@pageId bigint,
@@ -190,12 +188,12 @@ INSERT INTO [Posts] ([userId], [pageId], [content], [timeStamp], [postId]) VALUE
 	
 SELECT userId, pageId, content, timeStamp, postId FROM dbo.Posts WHERE (postId = @postId)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[NewUser]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[NewUser]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[NewUser]
+CREATE PROCEDURE [dbo].[NewUser]
 (
 	@userName nvarchar(12),
 	@email nvarchar(50),
@@ -208,12 +206,12 @@ INSERT INTO [Users] ([userName], [email], [passwordHash], [creation]) VALUES (@u
 	
 SELECT userId, userName, email, passwordHash, creation FROM dbo.Users WHERE (userId = SCOPE_IDENTITY())
 GO
-/****** Object:  StoredProcedure [bearded_lama].[UpdateGame]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateGame]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[UpdateGame]
+CREATE PROCEDURE [dbo].[UpdateGame]
 (
 	@gameName nvarchar(50),
 	@gameDesc nvarchar(300),
@@ -233,12 +231,12 @@ UPDATE [Games] SET [gameName] = @gameName, [gameDesc] = @gameDesc, [publicPackag
 	
 SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = @gameId)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[UpdatePost]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdatePost]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[UpdatePost]
+CREATE PROCEDURE [dbo].[UpdatePost]
 (
 	@userId bigint,
 	@pageId bigint,
@@ -253,12 +251,12 @@ UPDATE [Posts] SET [userId] = @userId, [pageId] = @pageId, [content] = @content,
 	
 SELECT userId, pageId, content, timeStamp, postId FROM dbo.Posts WHERE (postId = @postId)
 GO
-/****** Object:  StoredProcedure [bearded_lama].[UpdateUser]    Script Date: 30/04/2014 5:24:28 PM ******/
+/****** Object:  StoredProcedure [dbo].[UpdateUser]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-CREATE PROCEDURE [bearded_lama].[UpdateUser]
+CREATE PROCEDURE [dbo].[UpdateUser]
 (
 	@userName nvarchar(12),
 	@email nvarchar(50),
@@ -274,7 +272,7 @@ UPDATE [Users] SET [userName] = @userName, [email] = @email, [adult] = @adult, [
 SELECT userId, userName, email, userBio, avatar, creation, adult FROM dbo.Users WHERE (userId = @original_userId)
 
 GO
-/****** Object:  StoredProcedure [dbo].[GetPasswordHashFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
+/****** Object:  StoredPROCEDURE [dbo].[GetPasswordHashFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -289,7 +287,7 @@ SELECT        passwordHash
 FROM            Users
 WHERE        (userName = @username)
 GO
-/****** Object:  StoredProcedure [dbo].[GetUserIdFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
+/****** Object:  StoredPROCEDURE [dbo].[GetUserIdFromUserName]    Script Date: 18/05/2014 5:37:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -304,7 +302,7 @@ SELECT        userId
 FROM            Users
 WHERE        (userName = @username)
 GO
-/****** Object:  StoredProcedure [dbo].[GetUserNameFromEmail]    Script Date: 18/05/2014 5:37:27 PM ******/
+/****** Object:  StoredPROCEDURE [dbo].[GetUserNameFromEmail]    Script Date: 18/05/2014 5:37:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
@@ -319,7 +317,7 @@ SELECT        userName
 FROM            Users
 WHERE        (email = @email)
 GO
-/****** Object:  StoredProcedure [dbo].[UpdatePasswordHash]    Script Date: 18/05/2014 5:37:27 PM ******/
+/****** Object:  StoredPROCEDURE [dbo].[UpdatePasswordHash]    Script Date: 18/05/2014 5:37:27 PM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
