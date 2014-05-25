@@ -7,11 +7,17 @@ using System.Web.UI.WebControls;
 
 namespace WebPresentation.Templates
 {
+
     public partial class Chat : System.Web.UI.UserControl
     {
+        public Int32 gameId()
+        {
+            return Convert.ToInt32(Page.RouteData.Values["id"]);
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

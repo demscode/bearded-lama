@@ -1,69 +1,72 @@
 ﻿using System;
 using System.Web;
+using System.Web.UI;
+using System.Web.Routing;
 using Microsoft.AspNet.SignalR;
 using DataAccess.ChatTableAdapters;
+using DataAccess.UsersTableAdapters;
 using DataSets;
 using System.Data;
+using System.Web.Security;
+
 
 
 namespace SignalRChat
 {
+
     public class  ChatHub : Hub
     {
-        public static DataSets.Chat.ChatDataTable getLastMessages(int gameID)
+
+        
+        
+        public static int getUserId(string userName)
         {
-            ChatTableAdapter chatTableAdapter = new ChatTableAdapter();
-            Chat.ChatDataTable lastMessages = chatTableAdapter.getPreviousMessages(gameID);
-            return lastMessages;
+            UsersTableAdapter userTableAdapter = new UsersTableAdapter();
+            object id = userTableAdapter.GetUserIdFromUserName(userName);
+            return Convert.ToInt16(id.ToString());
         }
 
-        public static string getUsername(int userId)
+        public void storeMessage(int gameId, string message)
         {
             ChatTableAdapter chatTableAdapter = new ChatTableAdapter();
-
-            return chatTableAdapter.getUsername(userId).ToString();
-        }
-
-        public void storeMessage(int userId, int gameId, string message)
-        {
-            ChatTableAdapter chatTableAdapter = new ChatTableAdapter();
-            chatTableAdapter.insertMessage(1, gameId, message, DateTime.Now);
+            int userId = getUserId(Membership.GetUser().ToString());
+            chatTableAdapter.insertMessage(getUserId(Membership.GetUser().ToString()), gameId, message, DateTime.Now);
         }
 
         public void sendLastMessages()
         {
+            ChatTableAdapter chatTableAdapter = new ChatTableAdapter();
             Chat.ChatDataTable lastMessages = getLastMessages(1);
+
             foreach (DataRow row in lastMessages.Rows)
             {
-                
-                Clients.All.broadcastMessage(row["userName"].ToString(), row["message"].ToString());
+                int userid = Convert.ToInt32(row["userId"]);
+                object name = chatTableAdapter.GetUserNameChat(userid);
+                Clients.Caller.broadcastMessage(name, row["message"].ToString(), 1);
             }
         }
-
-        public void Send(string userId, string message)
+        public static DataSets.Chat.ChatDataTable getLastMessages(int gameId)
         {
-            if (message == "newconnection")
+
+            ChatTableAdapter chatTableAdapter = new ChatTableAdapter();
+            Chat.ChatDataTable lastMessages = chatTableAdapter.GetTwentyMessages(gameId);
+            return lastMessages; 
+        }
+
+        public void Send(string modifier, string message, int gameId)
+        {
+            if (modifier == "newconnection")
             {
+                Groups.Add(Context.ConnectionId, Convert.ToString(gameId));
                 sendLastMessages();
             }
-            else
+            else if (modifier == "")
             {
                 
-                //recieve data
-                //if new connection
-                //retrieve last 20 messages
-                //broadcast to individual
-                //TODO// Clients.Client.
-                //recieve message
-                //send message to database
+                storeMessage(gameId, message);
 
-                //check game message is sent from
-                //broadcast message to those members
-                //System.Web.Security.Membership.getUser();
-                // Call the broadcastMessage method to update clients.
-                string userName = getUsername(Convert.ToInt16(userId));
-                storeMessage(Convert.ToInt16(userId), 1, message);
-                Clients.All.broadcastMessage(userName, message);
+                Clients.Group(Convert.ToString(gameId)).broadcastMessage(Membership.GetUser().UserName, message);
+                
             }
         }
     }

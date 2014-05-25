@@ -335,3 +335,50 @@ UPDATE       Users
 SET                passwordHash = @newPasswordHash
 WHERE        (userName = @username)
 GO
+
+USE [bearded_lama]
+GO
+/****** Object:  StoredProcedure [dbo].[InsertMessage]    Script Date: 26/05/2014 1:14:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[InsertMessage]
+	@user int,
+	@game int,
+	@message varchar(80),
+	@time datetime
+AS
+	INSERT INTO Chat
+	VALUES (@user, @game, @message, @time)
+	
+	USE [bearded_lama]
+GO
+/****** Object:  StoredProcedure [dbo].[GetUserNameChat]    Script Date: 26/05/2014 1:23:21 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[GetUserNameChat]
+	@userid int
+AS
+	SELECT userName
+	FROM Chat, Users
+	Where @userid = Users.userId
+	
+	USE [bearded_lama]
+GO
+/****** Object:  StoredProcedure [dbo].[GetPreviousMessages]    Script Date: 26/05/2014 1:23:46 AM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+ALTER PROCEDURE [dbo].[GetPreviousMessages]
+	@id int = " "
+AS
+
+	SELECT TOP 20 gameId, message, userId
+	FROM Chat
+	Where gameId = 1
+	ORDER BY timeStamp
+	RETURN
