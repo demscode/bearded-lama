@@ -7,54 +7,72 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebPresentation.Templates {
+namespace WebPresentation.Views {
     
     
-    public partial class Container {
+    public partial class Find {
         
         /// <summary>
-        /// ContainerForm control.
+        /// searchQuery control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm ContainerForm;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl searchQuery;
         
         /// <summary>
-        /// searchButton control.
+        /// nameResultsHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlButton searchButton;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl nameResultsHeader;
         
         /// <summary>
-        /// searchTextBox control.
+        /// nameRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText searchTextBox;
+        protected global::System.Web.UI.WebControls.Repeater nameRepeater;
         
         /// <summary>
-        /// LoginView1 control.
+        /// categoryResultsHeader control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.LoginView LoginView1;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl categoryResultsHeader;
         
         /// <summary>
-        /// Main control.
+        /// categoryRepeater control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ContentPlaceHolder Main;
+        protected global::System.Web.UI.WebControls.Repeater categoryRepeater;
+        
+        /// <summary>
+        /// tagsResultsHeader control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tagsResultsHeader;
+        
+        /// <summary>
+        /// tagsRepeater control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Repeater tagsRepeater;
     }
 }

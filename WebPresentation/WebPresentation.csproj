@@ -91,6 +91,7 @@
     <Content Include="Views\Errors\404.aspx" />
     <Content Include="Views\MembersOnly\GameSubmit.aspx" />
     <Content Include="Views\About.aspx" />
+    <Content Include="Views\Find.aspx" />
     <Content Include="Views\Game.aspx" />
     <Content Include="Views\Index.aspx" />
     <Content Include="Views\Login.aspx" />
@@ -154,6 +155,13 @@
     </Compile>
     <Compile Include="Views\About.aspx.designer.cs">
       <DependentUpon>About.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Find.aspx.cs">
+      <DependentUpon>Find.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Find.aspx.designer.cs">
+      <DependentUpon>Find.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Game.aspx.cs">
       <DependentUpon>Game.aspx</DependentUpon>

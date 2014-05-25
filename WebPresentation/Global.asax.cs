@@ -69,9 +69,9 @@ namespace WebPresentation
             //    "u/{username}",
             //    "~/Views/User.aspx");
 
-            //routes.MapPageRoute("Find game page",
-            //    "f/{genre}", // Needs more research
-            //    "~/Views/Find.aspx");
+            routes.MapPageRoute("find-game",
+                "f/{search_terms}", // Needs more research
+                "~/Views/Find.aspx");
         }
     }
 }
