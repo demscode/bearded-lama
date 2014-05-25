@@ -14,14 +14,14 @@ namespace WebPresentation.Views {
 
         protected void Page_Load(object sender, EventArgs e) {
             gameId = Convert.ToInt32(Page.RouteData.Values["id"]);
-            Games.GamesRow gameData = GameAccess.GetGameById(gameId);
+            Games.GamesRow gameData = BusinessLogic.Games.Access.GetGameById(gameId);
 
             GamePageHeader.InnerText = gameData.gameName;
             gameDescription.InnerText = gameData.gameDesc;
-            gameCategory.InnerText = gameData.category;
+            gameCategory.InnerText = gameData.categories;
             gameTags.InnerText = gameData.tags;
             gameRating.InnerText = gameData.rating.ToString();
-            gameUploader.InnerText = GameAccess.GetUploader(gameId);
+            gameUploader.InnerText = BusinessLogic.Games.Access.GetUploader(gameId);
             gameUpDate.InnerText = gameData.subDate.ToShortDateString();
             if (gameData.restrict) {
                 gameRestrict.InnerText = "Yes";
@@ -38,7 +38,7 @@ namespace WebPresentation.Views {
                 } else {
                     userName = user.UserName;
                 }
-                Games.GamesDataTable table = GameRecommendations.GetGamePageRecommendations(gameId, userName);
+                Games.GamesDataTable table = BusinessLogic.Games.Recommend.GetGamePageRecommendations(gameId, userName);
 
                 Repeater1.DataSource = table.Take(4);
                 Repeater1.DataBind();

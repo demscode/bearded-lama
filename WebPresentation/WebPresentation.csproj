@@ -20,6 +20,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -39,7 +41,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Ionic.Zip, Version=1.9.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\DotNetZip.1.9.2\lib\net20\Ionic.Zip.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.6.0.3\lib\net40\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -77,7 +87,9 @@
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="Templates\UserControls\EditMembershipUserDetails.ascx" />
     <Content Include="Templates\UserControls\GameBox.ascx" />
+    <Content Include="Templates\UserControls\SubmitGame.ascx" />
     <Content Include="Views\Errors\404.aspx" />
+    <Content Include="Views\MembersOnly\GameSubmit.aspx" />
     <Content Include="Views\About.aspx" />
     <Content Include="Views\Game.aspx" />
     <Content Include="Views\Index.aspx" />
@@ -115,12 +127,26 @@
     <Compile Include="Templates\UserControls\GameBox.ascx.designer.cs">
       <DependentUpon>GameBox.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Templates\UserControls\SubmitGame.ascx.cs">
+      <DependentUpon>SubmitGame.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\UserControls\SubmitGame.ascx.designer.cs">
+      <DependentUpon>SubmitGame.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Views\Errors\404.aspx.cs">
       <DependentUpon>404.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Views\Errors\404.aspx.designer.cs">
       <DependentUpon>404.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\MembersOnly\GameSubmit.aspx.cs">
+      <DependentUpon>GameSubmit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\MembersOnly\GameSubmit.aspx.designer.cs">
+      <DependentUpon>GameSubmit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\About.aspx.cs">
       <DependentUpon>About.aspx</DependentUpon>
@@ -218,6 +244,7 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\nuget.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

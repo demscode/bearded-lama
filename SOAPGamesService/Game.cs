@@ -17,7 +17,7 @@ namespace SOAPGamesService {
         [DataMember]
         public string[] Tags;
         [DataMember]
-        public string Category;
+        public string Categories;
         [DataMember]
         public int Rating;
         [DataMember]
@@ -26,13 +26,13 @@ namespace SOAPGamesService {
         public Game() {
         }
 
-        public Game(long id, string name, string description, string[] tags, string category,
+        public Game(long id, string name, string description, string[] tags, string categories,
                 int rating, bool restrict) {
             this.Id = id;
             this.Name = name;
             this.Description = description;
             this.Tags = tags;
-            this.Category = category;
+            this.Categories = categories;
             this.Rating = rating;
             this.Restrict = restrict;
         }

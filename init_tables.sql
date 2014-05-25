@@ -53,8 +53,8 @@ CREATE TABLE [dbo].[Games](
 	[gameName] [nvarchar](50) NULL,
 	[gameDesc] [nvarchar](300) NULL,
 	[tags] [varchar](200) NULL,
-	[category] [varchar](50) NULL,
-	[publicPackage] [xml] NULL,
+	[categories] [varchar](200) NULL,
+	[publicPackage] [nvarchar](max) NULL,
 	[rating] [int] NULL,
 	[userId] [bigint] NULL,
 	[subDate] [datetime] NULL,
@@ -68,6 +68,16 @@ CREATE TABLE [dbo].[Games](
 
 GO
 SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[GameCategories]   Script Date: 25/05/2014 4:00:31 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GameCategories](
+	[categoryName] [varchar](20) NOT NULL
+) ON [PRIMARY]
+
 GO
 /****** Object:  Table [dbo].[Posts]    Script Date: 23/04/2014 7:21:31 PM ******/
 SET ANSI_NULLS ON
@@ -159,4 +169,6 @@ GO
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_userBio]  DEFAULT ('') FOR [userBio]
 GO
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_adult]  DEFAULT ((0)) FOR [adult]
+GO
+ALTER TABLE [dbo].[Games] ADD  CONSTRAINT [DF_Games_rating]  DEFAULT ((0)) FOR [rating]
 GO

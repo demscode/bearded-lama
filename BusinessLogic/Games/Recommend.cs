@@ -8,7 +8,7 @@ using DataAccess.GameHistoryTableAdapters;
 using DataAccess.UsersTableAdapters;
 using DataSets;
 
-namespace BusinessLogic {
+namespace BusinessLogic.Games {
 
     /// <summary>
     /// Business tier class for retrieving a DataTable object containing some 
@@ -16,7 +16,7 @@ namespace BusinessLogic {
     /// mix of both.
     /// </summary>
     [System.ComponentModel.DataObject]
-    public class GameRecommendations {
+    public class Recommend {
 
         /// <summary>
         /// Retrieves a set of game recommendations to be used in Game information pages.
@@ -28,13 +28,14 @@ namespace BusinessLogic {
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable GetGamePageRecommendations(int gameId, string user) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
-            Games.GamesDataTable allGames = gamesTableAdapter.GetData();
+            DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
 
-            Games.GamesRow currentGame = (allGames.FindBygameId(gameId));
+            DataSets.Games.GamesRow currentGame = (allGames.FindBygameId(gameId));
             string[] currentGameTags = currentGame.tags.Split(',');
 
-            foreach (Games.GamesRow game in allGames) {
+            foreach (DataSets.Games.GamesRow game in allGames)
+            {
                 scoringTable.Add(game.gameId, 0);
 
                 if (game.gameId != currentGame.gameId) { // Ignore present Game from recommendations
@@ -53,7 +54,7 @@ namespace BusinessLogic {
                     }
 
                     // Test for same category
-                    if (game.category == currentGame.category) {
+                    if (game.categories == currentGame.categories) {
                         scoringTable[game.gameId] += 100;
                     }
 
@@ -76,7 +77,8 @@ namespace BusinessLogic {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             Dictionary<long, int> scoringTable = new Dictionary<long, int>();
-            foreach (Games.GamesRow game in allGames) {
+            foreach (DataSets.Games.GamesRow game in allGames)
+            {
                 scoringTable.Add(game.gameId, 0);
                 scoringTable = GetUserHistoryRecommendations(scoringTable, game, user, ref allGames);
             }
@@ -84,8 +86,9 @@ namespace BusinessLogic {
         }
 
         private static DataSets.Games.GamesDataTable GenerateOrderedGamesTable(Dictionary<long, int> scoringTable,
-                ref Games.GamesDataTable allGames) {
-            Games.GamesDataTable selectedGames = new Games.GamesDataTable();
+                ref DataSets.Games.GamesDataTable allGames)
+        {
+            DataSets.Games.GamesDataTable selectedGames = new DataSets.Games.GamesDataTable();
             scoringTable = scoringTable.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
             Dictionary<long, int>.Enumerator enume = scoringTable.GetEnumerator();
             for (int i = 0; i < scoringTable.Count; i++) {
@@ -96,7 +99,8 @@ namespace BusinessLogic {
         }
 
         private static Dictionary<long, int> GetUserHistoryRecommendations(Dictionary<long, int> scoringTable,
-                Games.GamesRow game, string user, ref Games.GamesDataTable allGames) {
+                DataSets.Games.GamesRow game, string user, ref DataSets.Games.GamesDataTable allGames)
+        {
             UsersTableAdapter userAdaper = new UsersTableAdapter();
             Users.UsersDataTable userTable = userAdaper.GetData();
             long gamerId = long.Parse((userTable.Select("userName = '" + user + "'")[0])["userId"].ToString());
@@ -104,12 +108,13 @@ namespace BusinessLogic {
             GameHistoryTableAdapter gameAdapter = new GameHistoryTableAdapter();
             GameHistory.GameHistoryDataTable historyTable = gameAdapter.GetData();
             DataRow[] userHistoryTable = historyTable.Select("userId = " + gamerId);
-            Games.GamesDataTable gamesPlayed = new Games.GamesDataTable();
+            DataSets.Games.GamesDataTable gamesPlayed = new DataSets.Games.GamesDataTable();
             foreach (DataRow historyRow in userHistoryTable) {
                 gamesPlayed.ImportRow(allGames.FindBygameId(long.Parse(historyRow["gameId"].ToString())));
             }
             string[] gamePlayedTags = game.tags.Split(',');
-            foreach (Games.GamesRow gamePlayed in gamesPlayed) {
+            foreach (DataSets.Games.GamesRow gamePlayed in gamesPlayed)
+            {
                 if (game.gameId != gamePlayed.gameId) { // Ignore present Game from recommendations
 
                     // Test for same author
@@ -127,7 +132,7 @@ namespace BusinessLogic {
                     }
 
                     // Test for same category
-                    if (game.category == gamePlayed.category) {
+                    if (game.categories == gamePlayed.categories) {
                         scoringTable[game.gameId] += 50;
                     }
                 }

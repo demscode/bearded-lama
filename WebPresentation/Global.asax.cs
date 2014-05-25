@@ -17,36 +17,6 @@ namespace WebPresentation
 
         }
 
-        protected void Session_Start(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_BeginRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_AuthenticateRequest(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_Error(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Session_End(object sender, EventArgs e)
-        {
-
-        }
-
-        protected void Application_End(object sender, EventArgs e)
-        {
-
-        }
-
         protected static void RegisterRoutes(RouteCollection routes)
         {
             routes.MapPageRoute("home",
@@ -64,6 +34,10 @@ namespace WebPresentation
             routes.MapPageRoute("about",
                 "about",
                 "~/Views/About.aspx");
+
+            routes.MapPageRoute("game-submit",
+                "g/submit",
+                "~/Views/MembersOnly/GameSubmit.aspx");
 
             routes.MapPageRoute("game-page",
                 "g/{id}",
@@ -93,10 +67,6 @@ namespace WebPresentation
 
             //routes.MapPageRoute("User page by username",
             //    "u/{username}",
-            //    "~/Views/User.aspx");
-
-            //routes.MapPageRoute("Game submission page",
-            //    "u/submit",
             //    "~/Views/User.aspx");
 
             //routes.MapPageRoute("Find game page",

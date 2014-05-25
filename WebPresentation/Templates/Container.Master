@@ -57,7 +57,12 @@
                                         </asp:HyperLink>
                                         <ul class="dropdown-menu" role="menu">
                                             <li>
-                                                <asp:HyperLink ID="HyperLink3" NavigateUrl="<%$RouteUrl:routename=account-settings%>" runat="server">
+                                                <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=game-submit%>" runat="server">
+                                                    Submit Game
+                                                </asp:HyperLink>
+                                            </li>
+                                            <li>
+                                                <asp:HyperLink NavigateUrl="<%$RouteUrl:routename=account-settings%>" runat="server">
                                                     Account Settings
                                                 </asp:HyperLink>
                                             </li>
