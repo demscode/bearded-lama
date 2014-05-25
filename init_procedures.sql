@@ -333,3 +333,20 @@ UPDATE       Users
 SET                passwordHash = @newPasswordHash
 WHERE        (userName = @username)
 GO
+/****** Object:  StoredProcedure [dbo].[GetGameIdByGameName]    Script Date: 25/05/2014 3:50:04 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[GetGameIdByGameName]
+(
+	@GameName nvarchar(50)
+)
+AS
+	SET NOCOUNT ON;
+SELECT        gameId
+FROM            Games
+WHERE        (gameName = @GameName)
+GO
