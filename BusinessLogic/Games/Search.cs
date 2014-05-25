@@ -6,10 +6,10 @@ using System.Text;
 using DataAccess.GamesTableAdapters;
 using DataSets;
 
-namespace BusinessLogic {
+namespace BusinessLogic.Games {
 
     [System.ComponentModel.DataObject]
-    public class GameSearch {
+    public class Search {
 
         /// <summary>
         /// Query for game results based on their name. Use '-' in the string 
@@ -20,9 +20,9 @@ namespace BusinessLogic {
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable SearchByName(string searchTerms) {
             string[] search = searchTerms.Split('-');
-            Games.GamesDataTable foundGames = new Games.GamesDataTable();
+            DataSets.Games.GamesDataTable foundGames = new DataSets.Games.GamesDataTable();
             GamesTableAdapter adapter = new GamesTableAdapter();
-            Games.GamesDataTable allGames = adapter.GetData();
+            DataSets.Games.GamesDataTable allGames = adapter.GetData();
             allGames.CaseSensitive = false;
             foreach (string query in search) {
                 DataRow[] temp = allGames.Select("gameName LIKE '*" + query.ToLower() + "*'");
@@ -44,9 +44,9 @@ namespace BusinessLogic {
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable SearchByCategory(string searchTerms) {
             string[] search = searchTerms.Split('-');
-            Games.GamesDataTable foundGames = new Games.GamesDataTable();
+            DataSets.Games.GamesDataTable foundGames = new DataSets.Games.GamesDataTable();
             GamesTableAdapter adapter = new GamesTableAdapter();
-            Games.GamesDataTable allGames = adapter.GetData();
+            DataSets.Games.GamesDataTable allGames = adapter.GetData();
             allGames.CaseSensitive = false;
             foreach (string query in search) {
                 DataRow[] temp = allGames.Select("category LIKE '*" + query.ToLower() + "*'");
@@ -68,9 +68,9 @@ namespace BusinessLogic {
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
         public static DataSets.Games.GamesDataTable SearchByTags(string searchTerms) {
             string[] search = searchTerms.Split('-');
-            Games.GamesDataTable foundGames = new Games.GamesDataTable();
+            DataSets.Games.GamesDataTable foundGames = new DataSets.Games.GamesDataTable();
             GamesTableAdapter adapter = new GamesTableAdapter();
-            Games.GamesDataTable allGames = adapter.GetData();
+            DataSets.Games.GamesDataTable allGames = adapter.GetData();
             allGames.CaseSensitive = false;
             foreach (string query in search) {
                 DataRow[] temp = allGames.Select("tags LIKE '*" + query.ToLower().Replace(' ', ',') + "*'");
