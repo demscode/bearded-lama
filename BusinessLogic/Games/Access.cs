@@ -22,7 +22,7 @@ namespace BusinessLogic.Games {
         /// <param name="gameId">gameId to be found</param>
         /// <returns>Matched game</returns>
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Select)]
-        public static DataSets.Games.GamesRow GetGameById(int gameId) {
+        public static DataSets.Games.GamesRow GetGameById(long gameId) {
             GamesTableAdapter gamesTableAdapter = new GamesTableAdapter();
             DataSets.Games.GamesDataTable allGames = gamesTableAdapter.GetData();
             return allGames.FindBygameId(gameId);
@@ -44,7 +44,7 @@ namespace BusinessLogic.Games {
         /// <param name="gameName"></param>
         /// <param name="gameDesc"></param>
         /// <param name="tags"></param>
-        /// <param name="category"></param>
+        /// <param name="categories"></param>
         /// <param name="publicPackage"></param>
         /// <param name="userId"></param>
         /// <param name="restrict"></param>
@@ -72,11 +72,14 @@ namespace BusinessLogic.Games {
         /// </summary>
         /// <param name="gameId">ID to be found</param>
         /// <returns>userName of the uploader</returns>
-        public static string GetUploader(int gameId) {
+        public static string GetUploader(long gameId) {
             GamesTableAdapter gameAdapter = new GamesTableAdapter();
             UsersTableAdapter userAdapter = new UsersTableAdapter();
             Users.UsersDataTable userTable = userAdapter.GetData();
-            return (userTable.Select("userId = " + gameId)[0])["userName"].ToString();
+            DataSets.Games.GamesDataTable gamesTable = gameAdapter.GetData();
+
+            string gamesUploaderId = (gamesTable.Select(gamesTable.gameIdColumn.ToString() + " = " + gameId)[0])[gamesTable.userIdColumn].ToString();
+            return (userTable.Select(userTable.userIdColumn.ToString() + " = " + gamesUploaderId)[0])[userTable.userNameColumn].ToString();
         }
     }
 }

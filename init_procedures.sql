@@ -373,20 +373,3 @@ SELECT        gameId
 FROM            Games
 WHERE        (gameName = @GameName)
 GO
-/****** Object:  StoredProcedure [dbo].[GetGameById]    Script Date: 25/05/2014 5:42:30 PM ******/
-SET ANSI_NULLS ON
-GO
-
-SET QUOTED_IDENTIFIER ON
-GO
-
-CREATE PROCEDURE [dbo].[GetGameById]
-(
-	@GameId bigint
-)
-AS
-	SET NOCOUNT ON;
-SELECT        *
-FROM          Games
-WHERE        (gameId = @GameId)
-GO

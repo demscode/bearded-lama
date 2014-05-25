@@ -283,7 +283,7 @@ namespace DataSets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class GameCategoriesDataTable : global::System.Data.TypedTableBase<GameCategoriesRow> {
             
-            private global::System.Data.DataColumn columncategoryNames;
+            private global::System.Data.DataColumn columncategoryName;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -320,9 +320,9 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn categoryNamesColumn {
+            public global::System.Data.DataColumn categoryNameColumn {
                 get {
-                    return this.columncategoryNames;
+                    return this.columncategoryName;
                 }
             }
             
@@ -363,10 +363,10 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public GameCategoriesRow AddGameCategoriesRow(string categoryNames) {
+            public GameCategoriesRow AddGameCategoriesRow(string categoryName) {
                 GameCategoriesRow rowGameCategoriesRow = ((GameCategoriesRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        categoryNames};
+                        categoryName};
                 rowGameCategoriesRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowGameCategoriesRow);
                 return rowGameCategoriesRow;
@@ -389,17 +389,16 @@ namespace DataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columncategoryNames = base.Columns["categoryNames"];
+                this.columncategoryName = base.Columns["categoryName"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columncategoryNames = new global::System.Data.DataColumn("categoryNames", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncategoryNames);
-                this.columncategoryNames.AllowDBNull = false;
-                this.columncategoryNames.Caption = "categoryName";
-                this.columncategoryNames.MaxLength = 20;
+                this.columncategoryName = new global::System.Data.DataColumn("categoryName", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncategoryName);
+                this.columncategoryName.AllowDBNull = false;
+                this.columncategoryName.MaxLength = 20;
                 this.ExtendedProperties.Add("Generator_TablePropName", "_GameCategories");
                 this.ExtendedProperties.Add("Generator_UserTableName", "GameCategories");
             }
@@ -544,12 +543,12 @@ namespace DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string categoryNames {
+            public string categoryName {
                 get {
-                    return ((string)(this[this.tableGameCategories.categoryNamesColumn]));
+                    return ((string)(this[this.tableGameCategories.categoryNameColumn]));
                 }
                 set {
-                    this[this.tableGameCategories.categoryNamesColumn] = value;
+                    this[this.tableGameCategories.categoryNameColumn] = value;
                 }
             }
         }

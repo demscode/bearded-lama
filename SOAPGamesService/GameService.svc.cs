@@ -28,7 +28,7 @@ namespace SOAPGamesService {
             } else {
                 string[] tags = row["tags"].ToString().Split(',');
                 return new Game(long.Parse(row["gameId"].ToString()), row["gameName"].ToString(), row["gameDesc"].ToString(), tags, 
-                    row["category"].ToString(), Int32.Parse(row["rating"].ToString()), Boolean.Parse(row["restrict"].ToString()));
+                    row["categories"].ToString(), Int32.Parse(row["rating"].ToString()), Boolean.Parse(row["restrict"].ToString()));
             }
         }
 

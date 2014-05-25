@@ -13,6 +13,15 @@ namespace WebPresentation.Templates.UserControls {
     public partial class SubmitGame {
         
         /// <summary>
+        /// formContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl formContent;
+        
+        /// <summary>
         /// EditNameLabel control.
         /// </summary>
         /// <remarks>
@@ -112,6 +121,24 @@ namespace WebPresentation.Templates.UserControls {
         protected global::System.Web.UI.WebControls.ObjectDataSource CategoriesDataSource;
         
         /// <summary>
+        /// EditAdultLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EditAdultLabel;
+        
+        /// <summary>
+        /// EditAdult control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox EditAdult;
+        
+        /// <summary>
         /// EditTagsLabel control.
         /// </summary>
         /// <remarks>
@@ -200,5 +227,32 @@ namespace WebPresentation.Templates.UserControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button SubmitPackageButton;
+        
+        /// <summary>
+        /// submissionSuccessMessage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl submissionSuccessMessage;
+        
+        /// <summary>
+        /// gameName control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gameName;
+        
+        /// <summary>
+        /// SubmittedGamePage control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink SubmittedGamePage;
     }
 }
