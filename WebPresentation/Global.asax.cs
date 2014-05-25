@@ -43,6 +43,9 @@ namespace WebPresentation
                 "g/{id}",
                 "~/Views/Game.aspx");
 
+            //routedata for chathub
+            RouteTable.Routes.MapHubs();
+
             routes.MapPageRoute("account-settings",
                 "u/settings",
                 "~/Views/MembersOnly/Settings.aspx");
