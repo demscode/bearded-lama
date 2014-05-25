@@ -8,7 +8,7 @@
         args.IsValid = size <= maxSize;
     }
 </script>
-<section class="panel panel-default">
+<section id="contentPanel" class="panel panel-default" runat="server">
     <p class="panel-heading">Read the <a href="#getting-started">Getting Started</a> before submitting a new game!</p>
     <div class="panel-body form-horizontal">
         <div id="formContent" runat="server">
@@ -108,7 +108,7 @@
                     </div>--%>
                 </div>
             </div>
-            <asp:ValidationSummary ID="SubmitPackageValidationSummary" runat="server" />
+            <asp:ValidationSummary ID="SubmitPackageValidationSummary" CssClass="alert alert-danger" runat="server" />
             <asp:Button ID="SubmitPackageButton" OnClick="submitPackageButton_ServerClick" CssClass="btn btn-default btn-block" Text="Submit Game" runat="server" />
         </div>
         <div id="submissionSuccessMessage" class="alert alert-success" hidden="hidden" runat="server">

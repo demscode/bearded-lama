@@ -13,6 +13,15 @@ namespace WebPresentation.Templates.UserControls {
     public partial class SubmitGame {
         
         /// <summary>
+        /// contentPanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentPanel;
+        
+        /// <summary>
         /// formContent control.
         /// </summary>
         /// <remarks>

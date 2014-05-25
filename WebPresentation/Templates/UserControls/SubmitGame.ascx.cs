@@ -24,7 +24,7 @@ namespace WebPresentation.Templates.UserControls
         {
             if (Page.IsValid)
             {
-                SubmitButtonStatus("Submitting...", "info", true);
+                ChangePanelStatus("Submitting...", "info", true, "info");
                 if (AttachPackage.HasFile)
                 {
                     string fullPath = Path.GetFullPath( ConfigurationManager.AppSettings["UploadPath"] + "/Temp/" + AttachPackage.FileName );
@@ -38,12 +38,12 @@ namespace WebPresentation.Templates.UserControls
                         PackageInfo submittedPackageInfo =
                             Package.SubmitNewPackage(fullPath, (long)System.Web.Security.Membership.GetUser().ProviderUserKey,
                             EditName.Text, EditDescription.Text, tags, categories, EditAdult.Checked);
-                        SubmitButtonStatus("Submitted!", "success", false);
+                        ChangePanelStatus("Submitted!", "success", false, "success");
                         ShowSuccessMessage(submittedPackageInfo.Name, long.Parse(submittedPackageInfo.Id));
                     }
                     catch (JsonSchemaException jsonException)
                     {
-                        SubmitButtonStatus("Fix bearded-lama.json!", "warning", false);
+                        ChangePanelStatus("Fix bearded-lama.json!", "warning", false, "warning");
                         IList<string> messages = (List<string>)jsonException.Data["validationMessages"];
                         foreach (string message in messages)
                         {
@@ -55,7 +55,7 @@ namespace WebPresentation.Templates.UserControls
                     }
                     catch (ZipException zipException)
                     {
-                        SubmitButtonStatus("Your package is whack.", "warning", false);
+                        ChangePanelStatus("Your package is whack.", "warning", false, "warning");
                         CustomValidator newValidator = new CustomValidator();
                         newValidator.ErrorMessage = zipException.Message;
                         newValidator.IsValid = false;
@@ -63,7 +63,7 @@ namespace WebPresentation.Templates.UserControls
                     }
                     catch (Exception allException)
                     {
-                        SubmitButtonStatus("Oh-oh.", "danger", false);
+                        ChangePanelStatus("Oh-oh.", "danger", true, "danger");
                         CustomValidator newValidator = new CustomValidator();
                         newValidator.ErrorMessage = allException.Message;
                         newValidator.IsValid = false;
@@ -73,15 +73,18 @@ namespace WebPresentation.Templates.UserControls
             }
         }
 
-        private void SubmitButtonStatus(string status, string bootstrapContext, bool disabled)
+        private void ChangePanelStatus(string buttonStatusText, string buttonContext = "default", bool buttonDisabled = false,
+            string panelContext = "default")
         {
-            SubmitPackageButton.Text = status;
+            SubmitPackageButton.Text = buttonStatusText;
             string classDisable = "";
-            if (disabled)
+            if (buttonDisabled)
             {
                 classDisable = " disabled";
             }
-            SubmitPackageButton.CssClass = "btn btn-" + bootstrapContext + " btn-block" + classDisable;
+            SubmitPackageButton.CssClass = "btn btn-" + buttonContext + " btn-block" + classDisable;
+            contentPanel.Attributes.Remove("class");
+            contentPanel.Attributes.Add("class", "panel panel-" + panelContext);
         }
 
         private void ShowSuccessMessage(string newGameName, long gameId)
