@@ -1,13 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="SubmitGame.ascx.cs" Inherits="WebPresentation.Templates.UserControls.SubmitGame" %>
-<script>
-    function jsValidateAttachmentSize(source, args) {
-        args.IsValid = false;
-        var maxSize = 200000;
 
-        var size = ($('#' + source.controltovalidate).get())[0].files[0].size;
-        args.IsValid = size <= maxSize;
-    }
-</script>
 <section id="contentPanel" class="panel panel-default" runat="server">
     <p class="panel-heading">Read the <a href="#getting-started">Getting Started</a> before submitting a new game!</p>
     <div class="panel-body form-horizontal">

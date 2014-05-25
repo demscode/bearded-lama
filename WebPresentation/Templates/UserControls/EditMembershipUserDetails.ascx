@@ -1,38 +1,4 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="EditMembershipUserDetails.ascx.cs" Inherits="WebPresentation.Templates.UserControls.EditMembershipUserDetails" %>
-<script> // requires jquery
-    function jsValidateEditEmail(source, args) {
-        var emailRegex = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-        var isValid = args.Value.match(emailRegex);
-
-        args.IsValid = flagInputError(source.id, args.Value, isValid);
-    }
-
-    function jsValidateEditUserDescription(source, args) {
-        var maxChars = 200;
-        var isValid = args.Value.trim().length <= maxChars;
-
-        args.IsValid = flagInputError(source.id, args.Value, isValid);
-    }
-
-    function flagInputError(elementId, elementValue, validityExpression) {
-        var isValid = false;
-
-        if (elementValue.trim() == "") {
-            isValid = true; // empty input
-        } else {
-            isValid = validityExpression;
-        }
-
-        if (isValid) {
-            $("#" + elementId).prev(".form-control").parent().parent().removeClass("has-error");
-        } else {
-            $("#" + elementId).prev(".form-control").parent().parent().addClass("has-error");
-        }
-
-        console.log(isValid);
-        return isValid;
-    }
-</script>
 
 <section class="panel panel-primary">
     <div class="panel-heading">Change User Details</div>

@@ -29,7 +29,10 @@ namespace WebPresentation.Templates
         }
 
         protected void searchButton_Click(object sender, EventArgs e) {
-            Response.Redirect("../f/" + searchTextBox.Value);
+            RouteValueDictionary parameters = new RouteValueDictionary {
+                {"search_terms", searchTextBox.Value}
+            };
+            Response.Redirect(GetRouteUrl("find-game", parameters));
         }
     }
 }

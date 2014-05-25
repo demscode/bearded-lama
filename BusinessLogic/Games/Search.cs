@@ -49,7 +49,7 @@ namespace BusinessLogic.Games {
             DataSets.Games.GamesDataTable allGames = adapter.GetData();
             allGames.CaseSensitive = false;
             foreach (string query in search) {
-                DataRow[] temp = allGames.Select("category LIKE '*" + query.ToLower() + "*'");
+                DataRow[] temp = allGames.Select("categories LIKE '*" + query.ToLower() + "*'");
                 foreach (DataRow row in temp) {
                     if (foundGames.Select("gameId = " + row["gameId"].ToString()).Length == 0) {
                         foundGames.ImportRow(row);
