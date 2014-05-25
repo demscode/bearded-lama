@@ -24,15 +24,21 @@
         <p>Your <code>bearded.json</code> tells Bearded Lama information about how to use the game.</p>
 <pre>
 {
-	"js": [
-		"/src/game2.js",
-		"/src/levels.js"
-	],
+	"data": {
+        "js": [
+		    "src/game.js",
+		    "src/levels.js"
+	    ],
+        "content": [
+            "src/logo.png",
+            "src/sprites.png"
+        ]
+    },
 	"entry": {
-		"element":	"canvas",
-		"id":		"game",
-		"height":	"480",
-		"width":	"600"
+		"element":	    "canvas",
+		"elementid":    "game",
+		"height":	    "480",
+		"width":	    "600"
 	}
 }
 </pre>
@@ -84,28 +90,48 @@
         <p>Here are the recognised attributes in <code>bearded.json</code>:</p>
         <div class="list-group">
             <div class="list-group-item">
-                <h4 class="list-group-item-heading">entry</h4>
-                <p class="list-group-item-text">Describes the HTML entry point for the game.</p>
+                <h4 class="list-group-item-heading"><code>name</code></h4>
+                <p class="list-group-item-text">The games name.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading"><code>information</code> <small>string</small></h4>
+                <p class="list-group-item-text">A description of the game.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading"><code>instruction</code> <small>string</small></h4>
+                <p class="list-group-item-text">The instructions of a game.</p>
+            </div>
+            <div class="list-group-item">
+                <h4 class="list-group-item-heading"><code>data</code> <small>object</small> <small class="text-danger"><strong>required</strong></small></h4>
+                <p class="list-group-item-text">Files required for the Game.</p>
                 <div class="list-group-item list-group-item-info">
-                    <h4 class="list-group-item-heading">element</h4>
-                    <p class="list-group-item-text">The HTML <strong>element</strong> to use for the games entry point.</p>
+                    <h4 class="list-group-item-heading"><code>js</code> <small>array</small> <small class="text-danger"><strong>required</strong></small></h4>
+                    <p class="list-group-item-text">An array of relative path strings to each javascript file.</p>
                 </div>
                 <div class="list-group-item list-group-item-info">
-                    <h4 class="list-group-item-heading">id</h4>
-                    <p class="list-group-item-text">The entry points <strong>id attribute</strong>.</p>
-                </div>
-                <div class="list-group-item list-group-item-info">
-                    <h4 class="list-group-item-heading">height</h4>
-                    <p class="list-group-item-text">The fixed <strong>height attribute</strong> for the entry point.</p>
-                </div>
-                <div class="list-group-item list-group-item-info">
-                    <h4 class="list-group-item-heading">width</h4>
-                    <p class="list-group-item-text">The fixed <strong>width attribute</strong> for the entry point.</p>
+                    <h4 class="list-group-item-heading"><code>content</code> <small>array</small></h4>
+                    <p class="list-group-item-text">An array of relative path strings to additional files, like <em>images</em>.</p>
                 </div>
             </div>
             <div class="list-group-item">
-                <h4 class="list-group-item-heading">js</h4>
-                <p class="list-group-item-text">An array of relative path strings to each javascript file.</p>
+                <h4 class="list-group-item-heading"><code>entry</code> <small>object</small> <small class="text-danger"><strong>required</strong></small></h4>
+                <p class="list-group-item-text">Describes the HTML entry point for the game.</p>
+                <div class="list-group-item list-group-item-info">
+                    <h4 class="list-group-item-heading"><code>element</code> <small>string</small> <small class="text-danger"><strong>required</strong></small></h4>
+                    <p class="list-group-item-text">The HTML <strong>element</strong> to use for the games entry point.</p>
+                </div>
+                <div class="list-group-item list-group-item-info">
+                    <h4 class="list-group-item-heading"><code>elementid</code> <small>string</small> <small class="text-danger"><strong>required</strong></small></h4>
+                    <p class="list-group-item-text">The entry points <strong>id attribute</strong>.</p>
+                </div>
+                <div class="list-group-item list-group-item-info">
+                    <h4 class="list-group-item-heading"><code>height</code> <small>string</small> <small class="text-danger"><strong>required</strong></small></h4>
+                    <p class="list-group-item-text">The fixed <strong>height attribute</strong> for the entry point.</p>
+                </div>
+                <div class="list-group-item list-group-item-info">
+                    <h4 class="list-group-item-heading"><code>width</code> <small>string</small> <small class="text-danger"><strong>required</strong></small></h4>
+                    <p class="list-group-item-text">The fixed <strong>width attribute</strong> for the entry point.</p>
+                </div>
             </div>
         </div>
     </section>
