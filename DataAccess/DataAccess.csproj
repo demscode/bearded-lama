@@ -50,6 +50,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Chat.xsd</DependentUpon>
     </Compile>
+    <Compile Include="GameCategories.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>GameCategories.xsd</DependentUpon>
+    </Compile>
     <Compile Include="GameHistory.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -100,6 +105,17 @@
     </None>
     <None Include="Chat.xss">
       <DependentUpon>Chat.xsd</DependentUpon>
+    </None>
+    <None Include="GameCategories.xsc">
+      <DependentUpon>GameCategories.xsd</DependentUpon>
+    </None>
+    <None Include="GameCategories.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>GameCategories.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="GameCategories.xss">
+      <DependentUpon>GameCategories.xsd</DependentUpon>
     </None>
     <None Include="GameHistory.xsc">
       <DependentUpon>GameHistory.xsd</DependentUpon>

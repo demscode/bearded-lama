@@ -85,6 +85,33 @@ namespace WebPresentation.Templates.UserControls {
         protected global::System.Web.UI.WebControls.RegularExpressionValidator EditDescriptionLengthValidator;
         
         /// <summary>
+        /// EditCategoryLabel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label EditCategoryLabel;
+        
+        /// <summary>
+        /// EditCategory control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList EditCategory;
+        
+        /// <summary>
+        /// CategoriesDataSource control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ObjectDataSource CategoriesDataSource;
+        
+        /// <summary>
         /// EditTagsLabel control.
         /// </summary>
         /// <remarks>

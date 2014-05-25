@@ -69,6 +69,16 @@ CREATE TABLE [dbo].[Games](
 GO
 SET ANSI_PADDING OFF
 GO
+/****** Object:  Table [dbo].[GameCategories]   Script Date: 25/05/2014 4:00:31 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GameCategories](
+	[categoryNames] [varchar](20) NOT NULL
+) ON [PRIMARY]
+
+GO
 /****** Object:  Table [dbo].[Posts]    Script Date: 23/04/2014 7:21:31 PM ******/
 SET ANSI_NULLS ON
 GO

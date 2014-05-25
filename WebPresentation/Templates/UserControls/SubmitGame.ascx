@@ -43,6 +43,13 @@
                 </ul>
             </div>
         </div>
+        <div class="form-group">
+            <asp:Label ID="EditCategoryLabel" AssociatedControlID="EditCategory" Text="Category" runat="server" CssClass="control-label col-md-3" />
+            <div class="col-md-5">
+                <asp:DropDownList ID="EditCategory" runat="server" DataSourceID="CategoriesDataSource" DataTextField="categoryNames" DataValueField="categoryNames"></asp:DropDownList>
+                <asp:ObjectDataSource runat="server" ID="CategoriesDataSource" OldValuesParameterFormatString="original_{0}" SelectMethod="GetAllCategories" TypeName="BusinessLogic.Games.Categories"></asp:ObjectDataSource>
+            </div>
+        </div>
         <%-- TODO: implement tags input --%>
         <%-- nicolasbize.com/magicsuggest --%>
         <div class="form-group">

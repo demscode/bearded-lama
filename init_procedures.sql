@@ -49,6 +49,16 @@ AS
 	SET NOCOUNT ON;
 SELECT * FROM Bans
 GO
+/****** Object:  StoredProcedure [dbo].[GetCategories]    Script Date: 25/05/2014 4:29:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetCategories]
+AS
+	SET NOCOUNT ON;
+SELECT * FROM GameCategories
+GO
 /****** Object:  StoredProcedure [dbo].[GetChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -114,6 +124,19 @@ CREATE PROCEDURE [dbo].[NewBan]
 AS
 	SET NOCOUNT OFF;
 INSERT INTO [Bans] ([userId], [gameId], [duration]) VALUES (@userId, @gameId, @duration)
+GO
+/****** Object:  StoredProcedure [dbo].[NewCategory]    Script Date: 25/05/2014 4:29:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[NewCategory]
+(
+	@categoryNames varchar(20)
+)
+AS
+	SET NOCOUNT OFF;
+INSERT INTO [GameCategories] ([categoryNames]) VALUES (@categoryNames)
 GO
 /****** Object:  StoredProcedure [dbo].[NewChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
