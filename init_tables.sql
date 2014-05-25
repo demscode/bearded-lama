@@ -54,7 +54,7 @@ CREATE TABLE [dbo].[Games](
 	[gameDesc] [nvarchar](300) NULL,
 	[tags] [varchar](200) NULL,
 	[category] [varchar](50) NULL,
-	[publicPackage] [xml] NULL,
+	[publicPackage] [nvarchar](max) NULL,
 	[rating] [int] NULL,
 	[userId] [bigint] NULL,
 	[subDate] [datetime] NULL,
@@ -159,4 +159,6 @@ GO
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_userBio]  DEFAULT ('') FOR [userBio]
 GO
 ALTER TABLE [dbo].[Users] ADD  CONSTRAINT [DF_Users_adult]  DEFAULT ((0)) FOR [adult]
+GO
+ALTER TABLE [dbo].[Games] ADD  CONSTRAINT [DF_Games_rating]  DEFAULT ((0)) FOR [rating]
 GO

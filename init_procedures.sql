@@ -140,9 +140,8 @@ CREATE PROCEDURE [dbo].[NewGame]
 (
 	@gameName nvarchar(50),
 	@gameDesc nvarchar(300),
-	@publicPackage xml,
+	@publicPackage nvarchar(MAX),
 	@tags varchar(200),
-	@rating int,
 	@userId bigint,
 	@subDate datetime,
 	@hashValue varchar(32),
@@ -150,7 +149,7 @@ CREATE PROCEDURE [dbo].[NewGame]
 )
 AS
 	SET NOCOUNT OFF;
-INSERT INTO [Games] ([gameName], [gameDesc], [publicPackage], [tags], [rating], [userId], [subDate], [hashValue], [restrict]) VALUES (@gameName, @gameDesc, @publicPackage, @tags, @rating, @userId, @subDate, @hashValue, @restrict);
+INSERT INTO [Games] ([gameName], [gameDesc], [publicPackage], [tags], [userId], [subDate], [hashValue], [restrict]) VALUES (@gameName, @gameDesc, @publicPackage, @tags, @userId, @subDate, @hashValue, @restrict);
 	
 SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = SCOPE_IDENTITY())
 GO
@@ -215,21 +214,20 @@ CREATE PROCEDURE [dbo].[UpdateGame]
 (
 	@gameName nvarchar(50),
 	@gameDesc nvarchar(300),
-	@publicPackage xml,
+	@publicPackage nvarchar(MAX),
 	@tags varchar(200),
 	@rating int,
 	@userId bigint,
 	@subDate datetime,
 	@hashValue varchar(32),
 	@restrict bit,
-	@Original_gameId bigint,
-	@gameId bigint
+	@Original_gameId bigint
 )
 AS
 	SET NOCOUNT OFF;
-UPDATE [Games] SET [gameName] = @gameName, [gameDesc] = @gameDesc, [publicPackage] = @publicPackage, [tags] = @tags, [rating] = @rating, [userId] = @userId, [subDate] = @subDate, [hashValue] = @hashValue, [restrict] = @restrict WHERE (([gameId] = @Original_gameId));
+UPDATE [Games] SET [gameName] = @gameName, [gameDesc] = @gameDesc, [publicPackage] = @publicPackage, [tags] = @tags, [rating] = @rating, [subDate] = @subDate, [hashValue] = @hashValue, [restrict] = @restrict WHERE (([gameId] = @Original_gameId));
 	
-SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = @gameId)
+SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = @Original_gameId)
 GO
 /****** Object:  StoredProcedure [dbo].[UpdatePost]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
@@ -349,4 +347,21 @@ AS
 SELECT        gameId
 FROM            Games
 WHERE        (gameName = @GameName)
+GO
+/****** Object:  StoredProcedure [dbo].[GetGameById]    Script Date: 25/05/2014 5:42:30 PM ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE PROCEDURE [dbo].[GetGameById]
+(
+	@GameId bigint
+)
+AS
+	SET NOCOUNT ON;
+SELECT        *
+FROM          Games
+WHERE        (gameId = @GameId)
 GO
