@@ -22,6 +22,33 @@ namespace WebPresentation.Views {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GamePageHeader;
         
         /// <summary>
+        /// gamePanel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl gamePanel;
+        
+        /// <summary>
+        /// GameContainerPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder GameContainerPlaceholder;
+        
+        /// <summary>
+        /// ScriptsPlaceholder control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.PlaceHolder ScriptsPlaceholder;
+        
+        /// <summary>
         /// gameDescription control.
         /// </summary>
         /// <remarks>

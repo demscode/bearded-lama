@@ -6,6 +6,7 @@ using System.Data;
 using DataAccess.GamesTableAdapters;
 using DataAccess.UsersTableAdapters;
 using DataSets;
+using Newtonsoft.Json;
 
 
 namespace BusinessLogic.Games {
@@ -80,6 +81,17 @@ namespace BusinessLogic.Games {
 
             string gamesUploaderId = (gamesTable.Select(gamesTable.gameIdColumn.ToString() + " = " + gameId)[0])[gamesTable.userIdColumn].ToString();
             return (userTable.Select(userTable.userIdColumn.ToString() + " = " + gamesUploaderId)[0])[userTable.userNameColumn].ToString();
+        }
+
+        /// <summary>
+        /// Gets an existing instance of a PackageInfo.
+        /// </summary>
+        /// <param name="gameId">The Games ID.</param>
+        /// <returns></returns>
+        public static PackageInfo GetPackageInfo(long gameId)
+        {
+            DataSets.Games.GamesRow gameRow = GetGameById(gameId);
+            return Package.ValidateConfiguration(new System.IO.StringReader(gameRow.publicPackage));
         }
     }
 }

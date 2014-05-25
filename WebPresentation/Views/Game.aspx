@@ -6,6 +6,12 @@
     <section class="container">
         <h1 id="GamePageHeader" class="page-header" runat="server"></h1>
 
+        <section id="gamePanel" class="panel panel-danger" runat="server">
+            <asp:PlaceHolder runat="server" ID="GameContainerPlaceholder" />
+            <asp:PlaceHolder ID="ScriptsPlaceholder" runat="server" />
+        </section>
+
+
         <section class="container">
             <div class="row">
                 <h2>Details</h2>

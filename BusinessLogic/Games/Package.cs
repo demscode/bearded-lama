@@ -156,8 +156,6 @@ namespace BusinessLogic.Games
 
         }
 
-        // Validate Game Package
-
         /// <summary>
         /// Initialises a new instance of the Package.PackageInfo class from the specified TextReader.
         /// </summary>
@@ -189,9 +187,19 @@ namespace BusinessLogic.Games
             }
         }
 
-        // Create Game Package
-        // Update Game Package
-        // Update Game Information
+        /// <summary>
+        /// Return a non-validated instance of PackageInfo.
+        /// </summary>
+        /// <param name="jsonReader">Reader to a JSON String.</param>
+        /// <returns>New PackageInfo instance.</returns>
+        static public PackageInfo DeserialiaseConfiguration(TextReader jsonReader)
+        {
+            return (new JsonSerializer()).Deserialize<PackageInfo>(new JsonTextReader(jsonReader));
+        }
+
+        // TODO: Create Game Package
+        // TODO: Update Game Package
+        // TODO: Update Game Information
     }
 
     /// <summary>
