@@ -21,7 +21,22 @@ namespace UnitTests
     },
     'entry': {
         'element': 'canvas',
-        'id': 'gameEntry',
+        'elementid': 'gameEntry',
+        'height': '400',
+        'width': '600'
+    }
+}";
+        private string slightyInvalidIncompleteJsonString = @"
+{
+    'data': {
+        'js': [
+            '/bin/game.js',
+            '/bin/levels.js'
+        ]
+    },
+    'entry': {
+        'turd': 'canvas',
+        'elementid': 'gameEntry',
         'height': '400',
         'width': '600'
     }
@@ -40,7 +55,7 @@ namespace UnitTests
     },
     'entry': {
         'element': 'canvas',
-        'id': 'gameEntry',
+        'elementid': 'gameEntry',
         'height': '400',
         'width': '600'
     }
@@ -53,7 +68,7 @@ namespace UnitTests
     'instruction': 'Press q to quit',
     'entry': {
         'element': 'canvas',
-        'id': 'gameEntry',
+        'elementid': 'gameEntry',
         'height': '400',
         'width': '600'
     }
@@ -81,6 +96,14 @@ namespace UnitTests
         {
             PackageInfo invalidPackageInfo = Package.ValidateConfiguration(new StringReader(invalidJsonString));
             Assert.IsNull(invalidPackageInfo);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(Newtonsoft.Json.Schema.JsonSchemaException))]
+        public void TestSlightyInvalidPackageInfoValidation()
+        {
+            PackageInfo invalidPackageInfo = Package.ValidateConfiguration(new StringReader(slightyInvalidIncompleteJsonString));
+            Assert.IsNull(slightyInvalidIncompleteJsonString);
         }
     }
 }

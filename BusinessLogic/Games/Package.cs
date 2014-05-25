@@ -27,6 +27,7 @@ namespace BusinessLogic.Games
 {
     'description': 'Game Package schema for Bearded Lama',
     'type': 'object',
+    'required': true,
     'properties': {
         'name': {
             'type': 'string'
@@ -44,32 +45,46 @@ namespace BusinessLogic.Games
             'description': 'Files required for the Game',
             'type': 'object',
             'required': true,
-            'js': {
-                'type': 'array',
-                'items': {
-                    'type': 'string'
+            'properties': {
+                'js': {
+                    'type': 'array',
+                    'items': {
+                        'type': 'string'
+                    },
+                    'minItems': 1,
+                    'required': true
                 },
-                'minItems': 1,
-                'required': true
+                'content': {
+                    'type': 'array',
+                    'type': 'array',
+                    'items': {
+                        'type': 'string'
+                    },
+                    'minItems': 1
+                }
             }
         },
         'entry': {
             'description': 'Properties for the HTML entry point of the Game',
-            'element': {
-                'type': 'string',
-                'required': true
-            },
-            'elementid': {
-                'type': 'string',
-                'required': true
-            },
-            'height': {
-                'type': 'string',
-                'required': true
-            },
-            'width': {
-                'type': 'string',
-                'required': true
+            'type': 'object',
+            'required': true,
+            'properties': {
+                'element': {
+                    'type': 'string',
+                    'required': true
+                },
+                'elementid': {
+                    'type': 'string',
+                    'required': true
+                },
+                'height': {
+                    'type': 'string',
+                    'required': true
+                },
+                'width': {
+                    'type': 'string',
+                    'required': true
+                }
             }
         }
     }
