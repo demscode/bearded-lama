@@ -378,7 +378,7 @@ SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[InsertMessage]
+CREATE PROCEDURE [dbo].[InsertMessage]
 	@user int,
 	@game int,
 	@message varchar(80),
@@ -386,29 +386,25 @@ ALTER PROCEDURE [dbo].[InsertMessage]
 AS
 	INSERT INTO Chat
 	VALUES (@user, @game, @message, @time)
-	
-	USE [bearded_lama]
 GO
 /****** Object:  StoredProcedure [dbo].[GetUserNameChat]    Script Date: 26/05/2014 1:23:21 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[GetUserNameChat]
+CREATE PROCEDURE [dbo].[GetUserNameChat]
 	@userid int
 AS
 	SELECT userName
 	FROM Chat, Users
 	Where @userid = Users.userId
-	
-	USE [bearded_lama]
 GO
 /****** Object:  StoredProcedure [dbo].[GetPreviousMessages]    Script Date: 26/05/2014 1:23:46 AM ******/
 SET ANSI_NULLS ON
 GO
 SET QUOTED_IDENTIFIER ON
 GO
-ALTER PROCEDURE [dbo].[GetPreviousMessages]
+CREATE PROCEDURE [dbo].[GetPreviousMessages]
 	@id int = " "
 AS
 
