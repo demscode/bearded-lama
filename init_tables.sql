@@ -53,7 +53,7 @@ CREATE TABLE [dbo].[Games](
 	[gameName] [nvarchar](50) NULL,
 	[gameDesc] [nvarchar](300) NULL,
 	[tags] [varchar](200) NULL,
-	[category] [varchar](50) NULL,
+	[categories] [varchar](200) NULL,
 	[publicPackage] [nvarchar](max) NULL,
 	[rating] [int] NULL,
 	[userId] [bigint] NULL,
@@ -68,6 +68,16 @@ CREATE TABLE [dbo].[Games](
 
 GO
 SET ANSI_PADDING OFF
+GO
+/****** Object:  Table [dbo].[GameCategories]   Script Date: 25/05/2014 4:00:31 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE TABLE [dbo].[GameCategories](
+	[categoryName] [varchar](20) NOT NULL
+) ON [PRIMARY]
+
 GO
 /****** Object:  Table [dbo].[Posts]    Script Date: 23/04/2014 7:21:31 PM ******/
 SET ANSI_NULLS ON

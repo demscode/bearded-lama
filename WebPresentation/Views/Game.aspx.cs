@@ -18,7 +18,7 @@ namespace WebPresentation.Views {
 
             GamePageHeader.InnerText = gameData.gameName;
             gameDescription.InnerText = gameData.gameDesc;
-            gameCategory.InnerText = gameData.category;
+            gameCategory.InnerText = gameData.categories;
             gameTags.InnerText = gameData.tags;
             gameRating.InnerText = gameData.rating.ToString();
             gameUploader.InnerText = BusinessLogic.Games.Access.GetUploader(gameId);

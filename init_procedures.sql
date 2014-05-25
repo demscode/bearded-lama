@@ -49,6 +49,16 @@ AS
 	SET NOCOUNT ON;
 SELECT * FROM Bans
 GO
+/****** Object:  StoredProcedure [dbo].[GetCategories]    Script Date: 25/05/2014 4:29:24 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[GetCategories]
+AS
+	SET NOCOUNT ON;
+SELECT * FROM GameCategories
+GO
 /****** Object:  StoredProcedure [dbo].[GetChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -115,6 +125,19 @@ AS
 	SET NOCOUNT OFF;
 INSERT INTO [Bans] ([userId], [gameId], [duration]) VALUES (@userId, @gameId, @duration)
 GO
+/****** Object:  StoredProcedure [dbo].[NewCategory]    Script Date: 25/05/2014 4:29:27 PM ******/
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+CREATE PROCEDURE [dbo].[NewCategory]
+(
+	@categoryName varchar(20)
+)
+AS
+	SET NOCOUNT OFF;
+INSERT INTO [GameCategories] ([categoryName]) VALUES (@categoryName)
+GO
 /****** Object:  StoredProcedure [dbo].[NewChat]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
 GO
@@ -142,6 +165,7 @@ CREATE PROCEDURE [dbo].[NewGame]
 	@gameDesc nvarchar(300),
 	@publicPackage nvarchar(MAX),
 	@tags varchar(200),
+	@categories varchar(200),
 	@userId bigint,
 	@subDate datetime,
 	@hashValue varchar(32),
@@ -149,9 +173,9 @@ CREATE PROCEDURE [dbo].[NewGame]
 )
 AS
 	SET NOCOUNT OFF;
-INSERT INTO [Games] ([gameName], [gameDesc], [publicPackage], [tags], [userId], [subDate], [hashValue], [restrict]) VALUES (@gameName, @gameDesc, @publicPackage, @tags, @userId, @subDate, @hashValue, @restrict);
+INSERT INTO [Games] ([gameName], [gameDesc], [publicPackage], [tags], [categories], [userId], [subDate], [hashValue], [restrict]) VALUES (@gameName, @gameDesc, @publicPackage, @tags, @categories, @userId, @subDate, @hashValue, @restrict);
 	
-SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = SCOPE_IDENTITY())
+SELECT gameId, gameName, gameDesc, publicPackage, tags, categories rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = SCOPE_IDENTITY())
 GO
 /****** Object:  StoredProcedure [dbo].[NewGameEntry]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON
@@ -216,6 +240,7 @@ CREATE PROCEDURE [dbo].[UpdateGame]
 	@gameDesc nvarchar(300),
 	@publicPackage nvarchar(MAX),
 	@tags varchar(200),
+	@categories varchar(200),
 	@rating int,
 	@userId bigint,
 	@subDate datetime,
@@ -225,9 +250,9 @@ CREATE PROCEDURE [dbo].[UpdateGame]
 )
 AS
 	SET NOCOUNT OFF;
-UPDATE [Games] SET [gameName] = @gameName, [gameDesc] = @gameDesc, [publicPackage] = @publicPackage, [tags] = @tags, [rating] = @rating, [subDate] = @subDate, [hashValue] = @hashValue, [restrict] = @restrict WHERE (([gameId] = @Original_gameId));
+UPDATE [Games] SET [gameName] = @gameName, [gameDesc] = @gameDesc, [publicPackage] = @publicPackage, [tags] = @tags, @categories = [categories], [rating] = @rating, [subDate] = @subDate, [hashValue] = @hashValue, [restrict] = @restrict WHERE (([gameId] = @Original_gameId));
 	
-SELECT gameId, gameName, gameDesc, publicPackage, tags, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = @Original_gameId)
+SELECT gameId, gameName, gameDesc, publicPackage, tags, categories, rating, userId, subDate, hashValue, [restrict] FROM dbo.Games WHERE (gameId = @Original_gameId)
 GO
 /****** Object:  StoredProcedure [dbo].[UpdatePost]    Script Date: 30/04/2014 5:24:28 PM ******/
 SET ANSI_NULLS ON

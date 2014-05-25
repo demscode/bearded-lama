@@ -54,7 +54,7 @@ namespace BusinessLogic.Games {
                     }
 
                     // Test for same category
-                    if (game.category == currentGame.category) {
+                    if (game.categories == currentGame.categories) {
                         scoringTable[game.gameId] += 100;
                     }
 
@@ -132,7 +132,7 @@ namespace BusinessLogic.Games {
                     }
 
                     // Test for same category
-                    if (game.category == gamePlayed.category) {
+                    if (game.categories == gamePlayed.categories) {
                         scoringTable[game.gameId] += 50;
                     }
                 }

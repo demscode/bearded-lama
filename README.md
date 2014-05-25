@@ -15,7 +15,7 @@ Requirements
 Install
 -------
 
-1. Initiate database and tables with `init_db.sql`, `init_tables.sql` and `init_procedures`.
+1. Initiate database and tables with `init_db.sql`, `init_tables.sql`, `init_procedures.sql` and `init_cat_table.sql`, in that order.
 2. Build solution. NuGet packages will be downloaded if not found.
 
 Usage

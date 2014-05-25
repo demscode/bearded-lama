@@ -49,13 +49,11 @@ namespace BusinessLogic.Games {
         /// <param name="userId"></param>
         /// <param name="restrict"></param>
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Insert)]
-        public static void InsertProduct(string gameName, string gameDesc, string tags, string category, 
-            object publicPackage, long userId, bool restrict) {
+        public static void NewGame(string gameName, string gameDesc, string tags, string categories, 
+            string publicPackage, long userId, bool restrict) {
             GamesTableAdapter adapter = new GamesTableAdapter();
             DateTime thisDay = DateTime.Today;
-            // pending FTP upload of actual game files
-            // pending package management
-            adapter.Insert(gameName, gameDesc, tags, category, publicPackage, 0, userId, thisDay, null, restrict);
+            adapter.Insert(gameName, gameDesc, publicPackage, tags, categories, userId, thisDay, null, restrict);
         }
 
         /// <summary>
@@ -64,7 +62,7 @@ namespace BusinessLogic.Games {
         /// </summary>
         /// <param name="original_ProductId">ID of the game to be deleted</param>
         [System.ComponentModel.DataObjectMethod(System.ComponentModel.DataObjectMethodType.Delete)]
-        public static void DeleteProduct(long original_ProductId) {
+        public static void DeleteGame(long original_ProductId) {
             GamesTableAdapter adapter = new GamesTableAdapter();
             adapter.Delete(original_ProductId);
         }

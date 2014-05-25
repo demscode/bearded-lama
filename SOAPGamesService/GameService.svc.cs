@@ -24,7 +24,7 @@ namespace SOAPGamesService {
             if (row is Games.GamesRow) {
                 Games.GamesRow game = (Games.GamesRow)row;
                 string[] tags = game.tags.Split(',');
-                return new Game(game.gameId, game.gameName, game.gameDesc, tags, game.category, game.rating, game.restrict);
+                return new Game(game.gameId, game.gameName, game.gameDesc, tags, game.categories, game.rating, game.restrict);
             } else {
                 string[] tags = row["tags"].ToString().Split(',');
                 return new Game(long.Parse(row["gameId"].ToString()), row["gameName"].ToString(), row["gameDesc"].ToString(), tags, 
