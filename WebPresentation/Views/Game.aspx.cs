@@ -72,7 +72,7 @@ namespace WebPresentation.Views {
             {
                 scriptMolds[i] = new HtmlGenericControl("script");
                 scriptMolds[i].Attributes.Add("src", "/Uploads/Public/" + gameId + "/" + info.Data["js"][i]);
-                scriptMolds[i].Attributes.Add("type=", "text/javascript");
+                scriptMolds[i].Attributes.Add("type", "text/javascript");
                 ScriptsPlaceholder.Controls.Add(scriptMolds[i]);
             }
         }
