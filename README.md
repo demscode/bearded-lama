@@ -23,3 +23,7 @@ Usage
 
 License
 -------
+
+[The MIT License (MIT)](http://opensource.org/licenses/MIT)
+
+Copyright 2014 Lochlan Bunn, Andres Sepulveda, Matthew Tincknell
